@@ -196,18 +196,8 @@ app.post('/moi/sejours/import', function (req, res) {
 app.post('/moi/hotes-promos/import', function (req, res) {
   let code = req.body.code;
   
-  let promo = {
-    "id": "promo_1",
-    "id_hote": "hote_3",
-    "nom": "Le Malazéou",
-    "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
-    "ville": "Ax-les-thermes",
-    "pays": "France",
-    "nouveau": true
-  };
-
   if (code === "test") {
-    res.send(promo);
+    res.sendStatus(200);
   } else {
     res.sendStatus(404);
   }
