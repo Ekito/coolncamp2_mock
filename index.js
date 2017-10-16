@@ -56,6 +56,68 @@ app.post('/auth/creer-compte', function (req, res) {
   }
 })
 
+app.get('/app/politique-confidentialite' , function (req, res) {
+  let payload = {
+    "politique": "politique1",
+    "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+  }
+
+  res.send(payload)
+})
+
+app.get('/hotes/:id' , function (req, res) {
+
+ 
+  let hote_3 = {  
+    "id":"hote_3",
+    "nom":"L’Escale St Gilles",
+    "image":"https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
+    "itineraire":{  
+       "description":"Localisation L’Escale St Gilles - Bénodet",
+       "lat":47.86273,
+       "lng":-4.095669
+    },
+    "horaire":"9h00 à 19h00",
+    "tel":"+339 70 77 43 29",
+    "email":"contact@coolncamp.com",
+    "url":"http://www.coolncamp.com",
+    "rs":[  
+       {  
+          "label":"Facebook",
+          "url":"https://www.facebook.com/238129529603295"
+       }
+    ],
+    "media":{  
+       "image_thumbnail":"https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
+       "images":[  
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-aquazen-detente.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-parc-aquatique-couvert-famille.jpg",
+          "https://www.sunelia.com//campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-bain-bouillonnant.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-pente-a-glisse-enfants.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_piscine-a-courant.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-restaurant-safran.jpg",
+          "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_plage-de-trez.jpg"
+       ],
+       "video": {
+        "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
+        "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
+      }
+    }
+}
+
+if (req.params.id === "hote_3") {
+    res.send(hote_3);
+} else {
+    res.sendStatus(404);
+}
+
+})
+
 app.get('/moi/sejours', function (req, res) {
   console.log('GET /moi/sejours')
   console.log('headers: ' + JSON.stringify(req.headers, null, 2))
