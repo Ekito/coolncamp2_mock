@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0QGVraXRvLmZyIn0.9qhlq0d5LOcsCxuz_ldmXX3ipvMY1bEN2rHEYtSZeaU"
-let id2 = "BIDON_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0QGVraXRvLmZyIn0.9qhlq0d5LOcsCxuz_ldmXX3ipvMY1bEN2rHEYtSZeaU"
+let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
 
 /**
  * URL pour tester 
@@ -312,7 +312,7 @@ app.get('/moi', function (req, res) {
     }
 
     res.send(moi);
-  } else if (req.headers['authorization'] === 'Bearer ' + id1) {
+  } else if (req.headers['authorization'] === 'Bearer ' + id2) {
 
     let moi = {
       "email": "test3@ekito.fr",
