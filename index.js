@@ -308,7 +308,7 @@ app.get('/moi', function (req, res) {
     }
 
     res.send(moi);
-  } else if (req.headers['authorization'] === 'Bearer ' + id1) {
+  } else if (req.headers['authorization'] === 'Bearer ' + id2) {
 
     let moi = {
       "email": "test3@ekito.fr",
