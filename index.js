@@ -107,7 +107,7 @@ app.get('/hotes/:id', function (req, res) {
     "rs": [{
       "label": "Facebook",
       "url": "https://www.facebook.com/238129529603295"
-    },{
+    }, {
       "label": "Google+",
       "url": "https://www.facebook.com/238129529603295"
     }],
@@ -192,6 +192,10 @@ app.get('/moi/sejours', function (req, res) {
   console.log('headers: ' + JSON.stringify(req.headers, null, 2))
   console.log('body: ' + JSON.stringify(req.body, null, 2))
 
+  let now = new Date();
+  let end = new Date();
+  end.setDate(end.getDate() + 15);
+
   let sejours = [{
       "id": "sejour_1",
       "id_hote": "hote_1",
@@ -227,8 +231,8 @@ app.get('/moi/sejours', function (req, res) {
       "id_hote": "hote_3",
       "nom": "L’Escale St Gilles",
       "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
-      "date_debut": "2017-09-01",
-      "date_fin": "2017-09-15",
+      "date_debut": now.toISOString().slice(0, 10),
+      "date_fin": end.toISOString().slice(0, 10),
       "itineraire": {
         "description": "Localisation L’Escale St Gilles - Bénodet",
         "lat": 47.86273,
@@ -308,7 +312,7 @@ app.get('/moi', function (req, res) {
     }
 
     res.send(moi);
-  } else if (req.headers['authorization'] === 'Bearer ' + id2) {
+  } else if (req.headers['authorization'] === 'Bearer ' + id1) {
 
     let moi = {
       "email": "test3@ekito.fr",
@@ -321,6 +325,97 @@ app.get('/moi', function (req, res) {
     res.sendStatus(401);
   }
 })
+
+
+app.get('/hotes/:id/services', function (req, res) {
+
+  let services = [{
+      "id": "59b7af89ed44090f26a2c27e",
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1443789725378ERj6BJFZX4ojhIE7.jpg",
+      "titre": "Reception anglais",
+      "soustitre": "8 am to 8 pm",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg",
+      "id": "5609818b0db27a0300b23d59",
+      "titre": "Bar / Snack",
+      "soustitre": "10 AM - 02 PM",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1442247724009j1gUwipHqrLbuwxZ.jpg",
+      "id": "56098a147263d9030062b602",
+      "titre": "Swimming Pool",
+      "soustitre": "From 10 AM to 07h30 PM",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1475483927799gZ6VSv61bjbbeeG0.jpg",
+      "id": "561d6d52005f556a5fb6b02a",
+      "titre": "Mini-Club",
+      "soustitre": "Your child from 5 to 12 years old are welcome",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1442247786942NsPMmb8tKmqWipr1.jpg",
+      "id": "560981730db27a0300b23d58",
+      "titre": "Bakery",
+      "soustitre": "From 8am to 12am",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1444659643023OsTuAjCVCypQYbZV.jpg",
+      "id": "561bc1c5ec553ff47ca62e83",
+      "titre": "La Plage",
+      "soustitre": "C'est quand vous voulez !",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1444817426029TuskFBBjAQVf5TVn.jpg",
+      "id": "56098db111533b03005eecdc",
+      "titre": "Sauna Hammam et Jacuzzi",
+      "soustitre": "7/7 From 10 am to 06 pm",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/horaires/1447321389513X3vU2NcCdZe2HxPO.jpg",
+      "id": "56420918c59c19145428d84b",
+      "titre": "Piscine Nocturne",
+      "soustitre": "Tous les Mercredi jusqu'à 22h00",
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1443548109683e3GT1Gfmlq187ojB.jpg",
+      "id": "594ce38b0f72330451286395",
+      "titre": "Une petit faim ?",
+      "soustitre": "Nous vous attendons",
+    }
+  ];
+
+  res.send(services);
+})
+
+
+app.get('/hotes/:id/infos', function (req, res) {
+
+  let infos = [{
+      "image": "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
+      "titre": "Campsite Map"
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/infos/1483959679583oAXgfKTdfE7zWakL.jpg",
+      "titre": "défibrillateur cardiaque"
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/infos/1483958591671DD1gtGWocVjvUqQw.jpg",
+      "titre": "Point des rassemblement"
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/infos/1483968520899TORzlKQXoFk67KJu.jpg",
+      "titre": "Numéros d'urgence"
+    },
+    {
+      "image": "https://coolncamp.s3.amazonaws.com/infos/1483959400952iyogYqCcduIeeTkC.jpg",
+      "titre": "Médecins"
+    }
+  ];
+
+  res.send(infos);
+})
+
 
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
