@@ -35,12 +35,12 @@ app.post('/auth/connexion', function (req, res) {
   if (login === "test@ekito.fr" && password === "ekito") {
     res.send(JSON.stringify({
       id: id1,
-      refresh: "refreshToken"
+      refresh: id1
     }))
   } else if (login === "test3@ekito.fr" && password === "ekito") {
     res.send(JSON.stringify({
       id: id2,
-      refresh: "refreshToken"
+      refresh: id2
     }))
   } else if (login === "test2@ekito.fr" && password === "ekito") {
     res.sendStatus(400);
