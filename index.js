@@ -49,6 +49,27 @@ app.post('/auth/connexion', function (req, res) {
   }
 })
 
+app.post('/auth/refresh', function (req, res) {
+  
+    console.log('POST /auth/connexion')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+  
+    if (req.body.refresh === id1) {
+      res.send(JSON.stringify({
+        id: id1,
+        refresh: id1
+      }))
+    } else if (req.body.refresh === id2) {
+      res.send(JSON.stringify({
+        id: id2,
+        refresh: id2
+      }))
+    } else {
+      res.sendStatus(401);
+    }
+  })
+
 app.post('/auth/demande-raz-mdp', function (req, res) {
   let login = req.body.login;
   res.sendStatus(200);
