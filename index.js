@@ -557,7 +557,7 @@ app.get('/hotes/:id/canaux-notif', function (req, res) {
       "label": "Randonnée"
     },
     {
-      "etat": false,
+      "etat": true,
       "id": "5524d5e22296c66e13e34fa4",
       "label": "Surf"
     },
@@ -612,7 +612,7 @@ app.get('/hotes/:id/canaux-notif', function (req, res) {
       "label": "Pony"
     },
     {
-      "etat": false,
+      "etat": true,
       "id": "5638b57f8e44eb7c033f61a2",
       "label": "Vin"
     },
@@ -622,7 +622,7 @@ app.get('/hotes/:id/canaux-notif', function (req, res) {
       "label": "Canal du midi"
     },
     {
-      "etat": false,
+      "etat": true,
       "id": "593e4ff3ea3f9089662e3601",
       "label": "Rugby"
     },
