@@ -301,7 +301,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "id": "promo_1",
     "id_hote": "hote_3",
     "nom": "Le Malazéou",
-    "image": "https://www.sunelia.com/campsite/le-malazeou/240/190/picture_malazeou-999.jpg",
+    "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
     "ville": "Ax-les-thermes",
     "pays": "France",
     "nouveau": true
@@ -542,6 +542,126 @@ app.get('/hotes/:id/tourisme', function (req, res) {
     }
   ];
   res.send(tourisme);
+})
+
+app.get('/hotes/:id/canaux-notif', function (req, res) {
+
+  let canaux = [{
+      "etat": false,
+      "id": "561e70142bd365546734bce1",
+      "label": "Canoë - KayaK"
+    },
+    {
+      "etat": false,
+      "id": "58d3e16352b2c093557c7396",
+      "label": "Randonnée"
+    },
+    {
+      "etat": false,
+      "id": "5524d5e22296c66e13e34fa4",
+      "label": "Surf"
+    },
+    {
+      "etat": false,
+      "id": "5609991711533b03005eed06",
+      "label": "Adventure park"
+    },
+    {
+      "etat": false,
+      "id": "56420118c59c19145428d849",
+      "label": "Marche a pied"
+    },
+    {
+      "etat": false,
+      "id": "561e702f2bd365546734bce2",
+      "label": "Discover - Visit"
+    },
+    {
+      "etat": false,
+      "id": "556da73d8f957b1459592cb9",
+      "label": "gastromy"
+    },
+    {
+      "etat": false,
+      "id": "5661591133c38c78048b5574",
+      "label": "Windsurf"
+    },
+    {
+      "etat": false,
+      "id": "560950b90db27a0300b23c96",
+      "label": "Wellness - Spa"
+    },
+    {
+      "etat": false,
+      "id": "5559e3d8d3380ae26c8dd742",
+      "label": "Pétanque"
+    },
+    {
+      "etat": false,
+      "id": "56084f4fd3bfcf03005f7aa4",
+      "label": "Oenologie"
+    },
+    {
+      "etat": false,
+      "id": "566fdfaae4924f961de8ad2c",
+      "label": "Le Vélo"
+    },
+    {
+      "etat": false,
+      "id": "5609505e0db27a0300b23c94",
+      "label": "Pony"
+    },
+    {
+      "etat": false,
+      "id": "5638b57f8e44eb7c033f61a2",
+      "label": "Vin"
+    },
+    {
+      "etat": false,
+      "id": "5641c6a4cb7e263532c79030",
+      "label": "Canal du midi"
+    },
+    {
+      "etat": false,
+      "id": "593e4ff3ea3f9089662e3601",
+      "label": "Rugby"
+    },
+    {
+      "etat": false,
+      "id": "5641cdfccb7e263532c79032",
+      "label": "Kitesurf"
+    },
+    {
+      "etat": false,
+      "id": "56cc2ec214aad13018d4f19e",
+      "label": "Hébergement insolite"
+    },
+    {
+      "etat": false,
+      "id": "56fe2dde20ab3cd1609310d7",
+      "label": "Jet ski"
+    },
+    {
+      "etat": false,
+      "id": "580f7e4cb372dd0c66b62db2",
+      "label": "Voile"
+    },
+    {
+      "etat": false,
+      "id": "5751642c1409825734f4a2e4",
+      "label": "Sport"
+    },
+    {
+      "etat": false,
+      "id": "56b9b7a7787307340fe6773d",
+      "label": "Stand up Paddle"
+    }
+  ];
+  res.send(canaux);
+})
+
+app.put('/hotes/:id/canaux-notif', function (req, res) {
+  res.send(200);
 })
 
 app.listen(3000, function () {
