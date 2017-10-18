@@ -50,25 +50,25 @@ app.post('/auth/connexion', function (req, res) {
 })
 
 app.post('/auth/refresh', function (req, res) {
-  
-    console.log('POST /auth/connexion')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
-  
-    if (req.body.refresh === id1) {
-      res.send(JSON.stringify({
-        id: id1,
-        refresh: id1
-      }))
-    } else if (req.body.refresh === id2) {
-      res.send(JSON.stringify({
-        id: id2,
-        refresh: id2
-      }))
-    } else {
-      res.sendStatus(401);
-    }
-  })
+
+  console.log('POST /auth/connexion')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+
+  if (req.body.refresh === id1) {
+    res.send(JSON.stringify({
+      id: id1,
+      refresh: id1
+    }))
+  } else if (req.body.refresh === id2) {
+    res.send(JSON.stringify({
+      id: id2,
+      refresh: id2
+    }))
+  } else {
+    res.sendStatus(401);
+  }
+})
 
 app.post('/auth/demande-raz-mdp', function (req, res) {
   let login = req.body.login;
@@ -409,7 +409,6 @@ app.get('/hotes/:id/services', function (req, res) {
   res.send(services);
 })
 
-
 app.get('/hotes/:id/infos', function (req, res) {
 
   let infos = [{
@@ -437,6 +436,113 @@ app.get('/hotes/:id/infos', function (req, res) {
   res.send(infos);
 })
 
+app.get('/hotes/:id/offres', function (req, res) {
+
+  let offres = [{
+      "id": "59b8efe70fc2de9806432513",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",
+      "titre": "Soirée Crêpes",
+      "soustitre": "Tous les mercredis, sur la terrasse du bar"
+    },
+    {
+      "id": "56086a22d3bfcf03005f7ab0",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1444817806048Ur2C9RY3sJqMNL2K.jpg",
+      "titre": "Cycling, skating",
+      "soustitre": "Accessible aux rollers et PMR ."
+    },
+    {
+      "id": "5819b3d54a81dd9f18ec67fd",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1478079326377FtMS9SckUAySTNhI.jpg",
+      "titre": "Balade à cheval",
+      "soustitre": "Inscription Club House"
+    },
+    {
+      "id": "56d5634415bf11fb6df3c893",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1456825082073X9RxeGRvgsXrc2Ah.jpg",
+      "titre": "Petit Déjeuner pour tous",
+      "soustitre": "De 07h00 à 11h00 au Restaurant"
+    },
+    {
+      "id": "56084e77d3bfcf03005f7aa3",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1442247341065JLo3HlOKoRkr7how.jpg",
+      "titre": "Visits to our vineyard",
+      "soustitre": "We invite you to visit our wine cellars"
+    },
+    {
+      "id": "56085050d3bfcf03005f7aa6",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1479374713838dZ1MI4VfeggFkE7L.jpg",
+      "titre": "Relaxation area",
+      "soustitre": "Sauna, Hammam and Jacuzzi"
+    },
+    {
+      "id": "560acbd6ff206b1306e3a347",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1443548109683e3GT1Gfmlq187ojB.jpg",
+      "titre": "Une petit faim ?",
+      "soustitre": "Nous vous attendons"
+    }
+  ];
+  res.send(offres);
+})
+
+app.get('/hotes/:id/tourisme', function (req, res) {
+
+  let tourisme = [{
+      "id": "5811f11bb372dd0c66b62dde",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/14775707718484kuBSpSfgLLGVwlh.jpg",
+      "titre": "Nature & randonnée",
+      "soustitre": "En pays Basque"
+    },
+    {
+      "id": "596c7fa1c0633ece232d195f",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1500282800494bCQQuH6xNMmQRCbq.jpg",
+      "titre": "Mont Saint Michel",
+      "soustitre": "A 45 minutes du Camping"
+    },
+    {
+      "id": "552567322296c66e13e34fcc",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1443805472379ow5vx6n7lAi1VzIA.jpg",
+      "titre": "GR 10 Avec Guide Diplomé",
+      "soustitre": "20% de Réduction"
+    },
+    {
+      "id": "55255fe58055007960de6346",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1443807117622U1cDSxGnEQcxH73j.jpg",
+      "titre": "Ecole de Surf",
+      "soustitre": "Apprenez le Surf"
+    },
+    {
+      "id": "5641cdd5cb7e263532c79031",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1447155374584nwCwpVho3MWKrj86.jpg",
+      "titre": "Kitesurf",
+      "soustitre": "Découvrez la glisse"
+    },
+    {
+      "id": "5641c689cb7e263532c7902f",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1447151226466O1aaLebqN0XxpVXf.jpg",
+      "titre": "Canal du Midi",
+      "soustitre": "Promenade à pied, à vélo ou en bateau"
+    },
+    {
+      "id": "560a6cf121b77b4031bdf718",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1443523819493OeyWMCtoztDcf849.jpg",
+      "titre": "Visite de Fort Boyard",
+      "soustitre": "Offre préférentielle à la Réception"
+    },
+    {
+      "id": "59d3b4eca9c7af7564dceba4",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1504606838172fjSYfXucsmJBBzvx.jpg",
+      "titre": "Sailboard",
+      "soustitre": "Everyday on the Beach"
+    },
+    {
+      "id": "59e5fe8c976a0ebd3bdcacde",
+      "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1508245105362iIF2qHUR6OvkVXUL.jpg",
+      "titre": "Surf School",
+      "soustitre": "best school in france"
+    }
+  ];
+  res.send(tourisme);
+})
 
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
