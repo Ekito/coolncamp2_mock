@@ -230,7 +230,8 @@ app.get('/moi/sejours', function (req, res) {
         "lng": 3.36456298828125
       },
       "ville": "Vias sur Mer",
-      "pays": "France"
+      "pays": "France",
+      "eta_debut_date_aff": "2017-06-30"
     },
     {
       "id": "sejour_2",
@@ -245,7 +246,8 @@ app.get('/moi/sejours', function (req, res) {
         "lng": -2.1670854091644287
       },
       "ville": "Saint-Brevin-Les-Pins",
-      "pays": "France"
+      "pays": "France",
+      "eta_debut_date_aff": "2017-07-30"
     },
     {
       "id": "sejour_3",
@@ -260,7 +262,8 @@ app.get('/moi/sejours', function (req, res) {
         "lng": -4.095669
       },
       "ville": "Bénodet",
-      "pays": "France"
+      "pays": "France",
+      "eta_debut_date_aff": now.toISOString().slice(0, 10)
     }
   ];
 
@@ -271,6 +274,96 @@ app.get('/moi/sejours', function (req, res) {
   } else {
     res.sendStatus(401)
   }
+})
+
+app.get('/moi/sejours/:id', function (req, res) {
+  
+  let now = new Date();
+  let end = new Date();
+  end.setDate(end.getDate() + 15);
+
+  let sejour_1 = {
+      "id": "sejour_1",
+      "id_hote": "hote_1",
+      "nom": "La Dragonnière",
+      "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
+      "date_debut": "2017-07-01",
+      "date_fin": "2017-07-15",
+      "itineraire": {
+        "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
+        "lat": 43.31168928024891,
+        "lng": 3.36456298828125
+      },
+      "ville": "Vias sur Mer",
+      "pays": "France",
+      "proprietaire": false,
+      "restriction_service": [],
+      "sejournants": [
+        {
+          email: "clamri@ekito.fr",
+          avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+        }
+      ],
+      "categorie": "Mobil home 15 places",
+      "eta_debut_date_aff": "2017-06-30"
+    };
+
+  let sejour_2 = {
+      "id": "sejour_2",
+      "id_hote": "hote_2",
+      "nom": "Le Fief",
+      "image": "https://www.sunelia.com/campsite/le-fief/1200/490/picture_le-fief-76.jpg",
+      "date_debut": "2017-08-01",
+      "date_fin": "2017-08-15",
+      "itineraire": {
+        "description": "Localisation Le Fief - Saint-Brevin-Les-Pins",
+        "lat": 47.23534195874878,
+        "lng": -2.1670854091644287
+      },
+      "ville": "Saint-Brevin-Les-Pins",
+      "pays": "France",
+      "proprietaire": true,
+      "restriction_service": ["etat_des_lieux", "tickets", "conforts"],
+      "sejournants": [
+        {
+          email: "lbaresse@ekito.fr",
+          avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+        }
+      ],
+      "categorie": "Mobil home 6 places",
+      "eta_debut_date_aff": "2017-07-30"
+    }
+
+    let sejour_3 = {
+      "id": "sejour_3",
+      "id_hote": "hote_3",
+      "nom": "L’Escale St Gilles",
+      "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
+      "date_debut": now.toISOString().slice(0, 10),
+      "date_fin": end.toISOString().slice(0, 10),
+      "itineraire": {
+        "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+        "lat": 47.86273,
+        "lng": -4.095669
+      },
+      "ville": "Bénodet",
+      "pays": "France",
+      "proprietaire": true,
+      "restriction_service": [],
+      "sejournants": [],
+      "categorie": "Mobil home 4 places",
+      "eta_debut_date_aff": now.toISOString().slice(0, 10)
+    };
+
+    if (req.params.id === "sejour_1") {
+      res.send(sejour_1);
+    } else if (req.params.id === "sejour_2") {
+      res.send(sejour_2);
+    } else if (req.params.id === "sejour_3") {
+      res.send(sejour_3);
+    } else {
+      res.sendStatus(404);
+    }
 })
 
 app.post('/moi/sejours/import', function (req, res) {
