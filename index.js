@@ -161,7 +161,7 @@ app.get('/hotes/:id', function (req, res) {
     "nom": "L’Escale St Gilles",
     "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
     "itineraire": {
-      "description": "Localisation L’Escale St Gilles - Bénodet",
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
       "lat": 47.86273,
       "lng": -4.095669
     },
@@ -255,7 +255,7 @@ app.get('/moi/sejours', function (req, res) {
       "date_debut": now.toISOString().slice(0, 10),
       "date_fin": end.toISOString().slice(0, 10),
       "itineraire": {
-        "description": "Localisation L’Escale St Gilles - Bénodet",
+        "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
         "lat": 47.86273,
         "lng": -4.095669
       },
