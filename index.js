@@ -366,6 +366,28 @@ app.get('/moi/sejours/:id', function (req, res) {
     }
 })
 
+app.get('/moi/sejours/:id/reservation', function (req, res) {
+  
+  let moteur =  {
+    titre: "2018 AU PRIX DE 2017",
+    url: "https://www.sites-et-paysages.com/resultats-camping-disponibilite.html?paysage=&id_region=&hebergement=&numpers=1&datedeb=18%2F10%2F2017&datefin=25%2F10%2F2017&submit-recherche=Rechercher",
+    tel: "+33970825001",
+    description: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+  }
+  if (req.params.id === "sejour_1") {
+    delete moteur.tel
+    delete moteur.url
+    res.send(moteur);
+  } else if (req.params.id === "sejour_2") {
+    delete moteur.tel
+    res.send(moteur);
+  } else if (req.params.id === "sejour_3") {
+    res.send(moteur);
+  } else {
+    res.sendStatus(404);
+  }
+})
+
 app.post('/moi/sejours/import', function (req, res) {
   let nom = req.body.nom;
   let dossier = req.body.dossier;
