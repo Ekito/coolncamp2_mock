@@ -472,6 +472,43 @@ app.post('/moi/sejours/import', function (req, res) {
   }
 })
 
+app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
+  
+    let now = new Date();
+    let end = new Date();
+    end.setDate(end.getDate() + 15);
+  
+    let etat_1_non_fait = {
+      "description": "test"
+    };
+  
+    let etat_2_fait = {
+      "description": "test",
+      "incident": {
+        "etat": true,
+        "message": "Le lit s'est cassé."
+      },
+      "proprete": {
+        "etat": false
+      },
+      "date": "2017-10-22T21:30:00+02:00"
+    }
+  
+    let etat_3_non_fait_date_depassee = {
+      "message": "date limite dépassée"
+    };
+  
+    if (req.params.id === "sejour_1") {
+      res.send(etat_1_non_fait);
+    } else if (req.params.id === "sejour_2") {
+      res.send(etat_3_non_fait_date_depassee);
+    } else if (req.params.id === "sejour_3") {
+      res.send(etat_2_fait);
+    } else {
+      res.sendStatus(404);
+    }
+  })
+
 
 app.post('/moi/hotes-promos/import', function (req, res) {
   let code = req.body.code;
