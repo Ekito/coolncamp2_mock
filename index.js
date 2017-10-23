@@ -427,6 +427,18 @@ app.get('/moi/sejours/:id', function (req, res) {
   }
 })
 
+app.get('/moi/sejours/:id/eta', function (req, res) {
+  if (req.params.id === "sejour_1") {
+    let d = new Date();
+    let n = d.toString();
+    let payload = [{
+      "debut": n,
+      "label": "9:00 - 9:30"
+    }]
+    res.send(payload);
+  } else { res.sendStatus(404); }
+});
+
 app.get('/moi/sejours/:id/reservation', function (req, res) {
 
   let moteur = {
