@@ -85,6 +85,20 @@ app.post('/auth/creer-compte', function (req, res) {
   }
 })
 
+app.get('/app/versions', function (req, res) {
+  let payload = {
+    "android": {
+      "version_minimale": "2.0.0",
+      "version_store": "2.0.0"
+    },
+    "ios": {
+      "version_minimale": "2.0.0",
+      "version_store": "2.0.0"
+    }
+  }
+  res.send(payload)
+})
+
 app.get('/app/politique-confidentialite', function (req, res) {
   let payload = {
     "politique": "politique1",
