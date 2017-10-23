@@ -479,11 +479,11 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
     end.setDate(end.getDate() + 15);
   
     let etat_1_non_fait = {
-      "description": "test"
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
     };
   
     let etat_2_fait = {
-      "description": "test",
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
       "incident": {
         "etat": true,
         "message": "Le lit s'est cassé."
