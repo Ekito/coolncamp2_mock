@@ -269,7 +269,7 @@ app.get('/moi/messages', function (req, res) {
     res.send(messages);
 })
 
-app.delete('/moi/messages', function (req, res) {
+app.delete('/moi/messages/:id', function (req, res) {
   res.sendStatus(204);
 })
 
