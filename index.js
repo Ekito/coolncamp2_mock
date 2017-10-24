@@ -413,6 +413,10 @@ app.get('/moi/sejours/:id', function (req, res) {
     "restriction_service": [],
     "sejournants": [],
     "categorie": "Mobil home 4 places",
+    "eta": {
+      "debut": "2017-10-22T10:00:00+02:00",
+      "label": "10:00 - 10:30"
+    },
     "eta_debut_date_aff": now.toISOString().slice(0, 10)
   };
 
@@ -428,7 +432,7 @@ app.get('/moi/sejours/:id', function (req, res) {
 })
 
 app.get('/moi/sejours/:id/eta', function (req, res) {
-  if (req.params.id === "sejour_1" || req.params.id === "sejour_3") {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
 
     let payload = [{
       "debut": "2017-10-22T09:30:00+02:00",
@@ -442,6 +446,10 @@ app.get('/moi/sejours/:id/eta', function (req, res) {
     }]
     res.send(payload);
   } else { res.sendStatus(404); }
+});
+
+app.post('/moi/sejours/:id/eta', function (req, res) {
+  res.sendStatus(200);
 });
 
 app.get('/hotes/:id/reservation', function (req, res) {
