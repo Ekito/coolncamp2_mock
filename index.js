@@ -428,12 +428,17 @@ app.get('/moi/sejours/:id', function (req, res) {
 })
 
 app.get('/moi/sejours/:id/eta', function (req, res) {
-  if (req.params.id === "sejour_1") {
-    let d = new Date();
-    let n = d.toString();
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_3") {
+
     let payload = [{
-      "debut": n,
+      "debut": "2017-10-22T09:30:00+02:00",
       "label": "9:00 - 9:30"
+    },{
+      "debut": "2017-10-22T10:00:00+02:00",
+      "label": "10:00 - 10:30"
+    },{
+      "debut": "2017-10-22T10:03:00+02:00",
+      "label": "10:30 - 11:30"
     }]
     res.send(payload);
   } else { res.sendStatus(404); }
