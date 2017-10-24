@@ -544,7 +544,7 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(types);
   })
   
-  app.put('/moi/sejours/:id/type-sejour', function (req, res) {
+  app.post('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(200);
   })
 
