@@ -522,6 +522,31 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
     }
   })
 
+app.get('/moi/sejours/:id/type-sejour', function (req, res) {
+  
+    let types = [{
+        "id": "561e70142bd365546734bce1",
+        "label": "En famille"
+      },
+      {
+        "id": "58d3e16352b2c093557c7396",
+        "label": "Entre amis"
+      },
+      {
+        "id": "5524d5e22296c66e13e34fa4",
+        "label": "Solo"
+      },
+      {
+        "id": "5609991711533b03005eed06",
+        "label": "Travail"
+      }
+    ];
+    res.send(types);
+  })
+  
+  app.put('/moi/sejours/:id/type-sejour', function (req, res) {
+    res.send(200);
+  })
 
 app.post('/moi/hotes-promos/import', function (req, res) {
   let code = req.body.code;
