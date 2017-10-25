@@ -775,6 +775,72 @@ app.get('/hotes/:id/infos', function (req, res) {
   res.send(infos);
 })
 
+app.get('/hotes/:id/infos/:idInfo', function (req, res) {
+
+  let info_1 = {
+    "id": "59b7af89ed44090f26a2c27e",
+    "titre": "Campsite Map",
+    "description": "Yummy yummy !",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "documents": [
+      {
+        "label": "Politique conf",
+        "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+      },
+      {
+        "label": "Autre chose",
+        "url": "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"
+      }
+    ],
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+    ]
+  };
+
+  let info_2 = {
+    "id": "5609818b0db27a0300b23d59",
+    "titre": "défibrillateur cardiaque",
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/infos/1483959679583oAXgfKTdfE7zWakL.jpg"
+    ]
+  };
+
+  let info_3 = {
+    "id": "56098a147263d9030062b602",
+    "titre": "Point des rassemblement",
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/infos/1483958591671DD1gtGWocVjvUqQw.jpg"
+    ]
+  };
+
+  if (req.params.idInfo === "59b7af89ed44090f26a2c27e") {
+    res.send(info_1);
+  } else if (req.params.idInfo === "5609818b0db27a0300b23d59") {
+    res.send(info_2);
+  } else if (req.params.idInfo === "56098a147263d9030062b602") {
+    res.send(info_3);
+  } else {
+    res.sendStatus(404);
+  }
+
+})
+
 app.get('/hotes/:id/offres', function (req, res) {
 
   let offres = [{
@@ -821,6 +887,75 @@ app.get('/hotes/:id/offres', function (req, res) {
     }
   ];
   res.send(offres);
+})
+
+app.get('/hotes/:id/offres/:idOffre', function (req, res) {
+
+  let offre_1 = {
+    "id": "59b8efe70fc2de9806432513",
+    "titre": "Soirée Crêpes",
+    "soustitre": "Tous les mercredis, sur la terrasse du bar",
+    "description": "Yummy yummy !",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "documents": [
+      {
+        "label": "Politique conf",
+        "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+      },
+      {
+        "label": "Autre chose",
+        "url": "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"
+      }
+    ],
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+    ]
+  };
+
+  let offre_2 = {
+    "id": "56086a22d3bfcf03005f7ab0",
+    "titre": "Cycling, skating",
+    "soustitre": "Accessible aux rollers et PMR .",
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1444817806048Ur2C9RY3sJqMNL2K.jpg"
+    ]
+  };
+
+  let offre_3 = {
+    "id": "5819b3d54a81dd9f18ec67fd",
+    "titre": "Balade à cheval",
+    "soustitre": "Inscription Club House",
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1478079326377FtMS9SckUAySTNhI.jpg"
+    ]
+  };
+
+  if (req.params.idOffre === "59b8efe70fc2de9806432513") {
+    res.send(offre_1);
+  } else if (req.params.idOffre === "56086a22d3bfcf03005f7ab0") {
+    res.send(offre_2);
+  } else if (req.params.idOffre === "5819b3d54a81dd9f18ec67fd") {
+    res.send(offre_3);
+  } else {
+    res.sendStatus(404);
+  }
+
 })
 
 app.get('/hotes/:id/tourisme', function (req, res) {
@@ -881,6 +1016,75 @@ app.get('/hotes/:id/tourisme', function (req, res) {
     }
   ];
   res.send(tourisme);
+})
+
+app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
+
+  let tourisme_1 = {
+    "id": "5811f11bb372dd0c66b62dde",
+    "titre": "Nature & randonnée",
+    "soustitre": "En pays Basque",
+    "description": "Yummy yummy !",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "documents": [
+      {
+        "label": "Politique conf",
+        "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+      },
+      {
+        "label": "Autre chose",
+        "url": "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"
+      }
+    ],
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/14775707718484kuBSpSfgLLGVwlh.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+    ]
+  };
+
+  let tourisme_2 = {
+    "id": "596c7fa1c0633ece232d195f",
+    "titre": "Mont Saint Michel",
+    "soustitre": "A 45 minutes du Camping",
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1500282800494bCQQuH6xNMmQRCbq.jpg"
+    ]
+  };
+
+  let tourisme_3 = {
+    "id": "552567322296c66e13e34fcc",
+    "titre": "GR 10 Avec Guide Diplomé",
+    "soustitre": "20% de Réduction",
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1443805472379ow5vx6n7lAi1VzIA.jpg"
+    ]
+  };
+
+  if (req.params.idTourisme === "5811f11bb372dd0c66b62dde") {
+    res.send(tourisme_1);
+  } else if (req.params.idTourisme === "596c7fa1c0633ece232d195f") {
+    res.send(tourisme_2);
+  } else if (req.params.idTourisme === "552567322296c66e13e34fcc") {
+    res.send(tourisme_3);
+  } else {
+    res.sendStatus(404);
+  }
+
 })
 
 app.get('/hotes/:id/canaux-notif', function (req, res) {
