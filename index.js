@@ -11,8 +11,8 @@ let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1h
 let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
 
 /**
- * URL pour tester 
- * 
+ * URL pour tester
+ *
   curl -X POST http://localhost:3000/auth/connexion -H 'cache-control: no-cache' -H 'content-type: application/json' \
     -d '{"login": "test@ekito.fr", "password":"ekito"}'
 
@@ -21,7 +21,7 @@ let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1h
 
   curl -X POST http://localhost:3000/auth/connexion -H 'cache-control: no-cache' -H 'content-type: application/json' \
     -d '{"login": "test3@ekito.fr", "password":"ekito"}'
- * 
+ *
  */
 app.post('/auth/connexion', function (req, res) {
 
@@ -142,27 +142,27 @@ app.get('/hotes/:id', function (req, res) {
     "rs": [{
       "label": "Facebook",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Twitter",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Instagram",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Pinterest",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Youtube",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "TripAdvisor",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Google+",
       "url": "https://www.facebook.com/238129529603295"
@@ -170,11 +170,11 @@ app.get('/hotes/:id', function (req, res) {
     {
       "label": "LinkedIn",
       "url": "https://www.facebook.com/238129529603295"
-    }, 
+    },
     {
       "label": "Zoover",
       "url": "https://www.facebook.com/238129529603295"
-    } 
+    }
 ],
     "media": {
       "image_thumbnail": "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_parc-aquatique.jpg",
@@ -258,7 +258,7 @@ app.get('/moi/messages', function (req, res) {
       emetteur: "Le Fief",
       texte: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
       date: "2017-10-23T21:30:00+02:00"
-    }, 
+    },
     {
       id: "AAAAA12345567889",
       emetteur: "La Dragonnière",
@@ -486,15 +486,15 @@ app.post('/moi/sejours/import', function (req, res) {
 })
 
 app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
-  
+
     let now = new Date();
     let end = new Date();
     end.setDate(end.getDate() + 15);
-  
+
     let etat_1_non_fait = {
       "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
     };
-  
+
     let etat_2_fait = {
       "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
       "incident": {
@@ -506,11 +506,11 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
       },
       "date": "2017-10-22T21:30:00+02:00"
     }
-  
+
     let etat_3_non_fait_date_depassee = {
       "message": "date limite dépassée"
     };
-  
+
     if (req.params.id === "sejour_1") {
       res.send(etat_1_non_fait);
     } else if (req.params.id === "sejour_2") {
@@ -523,7 +523,7 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
   })
 
 app.get('/moi/sejours/:id/type-sejour', function (req, res) {
-  
+
     let types = [{
         "id": "561e70142bd365546734bce1",
         "label": "En famille"
@@ -543,7 +543,7 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
     ];
     res.send(types);
   })
-  
+
   app.post('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(200);
   })
@@ -675,22 +675,27 @@ app.get('/hotes/:id/services', function (req, res) {
 app.get('/hotes/:id/infos', function (req, res) {
 
   let infos = [{
+      "id": "59b7af89ed44090f26a2c27e",
       "image": "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
       "titre": "Campsite Map"
     },
     {
+      "id": "5609818b0db27a0300b23d59",
       "image": "https://coolncamp.s3.amazonaws.com/infos/1483959679583oAXgfKTdfE7zWakL.jpg",
       "titre": "défibrillateur cardiaque"
     },
     {
+      "id": "56098a147263d9030062b602",
       "image": "https://coolncamp.s3.amazonaws.com/infos/1483958591671DD1gtGWocVjvUqQw.jpg",
       "titre": "Point des rassemblement"
     },
     {
+      "id": "561d6d52005f556a5fb6b02a",
       "image": "https://coolncamp.s3.amazonaws.com/infos/1483968520899TORzlKQXoFk67KJu.jpg",
       "titre": "Numéros d'urgence"
     },
     {
+      "id": "560981730db27a0300b23d58",
       "image": "https://coolncamp.s3.amazonaws.com/infos/1483959400952iyogYqCcduIeeTkC.jpg",
       "titre": "Médecins"
     }
