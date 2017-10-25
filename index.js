@@ -672,6 +672,77 @@ app.get('/hotes/:id/services', function (req, res) {
   res.send(services);
 })
 
+app.get('/hotes/:id/services/:idService', function (req, res) {
+
+  let service_1 = {
+    "id": "59b7af89ed44090f26a2c27e",
+    "titre": "Reception anglais",
+    "soustitre": "8 am to 8 pm",
+    "description": "Yummy yummy !",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "documents": [
+      {
+        "label": "Politique conf",
+        "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+      },
+      {
+        "label": "Autre chose",
+        "url": "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"
+      }
+    ],
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/horaires/1443789725378ERj6BJFZX4ojhIE7.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
+      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+    ]
+  };
+
+  let service_2 = {
+    "id": "5609818b0db27a0300b23d59",
+    "titre": "Bar / Snack",
+    "soustitre": "10 AM - 02 PM",
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+    "lat": 43.31168928024891,
+    "lng": 3.36456298828125,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg"
+    ]
+  };
+
+  let service_3 = {
+    "id": "56098a147263d9030062b602",
+    "titre": "Swimming Pool",
+    "soustitre": "From 10 AM to 07h30 PM",
+    "lat": 0,
+    "lng": 0,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.s3.amazonaws.com/horaires/1442247724009j1gUwipHqrLbuwxZ.jpg"
+    ]
+  };
+
+  if (req.params.idService === "59b7af89ed44090f26a2c27e") {
+    res.send(service_1);
+  } else if (req.params.idService === "5609818b0db27a0300b23d59") {
+    res.send(service_2);
+  } else if (req.params.idService === "56098a147263d9030062b602") {
+    res.send(service_3);
+  } else {
+    res.sendStatus(404);
+  }
+
+})
+
 app.get('/hotes/:id/infos', function (req, res) {
 
   let infos = [{
