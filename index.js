@@ -240,12 +240,49 @@ app.get('/hotes/:id', function (req, res) {
     }
   }
 
+  let hote_4 = {
+    "id": "hote_4",
+    "nom": "Le Malazéou",
+    "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
+    "itineraire": {
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+      "lat": 42.72880157941809,
+      "lng": 1.824878454208374
+    },
+    "horaire": "9h00 à 19h00",
+    "tel": "+339 70 77 43 29",
+    "email": "contact@coolncamp.com",
+    "url": "http://www.coolncamp.com",
+    "rs": [{
+      "label": "Facebook",
+      "url": "https://www.facebook.com/238129529603295"
+    }],
+    "media": {
+      "image_thumbnail": "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_piscine.jpg",
+      "images": [
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_montagne.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_piscine.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_animation.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_soiree.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_reception.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_l-ariege.jpg",
+        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_sunelia-premium.jpg"
+      ],
+      "video": {
+        "image_thumbnail": "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_soiree.jpg",
+        "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
+      }
+    }
+  }
+
   if (req.params.id === "hote_1") {
     res.send(hote_1);
   } else if (req.params.id === "hote_2") {
     res.send(hote_2);
   } else if (req.params.id === "hote_3") {
     res.send(hote_3);
+  } else if (req.params.id === "hote_4") {
+    res.send(hote_4);
   } else {
     res.sendStatus(404);
   }
@@ -562,7 +599,7 @@ app.post('/moi/hotes-promos/import', function (req, res) {
 app.get('/moi/hotes-promos', function (req, res) {
   let promos = [{
     "id": "promo_1",
-    "id_hote": "hote_3",
+    "id_hote": "hote_4",
     "nom": "Le Malazéou",
     "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
     "ville": "Ax-les-thermes",
