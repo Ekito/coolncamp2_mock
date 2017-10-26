@@ -648,7 +648,7 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
 
   app.post('/moi/sejours/:id/tickets', function (req, res) {
     let response = {
-      "message": "Bonne demande a bien été reçue, elle sera traitée dans les plus brefs délais"
+      "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
     }
     res.send(response);
   })
