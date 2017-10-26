@@ -489,6 +489,45 @@ app.post('/moi/sejours/:id/eta', function (req, res) {
   res.sendStatus(200);
 });
 
+
+app.get('/moi/sejours/:id/conforts', function (req, res) {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
+
+    let payload = [
+      {
+        "id": "1",
+        "titre": "Barbecue",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "8€/day",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "2",
+        "titre": "Serviettes",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "Prix € / personne, réduction en couple avec 2 enfants minimum"
+      },
+      {
+        "id": "3",
+        "titre": "Titre loooooooooong de l'option",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "Prix € / personne, réduction en couple avec 2 enfants minimum",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "4",
+        "titre": "Tongs",
+        "description": "Elles sont  neuves !",
+        "prix": "8€/day"
+      }]
+    res.send(payload);
+  } else { res.sendStatus(404); }
+});
+
+app.post('/moi/sejours/:id/conforts', function (req, res) {
+  res.sendStatus(200);
+});
+
 app.get('/hotes/:id/reservation', function (req, res) {
 
   let moteur = {
