@@ -620,6 +620,39 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(types);
   })
 
+
+  app.get('/moi/sejours/:id/tickets', function (req, res) {
+
+      let tickets = {
+        "description": "Notre offre super confort est garantie sans problème… durable",
+        "tickets": [
+          {
+            "date": "2017-10-26",
+            "emetteur": "Jean Dupont",
+            "message": "Bonjour\n\nL'ampoule du plafonnier du salon ne s'allume plus."
+          },
+          {
+            "date": "2017-10-25",
+            "emetteur": "j.dupont@gmail.com",
+            "message": "Bonjour\n\nLa clim est en panne."
+          },
+          {
+            "date": "2017-10-23",
+            "emetteur": "m.dupont@gmail.com",
+            "message": "Pas de croissants livrés le matin ?"
+          }
+        ]
+      };
+      res.send(tickets);
+  })
+
+  app.post('/moi/sejours/:id/tickets', function (req, res) {
+    let response = {
+      "message": "Bonne demande a bien été reçue, elle sera traitée dans les plus brefs délais"
+    }
+    res.send(response);
+  })
+
   app.post('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(200);
   })
