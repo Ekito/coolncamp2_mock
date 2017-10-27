@@ -235,13 +235,13 @@ app.get('/hotes/:id', function (req, res) {
       ],
       "videos": [{
           "titre": "Surf session",
-          "image_thumbnail": "https://coolncamp.s3.amazonaws.com/bonPlans/1443807117622U1cDSxGnEQcxH73j.jpg",
+          "image_thumbnail": "https://www.youtube.com/watch?v=xpcbMkvQE8A",
           "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
         },
         {
         "titre": "UCPA",
-        "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
-        "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
+        "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
       }]
     }
   }
