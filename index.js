@@ -1422,7 +1422,7 @@ app.get('/hotes/:id/activites', function (req, res) {
       },
       }
     ];
-    res.send(offres);
+    res.send(activites);
   })
 
 app.listen(3000, function () {
