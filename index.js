@@ -489,6 +489,45 @@ app.post('/moi/sejours/:id/eta', function (req, res) {
   res.sendStatus(200);
 });
 
+
+app.get('/moi/sejours/:id/conforts', function (req, res) {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
+
+    let payload = [
+      {
+        "id": "1",
+        "titre": "Barbecue",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "8€/day",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "2",
+        "titre": "Serviettes",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "Prix € / personne, réduction en couple avec 2 enfants minimum"
+      },
+      {
+        "id": "3",
+        "titre": "Titre loooooooooong de l'option",
+        "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
+        "prix": "Prix € / personne, réduction en couple avec 2 enfants minimum",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "4",
+        "titre": "Tongs",
+        "description": "Elles sont  neuves !",
+        "prix": "8€/day"
+      }]
+    res.send(payload);
+  } else { res.sendStatus(404); }
+});
+
+app.post('/moi/sejours/:id/conforts', function (req, res) {
+  res.sendStatus(200);
+});
+
 app.get('/hotes/:id/reservation', function (req, res) {
 
   let moteur = {
@@ -497,7 +536,7 @@ app.get('/hotes/:id/reservation', function (req, res) {
     tel: "+33970825001",
     description: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
   }
-  if (req.params.id === "hote_1") {
+  if (req.params.id === "hote_1" || req.params.id === "hote_4") {
     delete moteur.tel
     delete moteur.url
     res.send(moteur);
@@ -579,6 +618,39 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
       }
     ];
     res.send(types);
+  })
+
+
+  app.get('/moi/sejours/:id/tickets', function (req, res) {
+
+      let tickets = {
+        "description": "Notre offre super confort est garantie sans problème… durable",
+        "tickets": [
+          {
+            "date": "2017-10-26T21:30:00+02:00",
+            "emetteur": "Jean Dupont",
+            "message": "Bonjour\n\nL'ampoule du plafonnier du salon ne s'allume plus."
+          },
+          {
+            "date": "2017-10-25T21:30:00+02:00",
+            "emetteur": "j.dupont@gmail.com",
+            "message": "Bonjour\n\nLa clim est en panne."
+          },
+          {
+            "date": "2017-10-23T21:30:00+02:00",
+            "emetteur": "m.dupont@gmail.com",
+            "message": "Pas de croissants livrés le matin ?"
+          }
+        ]
+      };
+      res.send(tickets);
+  })
+
+  app.post('/moi/sejours/:id/tickets', function (req, res) {
+    let response = {
+      "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
+    }
+    res.send(response);
   })
 
   app.post('/moi/sejours/:id/type-sejour', function (req, res) {
