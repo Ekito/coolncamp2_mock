@@ -596,7 +596,11 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
     } else {
       res.sendStatus(404);
     }
-  })
+  });
+
+app.post('/moi/sejours/:id/etat-des-lieux', function (req, res) {
+  res.sendStatus(200);
+});
 
 app.get('/moi/sejours/:id/type-sejour', function (req, res) {
 
