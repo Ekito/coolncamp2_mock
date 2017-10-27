@@ -585,6 +585,37 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
     res.send(200);
   })
 
+  app.post('/moi/sejours/:id/sejournants/inviter', function (req, res) {
+    console.log('GET /moi/sejours/:id/sejournants/inviter')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+    let email = req.body.email;
+    if (email === "invite@me.com") { res.sendStatus(400) } else if
+    (req.params.id === "sejour_1") {res.sendStatus(404) } else {
+      res.sendStatus(200);
+    }
+  })
+  app.post('/moi/sejours/:id/sejournants/relancer', function (req, res) {
+    console.log('GET /moi/sejours/:id/sejournants/relancer')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+    let email = req.body.email;
+    if (email === "sendagain@me.com") { res.sendStatus(400) } else if
+    (req.params.id === "sejour_1") { res.sendStatus(404) } else {
+      res.sendStatus(200);
+    }
+  })
+  app.post('/moi/sejours/:id/sejournants/revoquer', function (req, res) {
+    console.log('GET /moi/sejours/:id/sejournants/revoquer')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+    let email = req.body.email;
+    if (email === "revoke@me.com") { res.sendStatus(400) } else if
+    (req.params.id === "sejour_1") { res.sendStatus(404) } else {
+      res.sendStatus(200);
+    }
+  })
+
 app.post('/moi/hotes-promos/import', function (req, res) {
   let code = req.body.code;
 
