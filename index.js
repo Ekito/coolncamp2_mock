@@ -1356,138 +1356,186 @@ app.put('/hotes/:id/canaux-notif', function (req, res) {
 
 app.get('/hotes/:id/activites', function (req, res) {
   
-    let activites = [
-      {
-      "titre": "Mini Club / Kids Club",
-      "date_debut_iso": "2017-10-26T10:00:00+02:00",
-      "date_fin_iso": "2017-10-26T12:00:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "10:00",
-      "duree": "02:00",
-      "meteo": "sunny",
-      "id": "fqlrmrnpee7mahb36s18a6a51o_20171026T080000Z",
-      "couleur": "#42d692",
-      "rappel": true,
-      "avis": {
-        "total": 10,
-        "note": 5
-      }
-      },
-      {
-      "titre": "Atelier Peinture ",
-      "date_debut_iso": "2017-10-26T10:30:00+02:00",
-      "date_fin_iso": "2017-10-26T12:30:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "10:30",
-      "duree": "02:00",
-      "meteo": "partlycloudy",
-      "id": "tp0sv6684p9458jhcdrflf14s0_20171026T083000Z",
-      "couleur": "#42d692",
-      "rappel": false,
-      "avis": {
-        "total": 0,
-        "note": 0
-      }
-      },
-      {
-      "titre": "Danses du village / Club dance",
-      "date_debut_iso": "2017-10-26T12:10:00+02:00",
-      "date_fin_iso": "2017-10-26T13:10:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "12:10",
-      "duree": "01:00",
-      "meteo": "sunny",
-      "id": "794ad4b9mlpg8k3antjio6veu4_20171026T101000Z",
-      "couleur": "#c2c2c2",
-      "rappel": false,
-      "avis": {
-        "total": 4,
-        "note": 4
-      }
-      },
-      {
-      "titre": "Tir à l'Arc / Archery",
-      "date_debut_iso": "2017-10-26T14:00:00+02:00",
-      "date_fin_iso": "2017-10-26T16:00:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "14:00",
-      "duree": "02:00",
-      "meteo": "clear",
-      "id": "pgutl86br2lqb22u3ntqdu5eeg_20171026T120000Z",
-      "couleur": "#fad165",
-      "rappel": true,
-      "avis": {
-        "total": 0,
-        "note": 0
-      }
-      },
-      {
-        "titre": "Apéro Gourmand / English Apéro François",
-        "date_debut_iso": "2017-10-26T18:00:00+02:00",
-        "date_fin_iso": "2017-12-26T19:00:00+02:00",
-        "date": "2017-10-26",
-        "heure_debut": "18:00",
-        "duree": "24:00",
-        "meteo": "clear",
-        "id": "34l5cfbof9135q1vvq85ld49ug_20171026T160000Z",
-        "couleur": "#b3dc6c",
-        "rappel": true,
-        "avis": {
-          "total": 0,
-          "note": 0
-        }
-        },
-        {
-        "titre": "Soirée Burger Frites / Burger & chips",
-        "date_debut_iso": "2018-10-26T18:30:00+02:00",
-        "date_fin_iso": "2018-10-26T23:00:00+02:00",
-        "date": "2018-10-26",
-        "heure_debut": "18:30",
-        "duree": "04:30",
-        "meteo": "clear",
-        "id": "s5kgpgug6gtsb3efc0j9jcs5nc_20171026T163000Z",
-        "couleur": "#7bd148",
-        "rappel": false,
-        "avis": {
-          "total": 0,
-          "note": 0
-        }
-        },
-        {
-        "titre": "Mini-disco / Mini Disco",
-        "date_debut_iso": "2018-10-26T20:30:00+02:00",
-        "date_fin_iso": "2018-10-26T21:30:00+02:00",
-        "date": "2018-10-26",
-        "heure_debut": "20:30",
-        "duree": "01:00",
-        "meteo": "clear",
-        "id": "sa3i7l342pefapbgv10gv7j0i0_20171026T183000Z",
-        "couleur": "#c2c2c2",
-        "rappel": false,
-        "avis": {
-          "total": 0,
-          "note": 0
-        }
-        },
-        {
-        "titre": "Step Aérobic",
-        "date_debut_iso": "2018-10-27T10:30:00+02:00",
-        "date_fin_iso": "2018-10-27T11:00:00+02:00",
-        "date": "2018-10-27",
-        "heure_debut": "10:30",
-        "duree": "00:30",
-        "meteo": "clear",
-        "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
-        "couleur": "#cca6ac",
-        "rappel": false,
-        "avis": {
-          "total": 0,
-          "note": 0
-        }
-        }
-    ];
-    res.send(activites);
-  })
+  let activites = [
+  {
+    "titre": "Mini Club / Kids Club",
+    "date_debut_iso": "2017-10-26T10:00:00+02:00",
+    "date_fin_iso": "2017-10-26T12:00:00+02:00",
+    "date": "2017-10-26",
+    "heure_debut": "10:00",
+    "duree": "02:00",
+    "meteo": "sunny",
+    "id": "fqlrmrnpee7mahb36s18a6a51o_20171026T080000Z",
+    "couleur": "#46b29d",
+    "rappel": true,
+    "avis": {
+      "total": 10,
+      "note": 5
+    }
+  },
+  {
+    "titre": "Atelier Peinture ",
+    "date_debut_iso": "2017-10-26T10:30:00+02:00",
+    "date_fin_iso": "2017-10-26T12:30:00+02:00",
+    "date": "2017-10-26",
+    "heure_debut": "10:30",
+    "duree": "02:00",
+    "meteo": "partlycloudy",
+    "id": "tp0sv6684p9458jhcdrflf14s0_20171026T083000Z",
+    "couleur": "#de4949",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Danses du village / Club dance",
+    "date_debut_iso": "2017-10-26T12:10:00+02:00",
+    "date_fin_iso": "2017-10-26T13:10:00+02:00",
+    "date": "2017-10-26",
+    "heure_debut": "12:10",
+    "duree": "01:00",
+    "meteo": "sunny",
+    "id": "794ad4b9mlpg8k3antjio6veu4_20171026T101000Z",
+    "couleur": "#f0ca4d",
+    "rappel": false,
+    "avis": {
+      "total": 4,
+      "note": 4
+    }
+  },
+  {
+    "titre": "Tir à l'Arc / Archery",
+    "date_debut_iso": "2017-10-26T14:00:00+02:00",
+    "date_fin_iso": "2017-10-26T16:00:00+02:00",
+    "date": "2017-10-26",
+    "heure_debut": "14:00",
+    "duree": "02:00",
+    "meteo": "clear",
+    "id": "pgutl86br2lqb22u3ntqdu5eeg_20171026T120000Z",
+    "couleur": "#324d5c",
+    "rappel": true,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Apéro Gourmand / English Apéro François",
+    "date_debut_iso": "2017-10-26T18:00:00+02:00",
+    "date_fin_iso": "2017-12-26T19:00:00+02:00",
+    "date": "2017-10-26",
+    "heure_debut": "18:00",
+    "duree": "24:00",
+    "meteo": "clear",
+    "id": "34l5cfbof9135q1vvq85ld49ug_20171026T160000Z",
+    "couleur": "#46b29d",
+    "rappel": true,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Soirée Burger Frites / Burger & chips",
+    "date_debut_iso": "2018-10-26T18:30:00+02:00",
+    "date_fin_iso": "2018-10-26T23:00:00+02:00",
+    "date": "2018-10-26",
+    "heure_debut": "18:30",
+    "duree": "04:30",
+    "meteo": "clear",
+    "id": "s5kgpgug6gtsb3efc0j9jcs5nc_20171026T163000Z",
+    "couleur": "#de4949",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Mini-disco / Mini Disco",
+    "date_debut_iso": "2018-10-26T20:30:00+02:00",
+    "date_fin_iso": "2018-10-26T21:30:00+02:00",
+    "date": "2018-10-26",
+    "heure_debut": "20:30",
+    "duree": "01:00",
+    "meteo": "clear",
+    "id": "sa3i7l342pefapbgv10gv7j0i0_20171026T183000Z",
+    "couleur": "#f0ca4d",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Step Aérobic",
+    "date_debut_iso": "2018-10-27T10:30:00+02:00",
+    "date_fin_iso": "2018-10-27T11:00:00+02:00",
+    "date": "2018-10-27",
+    "heure_debut": "10:30",
+    "duree": "00:30",
+    "meteo": "clear",
+    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Inauguration Terrain de PADEL",
+    "date_debut_iso": "2018-10-27T10:30:00+02:00",
+    "date_fin_iso": "2018-10-27T11:00:00+02:00",
+    "date": "2018-10-27",
+    "heure_debut": "10:30",
+    "duree": "00:30",
+    "meteo": "clear",
+    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Marché au Village",
+    "date_debut_iso": "2018-10-27T10:30:00+02:00",
+    "date_fin_iso": "2018-10-27T11:00:00+02:00",
+    "date": "2018-10-27",
+    "heure_debut": "10:30",
+    "duree": "00:30",
+    "meteo": "clear",
+    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Pot d'accueil & soirée dansante / Welcome drink & dance",
+    "date_debut_iso": "2018-10-27T10:30:00+02:00",
+    "date_fin_iso": "2018-10-27T11:00:00+02:00",
+    "date": "2018-10-27",
+    "heure_debut": "10:30",
+    "duree": "00:30",
+    "meteo": "clear",
+    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  }
+  ];
+  res.send(activites);
+});
 
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
