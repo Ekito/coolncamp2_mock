@@ -1392,7 +1392,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "couleur": "#de4949",
     "rappel": false,
     "avis": {
-      "total": 0,
+      "total": 2,
       "note": 0
     }
   },
@@ -1424,8 +1424,8 @@ app.get('/hotes/:id/activites', function (req, res) {
     "couleur": "#324d5c",
     "rappel": true,
     "avis": {
-      "total": 0,
-      "note": 0
+      "total": 76,
+      "note": 4
     }
   },
   {
