@@ -233,10 +233,16 @@ app.get('/hotes/:id', function (req, res) {
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-restaurant-safran.jpg",
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_plage-de-trez.jpg"
       ],
-      "video": {
+      "videos": [{
+          "titre": "Surf session",
+          "image_thumbnail": "https://coolncamp.s3.amazonaws.com/bonPlans/1443807117622U1cDSxGnEQcxH73j.jpg",
+          "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
+        },
+        {
+        "titre": "UCPA",
         "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
         "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
-      }
+      }]
     }
   }
 
@@ -268,10 +274,11 @@ app.get('/hotes/:id', function (req, res) {
         "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_l-ariege.jpg",
         "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_sunelia-premium.jpg"
       ],
-      "video": {
-        "image_thumbnail": "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_soiree.jpg",
+      "videos": [{
+        "titre": "UCPA",
+        "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
         "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
-      }
+      }]
     }
   }
 
