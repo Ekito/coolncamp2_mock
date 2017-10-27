@@ -1354,6 +1354,77 @@ app.put('/hotes/:id/canaux-notif', function (req, res) {
   res.send(200);
 })
 
+app.get('/hotes/:id/activites', function (req, res) {
+  
+    let activites = [
+      {
+      "titre": "Mini Club / Kids Club",
+      "date_debut_iso": "2017-10-26T10:00:00+02:00",
+      "date_fin_iso": "2017-10-26T12:00:00+02:00",
+      "date": "2017-10-26",
+      "heure_debut": "10:00",
+      "duree": "02:00",
+      "meteo": "sunny",
+      "id": "fqlrmrnpee7mahb36s18a6a51o_20171026T080000Z",
+      "couleur": "#42d692",
+      "rappel": true,
+      "avis": {
+        "total": 10,
+        "note": 5
+      },
+      },
+      {
+      "titre": "Atelier Peinture ",
+      "date_debut_iso": "2017-10-26T10:30:00+02:00",
+      "date_fin_iso": "2017-10-26T12:30:00+02:00",
+      "date": "2017-10-26",
+      "heure_debut": "10:30",
+      "duree": "02:00",
+      "meteo": "partlycloudy",
+      "id": "tp0sv6684p9458jhcdrflf14s0_20171026T083000Z",
+      "couleur": "#42d692",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      },
+      },
+      {
+      "titre": "Danses du village / Club dance",
+      "date_debut_iso": "2017-10-26T12:10:00+02:00",
+      "date_fin_iso": "2017-10-26T13:10:00+02:00",
+      "date": "2017-10-26",
+      "heure_debut": "12:10",
+      "duree": "01:00",
+      "meteo": "sunny",
+      "id": "794ad4b9mlpg8k3antjio6veu4_20171026T101000Z",
+      "couleur": "#c2c2c2",
+      "rappel": false,
+      "avis": {
+        "total": 4,
+        "note": 4
+      },
+      },
+      {
+      "titre": "Tir à l'Arc / Archery",
+      "date_debut_iso": "2017-10-26T14:00:00+02:00",
+      "date_fin_iso": "2017-10-26T16:00:00+02:00",
+      "date": "2017-10-26",
+      "heure_debut": "14:00",
+      "duree": "02:00",
+      "meteo": "clear",
+      "id": "pgutl86br2lqb22u3ntqdu5eeg_20171026T120000Z",
+      "couleur": "#fad165",
+      "rappel": true,
+      "avis": {
+        "total": 0,
+        "note": 0
+      },
+      }
+    ];
+    res.send(offres);
+  })
+
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
 })
