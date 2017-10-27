@@ -293,13 +293,13 @@ app.get('/moi/messages', function (req, res) {
     let messages = [{
       id: "12345567889",
       emetteur: "Le Fief",
-      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url:http://www.coolncamp.com  \n",
+      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
       date: "2017-10-23T21:30:00+02:00"
     },
     {
       id: "AAAAA12345567889",
       emetteur: "La Dragonnière",
-      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url:http://www.coolncamp.com  \n",
+      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
       date: "2017-10-22T21:30:00+02:00"
     }];
 
