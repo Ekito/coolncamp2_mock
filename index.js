@@ -599,7 +599,10 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
   });
 
 app.post('/moi/sejours/:id/etat-des-lieux', function (req, res) {
-  res.sendStatus(200);
+  let response = {
+    "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
+  }
+  res.send(response);
 });
 
 app.get('/moi/sejours/:id/type-sejour', function (req, res) {
