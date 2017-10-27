@@ -1371,7 +1371,7 @@ app.get('/hotes/:id/activites', function (req, res) {
       "avis": {
         "total": 10,
         "note": 5
-      },
+      }
       },
       {
       "titre": "Atelier Peinture ",
@@ -1387,7 +1387,7 @@ app.get('/hotes/:id/activites', function (req, res) {
       "avis": {
         "total": 0,
         "note": 0
-      },
+      }
       },
       {
       "titre": "Danses du village / Club dance",
@@ -1403,7 +1403,7 @@ app.get('/hotes/:id/activites', function (req, res) {
       "avis": {
         "total": 4,
         "note": 4
-      },
+      }
       },
       {
       "titre": "Tir à l'Arc / Archery",
@@ -1419,8 +1419,72 @@ app.get('/hotes/:id/activites', function (req, res) {
       "avis": {
         "total": 0,
         "note": 0
-      },
       }
+      },
+      {
+        "titre": "Apéro Gourmand / English Apéro François",
+        "date_debut_iso": "2017-10-26T18:00:00+02:00",
+        "date_fin_iso": "2017-12-26T19:00:00+02:00",
+        "date": "2017-10-26",
+        "heure_debut": "18:00",
+        "duree": "24:00",
+        "meteo": "clear",
+        "id": "34l5cfbof9135q1vvq85ld49ug_20171026T160000Z",
+        "couleur": "#b3dc6c",
+        "rappel": true,
+        "avis": {
+          "total": 0,
+          "note": 0
+        }
+        },
+        {
+        "titre": "Soirée Burger Frites / Burger & chips",
+        "date_debut_iso": "2018-10-26T18:30:00+02:00",
+        "date_fin_iso": "2018-10-26T23:00:00+02:00",
+        "date": "2018-10-26",
+        "heure_debut": "18:30",
+        "duree": "04:30",
+        "meteo": "clear",
+        "id": "s5kgpgug6gtsb3efc0j9jcs5nc_20171026T163000Z",
+        "couleur": "#7bd148",
+        "rappel": false,
+        "avis": {
+          "total": 0,
+          "note": 0
+        }
+        },
+        {
+        "titre": "Mini-disco / Mini Disco",
+        "date_debut_iso": "2018-10-26T20:30:00+02:00",
+        "date_fin_iso": "2018-10-26T21:30:00+02:00",
+        "date": "2018-10-26",
+        "heure_debut": "20:30",
+        "duree": "01:00",
+        "meteo": "clear",
+        "id": "sa3i7l342pefapbgv10gv7j0i0_20171026T183000Z",
+        "couleur": "#c2c2c2",
+        "rappel": false,
+        "avis": {
+          "total": 0,
+          "note": 0
+        }
+        },
+        {
+        "titre": "Step Aérobic",
+        "date_debut_iso": "2018-10-27T10:30:00+02:00",
+        "date_fin_iso": "2018-10-27T11:00:00+02:00",
+        "date": "2018-10-27",
+        "heure_debut": "10:30",
+        "duree": "00:30",
+        "meteo": "clear",
+        "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+        "couleur": "#cca6ac",
+        "rappel": false,
+        "avis": {
+          "total": 0,
+          "note": 0
+        }
+        }
     ];
     res.send(activites);
   })
