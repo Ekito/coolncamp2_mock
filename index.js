@@ -1544,6 +1544,38 @@ app.get('/hotes/:id/activites', function (req, res) {
   res.send(activites);
 });
 
+app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
+ let activite = {
+  "id": "k1p3p80b08jq0rqk11bkltncfc_20171029T060000Z",  
+  "titre": "Marché au Village",
+  "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1479374713838dZ1MI4VfeggFkE7L.jpg",
+  "categorie": "Les marchés",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "couleur": "#4986e7",
+  "date_debut_iso": "2018-10-27T10:30:00+02:00",
+  "date": "2018-10-27",
+  "heure_debut": "10:30",
+  "heure_fin": "12:30",
+  "duree": "02:00",
+  "url": "https://www.google.com/",
+  "video": "https://www.youtube.com/watch?v=xpcbMkvQE8A",
+  "document": "https://www.placealemploi.fr/divers/CGU.pdf",
+  "meteo": "sunny",
+  "avis": {
+    "total": 23,
+    "note": 3.5
+  },
+  "mon_avis": {
+    "commentaire": "Trop joli marché",
+    "note": 3
+  },
+  "rappel": true,
+  "avis_autorise": true
+  };
+  res.send(activite);
+});
+
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
 })
