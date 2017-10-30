@@ -1577,6 +1577,10 @@ app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
   res.send(activite);
 });
 
+app.post('/hotes/:hoteId/activites/:activiteId/rappel', function (req, res) {
+  res.sendStatus(200);
+});
+
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
 })
