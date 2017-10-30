@@ -1554,6 +1554,7 @@ app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
   "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
   "couleur": "#4986e7",
   "date_debut_iso": "2018-10-27T10:30:00+02:00",
+  "date_fin_iso": "2018-10-27T12:30:00+02:00",
   "date": "2018-10-27",
   "heure_debut": "10:30",
   "heure_fin": "12:30",
