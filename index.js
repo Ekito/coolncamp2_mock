@@ -1547,7 +1547,28 @@ app.get('/hotes/:id/activites', function (req, res) {
 
 app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
  
- 
+let activite_2 = {
+  "titre": "Atelier Peinture ",
+  "date_debut_iso": moment().subtract(1, 'days'),
+  "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
+  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+  "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+  "duree": "01:00",
+  "meteo": "partlycloudy",
+  "id": "activite_2",
+  "couleur": "#de4949",
+  "rappel": false,
+  "avis": {
+    "total": 2,
+    "note": 0
+  },
+  "image": "https://www.mairie-houplin-ancoisne.fr/wp-content/uploads/2014/10/atelier_peinture_houplin.jpg",
+  "categorie": "Sport",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "avis_autorise": false
+}
+
 let activite_3 =   {
   "titre": "Danses du village / Club dance",
   "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
@@ -1638,7 +1659,9 @@ let activite_6 = {
   "avis_autorise": false
 } 
 
-if (req.params.activiteId === 'activite_3') {
+if (req.params.activiteId === 'activite_2') {
+  res.send(activite_2);  
+} else if (req.params.activiteId === 'activite_3') {
   res.send(activite_3);  
 } else if (req.params.activiteId === 'activite_4') {
   res.send(activite_4);  
