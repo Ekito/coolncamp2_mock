@@ -1372,7 +1372,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:00",
     "duree": "02:00",
     "meteo": "sunny",
-    "id": "fqlrmrnpee7mahb36s18a6a51o_20171026T080000Z",
+    "id": "activite_1",
     "couleur": "#46b29d",
     "rappel": true,
     "avis": {
@@ -1388,7 +1388,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:30",
     "duree": "02:00",
     "meteo": "partlycloudy",
-    "id": "tp0sv6684p9458jhcdrflf14s0_20171026T083000Z",
+    "id": "activite_2",
     "couleur": "#de4949",
     "rappel": false,
     "avis": {
@@ -1404,7 +1404,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "12:10",
     "duree": "01:00",
     "meteo": "sunny",
-    "id": "794ad4b9mlpg8k3antjio6veu4_20171026T101000Z",
+    "id": "activite_3",
     "couleur": "#f0ca4d",
     "rappel": false,
     "avis": {
@@ -1420,7 +1420,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "14:00",
     "duree": "02:00",
     "meteo": "clear",
-    "id": "pgutl86br2lqb22u3ntqdu5eeg_20171026T120000Z",
+    "id": "activite_4",
     "couleur": "#324d5c",
     "rappel": true,
     "avis": {
@@ -1436,7 +1436,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "18:00",
     "duree": "24:00",
     "meteo": "clear",
-    "id": "34l5cfbof9135q1vvq85ld49ug_20171026T160000Z",
+    "id": "activite_5",
     "couleur": "#46b29d",
     "rappel": true,
     "avis": {
@@ -1452,7 +1452,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "18:30",
     "duree": "04:30",
     "meteo": "clear",
-    "id": "s5kgpgug6gtsb3efc0j9jcs5nc_20171026T163000Z",
+    "id": "activite_6",
     "couleur": "#de4949",
     "rappel": false,
     "avis": {
@@ -1468,7 +1468,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "20:30",
     "duree": "01:00",
     "meteo": "clear",
-    "id": "sa3i7l342pefapbgv10gv7j0i0_20171026T183000Z",
+    "id": "activite_7",
     "couleur": "#f0ca4d",
     "rappel": false,
     "avis": {
@@ -1484,7 +1484,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:30",
     "duree": "00:30",
     "meteo": "clear",
-    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "id": "activite_8",
     "couleur": "#324d5c",
     "rappel": false,
     "avis": {
@@ -1500,7 +1500,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:30",
     "duree": "00:30",
     "meteo": "clear",
-    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "id": "activite_9",
     "couleur": "#324d5c",
     "rappel": false,
     "avis": {
@@ -1516,7 +1516,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:30",
     "duree": "00:30",
     "meteo": "clear",
-    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "id": "activite_10",
     "couleur": "#324d5c",
     "rappel": false,
     "avis": {
@@ -1532,7 +1532,7 @@ app.get('/hotes/:id/activites', function (req, res) {
     "heure_debut": "10:30",
     "duree": "00:30",
     "meteo": "clear",
-    "id": "k546kmgft4f2efhh1jkk5om400_20171027T083000Z",
+    "id": "activite_11",
     "couleur": "#324d5c",
     "rappel": false,
     "avis": {
@@ -1545,36 +1545,111 @@ app.get('/hotes/:id/activites', function (req, res) {
 });
 
 app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
- let activite = {
-  "id": "k1p3p80b08jq0rqk11bkltncfc_20171029T060000Z",  
-  "titre": "Marché au Village",
-  "image": "https://coolncamp.s3.amazonaws.com/bonPlans/1479374713838dZ1MI4VfeggFkE7L.jpg",
-  "categorie": "Les marchés",
+ 
+ 
+let activite_3 =   {
+  "titre": "Danses du village / Club dance",
+  "date_debut_iso": "2017-10-26T12:10:00+02:00",
+  "date_fin_iso": "2017-10-26T13:10:00+02:00",
+  "date": "2017-10-26",
+  "heure_debut": "12:10",
+  "duree": "01:00",
+  "meteo": "sunny",
+  "id": "activite_3",
+  "couleur": "#f0ca4d",
+  "rappel": false,
+  "avis": {
+    "total": 4,
+    "note": 2
+  },
+  "image": "https://static.secureholiday.net/static/CMS/photos/000/001/000001626.jpg",
+  "categorie": "Sport",
   "lieu": "Place du marché",
   "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
-  "couleur": "#4986e7",
-  "date_debut_iso": "2018-10-27T10:30:00+02:00",
-  "date_fin_iso": "2018-10-27T12:30:00+02:00",
-  "date": "2018-10-27",
   "heure_debut": "10:30",
   "heure_fin": "12:30",
   "duree": "02:00",
-  "url": "https://www.google.com/",
-  "video": "https://www.youtube.com/watch?v=xpcbMkvQE8A",
-  "document": "https://www.placealemploi.fr/divers/CGU.pdf",
-  "meteo": "sunny",
+  "avis_autorise": true
+}
+
+let activite_4 = 
+{
+  "titre": "Tir à l'Arc / Archery",
+  "date_debut_iso": "2017-10-26T14:00:00+02:00",
+  "date_fin_iso": "2017-10-26T16:00:00+02:00",
+  "date": "2017-10-26",
+  "heure_debut": "14:00",
+  "duree": "02:00",
+  "meteo": "clear",
+  "id": "activite_4",
+  "couleur": "#324d5c",
+  "rappel": true,
   "avis": {
-    "total": 23,
-    "note": 3.5
+    "total": 76,
+    "note": 4
   },
+  "categorie": "Sport",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "heure_debut": "10:30",
+  "heure_fin": "12:30",
+  "duree": "02:00",
   "mon_avis": {
     "commentaire": "Trop joli marché",
     "note": 3
   },
-  "rappel": true,
   "avis_autorise": true
-  };
-  res.send(activite);
+}
+
+let activite_5 = {
+  "titre": "Apéro Gourmand / English Apéro François",
+  "date_debut_iso": "2017-10-26T18:00:00+02:00",
+  "date_fin_iso": "2017-12-26T19:00:00+02:00",
+  "date": "2017-10-26",
+  "heure_debut": "18:00",
+  "duree": "24:00",
+  "meteo": "clear",
+  "id": "activite_5",
+  "couleur": "#46b29d",
+  "rappel": true,
+  "image": "http://www.nouveautrader.com/v3/wp-content/uploads/2012/09/photosNT_21092012apero.JPG",
+  "categorie": "Diététique",
+  "lieu": "Au resto",
+  "description": "Happy hour à partir de 8:00 du matin jusqu'à 23:30",
+  "heure_fin": "23:00",
+  "url": "https://www.google.com/",
+  "avis_autorise": false
+}
+
+let activite_6 = {
+  "titre": "Soirée Burger Frites / Burger & chips",
+  "date_debut_iso": "2018-10-26T18:30:00+02:00",
+  "date_fin_iso": "2018-10-26T23:00:00+02:00",
+  "date": "2018-10-26",
+  "heure_debut": "18:30",
+  "duree": "04:30",
+  "meteo": "clear",
+  "id": "activite_6",
+  "couleur": "#de4949",
+  "rappel": false,
+  "image": "https://www.ninkasi.fr/media/diaporama-home/ninkasi-burger.jpg?t=2014-11-20+13%3A49%3A08",
+  "categorie": "Diététique",
+  "lieu": "Au resto",
+  "description": "Les meilleurs burgers du camping (il y en a même des végés miam) !",
+  "heure_fin": "23:00",
+  "url": "https://www.google.com/",
+  "avis_autorise": false
+} 
+
+if (req.params.activiteId === 'activite_3') {
+  res.send(activite_3);  
+} else if (req.params.activiteId === 'activite_4') {
+  res.send(activite_4);  
+} else if (req.params.activiteId === 'activite_5') {
+  res.send(activite_5);  
+} else  {
+  res.send(activite_6);  
+} 
 });
 
 app.post('/hotes/:hoteId/activites/:activiteId/rappel', function (req, res) {
