@@ -1553,6 +1553,7 @@ let activite_2 = {
   "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
   "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
   "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+  "heure_fin": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
   "duree": "01:00",
   "meteo": "partlycloudy",
   "id": "activite_2",
