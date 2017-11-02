@@ -436,16 +436,26 @@ app.get('/moi/sejours/:id', function (req, res) {
     "sejournants": [
       {
       email: "test@ekito.fr",
-      avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+      avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar3.png"
       },
       {
-        email: "invites1@ekito.fr",
-        avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+        email: "invite1@ekito.fr",
+        avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar1.png"
       },
       {
-        email: "invites2@ekito.fr",
-        avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+        email: "invite2@ekito.fr",
+        avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar2.png"
       },
+      {
+        email: "invite@error.com",
+        avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar4.png"
+      },
+      {
+        email: "sendagain@error.com",
+      },
+      {
+        email: "revoke@error.com",
+      }
   ],
     "categorie": "Mobil home 6 places",
     "eta_debut_date_aff": "2017-07-30"
@@ -684,31 +694,31 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
   })
 
   app.post('/moi/sejours/:id/sejournants/inviter', function (req, res) {
-    console.log('GET /moi/sejours/:id/sejournants/inviter')
+    console.log('POST /moi/sejours/:id/sejournants/inviter')
     console.log('headers: ' + JSON.stringify(req.headers, null, 2))
     console.log('body: ' + JSON.stringify(req.body, null, 2))
     let email = req.body.email;
-    if (email === "invite@me.com") { res.sendStatus(400) } else if
+    if (email === "invite@error.com") { res.sendStatus(400) } else if
     (req.params.id === "sejour_1") {res.sendStatus(404) } else {
       res.sendStatus(200);
     }
   })
   app.post('/moi/sejours/:id/sejournants/relancer', function (req, res) {
-    console.log('GET /moi/sejours/:id/sejournants/relancer')
+    console.log('POST /moi/sejours/:id/sejournants/relancer')
     console.log('headers: ' + JSON.stringify(req.headers, null, 2))
     console.log('body: ' + JSON.stringify(req.body, null, 2))
     let email = req.body.email;
-    if (email === "sendagain@me.com") { res.sendStatus(400) } else if
+    if (email === "sendagain@error.com") { res.sendStatus(400) } else if
     (req.params.id === "sejour_1") { res.sendStatus(404) } else {
       res.sendStatus(200);
     }
   })
   app.post('/moi/sejours/:id/sejournants/revoquer', function (req, res) {
-    console.log('GET /moi/sejours/:id/sejournants/revoquer')
+    console.log('POST /moi/sejours/:id/sejournants/revoquer')
     console.log('headers: ' + JSON.stringify(req.headers, null, 2))
     console.log('body: ' + JSON.stringify(req.body, null, 2))
     let email = req.body.email;
-    if (email === "revoke@me.com") { res.sendStatus(400) } else if
+    if (email === "revoke@error.com") { res.sendStatus(400) } else if
     (req.params.id === "sejour_1") { res.sendStatus(404) } else {
       res.sendStatus(200);
     }
