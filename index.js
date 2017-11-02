@@ -301,7 +301,8 @@ app.get('/moi/messages', function (req, res) {
       emetteur: "La Dragonnière",
       texte: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
       date: "2017-10-22T21:30:00+02:00"
-    }];
+    }
+  ];
 
     res.send(messages);
 })
@@ -424,10 +425,20 @@ app.get('/moi/sejours/:id', function (req, res) {
     "pays": "France",
     "proprietaire": true,
     "restriction_service": ["etat_des_lieux", "tickets", "conforts"],
-    "sejournants": [{
-      email: "lbaresse@ekito.fr",
+    "sejournants": [
+      {
+      email: "test@ekito.fr",
       avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
-    }],
+      },
+      {
+        email: "invites1@ekito.fr",
+        avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+      },
+      {
+        email: "invites2@ekito.fr",
+        avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
+      },
+  ],
     "categorie": "Mobil home 6 places",
     "eta_debut_date_aff": "2017-07-30"
   }
