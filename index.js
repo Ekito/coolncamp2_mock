@@ -539,7 +539,36 @@ app.get('/moi/sejours/:id/conforts', function (req, res) {
         "description": "Elles sont  neuves !",
         "prix": "8€/day"
       }]
-    res.send(payload);
+
+      let payload2 = [
+        {
+           "id":"1",
+           "titre":"Barbecue",
+           "description":"L'utilisation des barbecues à charbon est interdite sur le camping, nous vous fournissons les recharges de gaz ",
+           "prix":"8€/jour",
+           "derniere_date_demande":"2017-10-22T09:30:00+02:00"
+        },
+        {
+           "id":"2",
+           "titre":"Kit Bébé",
+           "description":"Comprend la chaise haute, la baignoire et le lit parapluie ",
+           "prix":"14€/Sem"
+        },
+        {
+           "id":"3",
+           "titre":"Ménage de fin de séjour",
+           "description":"N'inclut pas le coin cuisine et la vaisselle",
+           "prix":"90€",
+           "derniere_date_demande":"2017-10-22T09:30:00+02:00"
+        },
+        {
+           "id":"4",
+           "titre":"Location de Vélo",
+           "description":"Siège bébé inclus et anti-vol",
+           "prix":"8€/jour"
+        }]
+
+      res.send(payload2);
   } else { res.sendStatus(404); }
 });
 
