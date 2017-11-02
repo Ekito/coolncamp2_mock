@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const moment = require('moment');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
@@ -233,10 +234,16 @@ app.get('/hotes/:id', function (req, res) {
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-restaurant-safran.jpg",
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_plage-de-trez.jpg"
       ],
-      "video": {
-        "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
-        "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
-      }
+      "videos": [{
+        "titre": "Surf session",
+        "image_thumbnail": "https://img.youtube.com/vi/QApgShOdFUk/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
+      },
+      {
+      "titre": "UCPA",
+      "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
+      }]
     }
   }
 
@@ -268,10 +275,11 @@ app.get('/hotes/:id', function (req, res) {
         "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_l-ariege.jpg",
         "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_sunelia-premium.jpg"
       ],
-      "video": {
-        "image_thumbnail": "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_soiree.jpg",
-        "url": "https://www.youtube.com/watch?v\u003d-QIyAaw1JdA"
-      }
+      "videos": [{
+        "titre": "UCPA",
+        "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
+        "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
+        }]
     }
   }
 
@@ -293,13 +301,13 @@ app.get('/moi/messages', function (req, res) {
     let messages = [{
       id: "12345567889",
       emetteur: "Le Fief",
-      texte: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
       date: "2017-10-23T21:30:00+02:00"
     },
     {
       id: "AAAAA12345567889",
       emetteur: "La Dragonnière",
-      texte: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
+      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
       date: "2017-10-22T21:30:00+02:00"
     }
   ];
@@ -1366,75 +1374,323 @@ app.put('/hotes/:id/canaux-notif', function (req, res) {
 })
 
 app.get('/hotes/:id/activites', function (req, res) {
-  
-    let activites = [
-      {
-      "titre": "Mini Club / Kids Club",
-      "date_debut_iso": "2017-10-26T10:00:00+02:00",
-      "date_fin_iso": "2017-10-26T12:00:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "10:00",
-      "duree": "02:00",
-      "meteo": "sunny",
-      "id": "fqlrmrnpee7mahb36s18a6a51o_20171026T080000Z",
-      "couleur": "#42d692",
-      "rappel": true,
-      "avis": {
-        "total": 10,
-        "note": 5
-      },
-      },
-      {
-      "titre": "Atelier Peinture ",
-      "date_debut_iso": "2017-10-26T10:30:00+02:00",
-      "date_fin_iso": "2017-10-26T12:30:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "10:30",
-      "duree": "02:00",
-      "meteo": "partlycloudy",
-      "id": "tp0sv6684p9458jhcdrflf14s0_20171026T083000Z",
-      "couleur": "#42d692",
-      "rappel": false,
-      "avis": {
-        "total": 0,
-        "note": 0
-      },
-      },
-      {
-      "titre": "Danses du village / Club dance",
-      "date_debut_iso": "2017-10-26T12:10:00+02:00",
-      "date_fin_iso": "2017-10-26T13:10:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "12:10",
-      "duree": "01:00",
-      "meteo": "sunny",
-      "id": "794ad4b9mlpg8k3antjio6veu4_20171026T101000Z",
-      "couleur": "#c2c2c2",
-      "rappel": false,
-      "avis": {
-        "total": 4,
-        "note": 4
-      },
-      },
-      {
-      "titre": "Tir à l'Arc / Archery",
-      "date_debut_iso": "2017-10-26T14:00:00+02:00",
-      "date_fin_iso": "2017-10-26T16:00:00+02:00",
-      "date": "2017-10-26",
-      "heure_debut": "14:00",
-      "duree": "02:00",
-      "meteo": "clear",
-      "id": "pgutl86br2lqb22u3ntqdu5eeg_20171026T120000Z",
-      "couleur": "#fad165",
-      "rappel": true,
-      "avis": {
-        "total": 0,
-        "note": 0
-      },
-      }
-    ];
-    res.send(offres);
-  })
+    
+  let activites = [
+  {
+    "titre": "Mini Club / Kids Club",
+    "date_debut_iso": moment().subtract(1, 'days'),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+    "duree": "02:00",
+    "meteo": "sunny",
+    "id": "activite_1",
+    "couleur": "#46b29d",
+    "rappel": true,
+    "avis": {
+      "total": 23,
+      "note": 3.5
+    }
+  },
+  {
+    "titre": "Atelier Peinture ",
+    "date_debut_iso": moment().subtract(1, 'days'),
+    "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
+    "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+    "duree": "01:00",
+    "meteo": "partlycloudy",
+    "id": "activite_2",
+    "couleur": "#de4949",
+    "rappel": false,
+    "avis": {
+      "total": 2,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Danses du village / Club dance",
+    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+    "duree": "01:00",
+    "meteo": "sunny",
+    "id": "activite_3",
+    "couleur": "#f0ca4d",
+    "rappel": false,
+    "avis": {
+      "total": 4,
+      "note": 2
+    }
+  },
+  {
+    "titre": "Tir à l'Arc / Archery",
+    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+    "duree": "01:00",
+    "meteo": "clear",
+    "id": "activite_4",
+    "couleur": "#324d5c",
+    "rappel": true,
+    "avis": {
+      "total": 76,
+      "note": 4
+    }
+  },
+  {
+    "titre": "Apéro Gourmand / English Apéro François",
+    "date_debut_iso": moment().subtract(1, 'hours'),
+    "date_fin_iso": moment().add(1, 'hours'),
+    "date": moment().format("YYYY-MM-DD"),
+    "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
+    "duree": "2:00",
+    "meteo": "clear",
+    "id": "activite_5",
+    "couleur": "#46b29d",
+    "rappel": true,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Soirée Burger Frites / Burger & chips",
+    "date_debut_iso": moment().add(1, 'hours'),
+    "date_fin_iso": moment().add(3, 'hours'),
+    "date": moment().format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1, 'hours').format("HH:mm"),
+    "duree": "02:00",
+    "meteo": "clear",
+    "id": "activite_6",
+    "couleur": "#de4949",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Mini-disco / Mini Disco",
+    "date_debut_iso": moment().add(1,'days').add(1, 'hours'),
+    "date_fin_iso": moment().add(1,'days').add(3, 'hours'),
+    "date": moment().add(1,'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
+    "duree": "02:00",
+    "meteo": "clear",
+    "id": "activite_7",
+    "couleur": "#f0ca4d",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Step Aérobic",
+    "date_debut_iso": moment().add(1,'days').add(1, 'hours'),
+    "date_fin_iso": moment().add(1,'days').add(3, 'hours'),
+    "date": moment().add(1,'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
+    "duree": "02:00",
+    "meteo": "clear",
+    "id": "activite_8",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Inauguration Terrain de PADEL",
+    "date_debut_iso": moment().add(1,'days').add(3, 'hours'),
+    "date_fin_iso": moment().add(1,'days').add(4, 'hours'),
+    "date": moment().add(1,'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
+    "duree": "01:00",
+    "meteo": "clear",
+    "id": "activite_9",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Marché au Village",
+    "date_debut_iso": moment().add(1,'days').add(3, 'hours'),
+    "date_fin_iso": moment().add(1,'days').add(4, 'hours'),
+    "date": moment().add(1,'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
+    "duree": "01:00",
+    "meteo": "clear",
+    "id": "activite_10",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  },
+  {
+    "titre": "Pot d'accueil & soirée dansante / Welcome drink & dance",
+    "date_debut_iso": moment().add(1,'days').add(5, 'hours'),
+    "date_fin_iso": moment().add(1,'days').add(7, 'hours'),
+    "date": moment().add(1,'days').format("YYYY-MM-DD"),
+    "heure_debut": moment().add(1,'days').add(5, 'hours').format("HH:mm"),
+    "duree": "02:00",
+    "meteo": "clear",
+    "id": "activite_11",
+    "couleur": "#324d5c",
+    "rappel": false,
+    "avis": {
+      "total": 0,
+      "note": 0
+    }
+  }
+  ];
+  res.send(activites);
+});
+
+app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
+ 
+let activite_2 = {
+  "titre": "Atelier Peinture ",
+  "date_debut_iso": moment().subtract(1, 'days'),
+  "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
+  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+  "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+  "heure_fin": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+  "duree": "01:00",
+  "meteo": "partlycloudy",
+  "id": "activite_2",
+  "couleur": "#de4949",
+  "rappel": false,
+  "avis": {
+    "total": 2,
+    "note": 0
+  },
+  "image": "https://www.mairie-houplin-ancoisne.fr/wp-content/uploads/2014/10/atelier_peinture_houplin.jpg",
+  "categorie": "Sport",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "avis_autorise": false
+}
+
+let activite_3 =   {
+  "titre": "Danses du village / Club dance",
+  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
+  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+  "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+  "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
+  "duree": "01:00",
+  "meteo": "sunny",
+  "id": "activite_3",
+  "couleur": "#f0ca4d",
+  "rappel": false,
+  "avis": {
+    "total": 4,
+    "note": 2
+  },
+  "image": "https://static.secureholiday.net/static/CMS/photos/000/001/000001626.jpg",
+  "categorie": "Sport",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "avis_autorise": true
+}
+
+let activite_4 = 
+{
+  "titre": "Tir à l'Arc / Archery",
+  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
+  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+  "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+  "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
+  "duree": "01:00",
+  "meteo": "clear",
+  "id": "activite_4",
+  "couleur": "#324d5c",
+  "rappel": true,
+  "avis": {
+    "total": 76,
+    "note": 4
+  },
+  "categorie": "Sport",
+  "lieu": "Place du marché",
+  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+  "mon_avis": {
+    "commentaire": "Trop joli marché",
+    "note": 3
+  },
+  "avis_autorise": true
+}
+
+let activite_5 = {
+  "titre": "Apéro Gourmand / English Apéro François",
+  "date_debut_iso": moment().subtract(1, 'hours'),
+  "date_fin_iso": moment().add(1, 'hours'),
+  "date": moment().format("YYYY-MM-DD"),
+  "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
+  "heure_fin": moment().add(1, 'hours').format("HH:mm"),
+  "duree": "2:00",
+  "meteo": "clear",
+  "id": "activite_5",
+  "couleur": "#46b29d",
+  "rappel": true,
+  "image": "http://www.nouveautrader.com/v3/wp-content/uploads/2012/09/photosNT_21092012apero.JPG",
+  "categorie": "Diététique",
+  "lieu": "Au resto",
+  "description": "Happy hour à partir de 8:00 du matin jusqu'à 23:30",
+  "url": "https://www.google.com/",
+  "avis_autorise": false
+}
+
+let activite_6 = {
+  "titre": "Soirée Burger Frites / Burger & chips",
+  "date_debut_iso": moment().add(1, 'hours'),
+  "date_fin_iso": moment().add(3, 'hours'),
+  "date": moment().format("YYYY-MM-DD"),
+  "heure_debut": moment().add(1, 'hours').format("HH:mm"),
+  "heure_fin": moment().add(3, 'hours').format("HH:mm"),
+  "duree": "02:00",
+  "meteo": "clear",
+  "id": "activite_6",
+  "couleur": "#de4949",
+  "rappel": false,
+  "image": "https://www.ninkasi.fr/media/diaporama-home/ninkasi-burger.jpg?t=2014-11-20+13%3A49%3A08",
+  "categorie": "Diététique",
+  "lieu": "Au resto",
+  "description": "Les meilleurs burgers du camping (il y en a même des végés miam) !",
+  "url": "https://www.google.com/",
+  "avis_autorise": false
+} 
+
+if (req.params.activiteId === 'activite_2') {
+  res.send(activite_2);  
+} else if (req.params.activiteId === 'activite_3') {
+  res.send(activite_3);  
+} else if (req.params.activiteId === 'activite_4') {
+  res.send(activite_4);  
+} else if (req.params.activiteId === 'activite_5') {
+  res.send(activite_5);  
+} else  {
+  res.send(activite_6);  
+} 
+});
+
+app.post('/hotes/:hoteId/activites/:activiteId/rappel', function (req, res) {
+  res.sendStatus(200);
+});
+
+app.post('/hotes/:hoteId/activites/:activiteId/noter', function (req, res) {
+  res.sendStatus(200);
+});
 
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
