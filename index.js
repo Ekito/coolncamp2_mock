@@ -479,6 +479,10 @@ app.get('/moi/sejours/:id', function (req, res) {
     "restriction_service": [],
     "sejournants": [],
     "categorie": "Mobil home 4 places",
+    "type_sejour": {
+      "id": "561e70142bd365546734bce1",
+      "label": "En famille"
+    },
     "eta": {
       "debut": "2017-10-22T10:00:00+02:00",
       "label": "10:00 - 10:30"
@@ -719,7 +723,10 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
   })
 
   app.post('/moi/sejours/:id/type-sejour', function (req, res) {
-    res.send(200);
+    console.log('POST /moi/sejours/:id/type-sejour')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+    res.sendStatus(200);
   })
 
   app.post('/moi/sejours/:id/sejournants/inviter', function (req, res) {
