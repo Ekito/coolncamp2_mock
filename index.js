@@ -407,7 +407,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     },
     "ville": "Vias sur Mer",
     "pays": "France",
-    "proprietaire": false,
+    "proprietaire": true,
     "restriction_service": [],
     "sejournants": [{
       email: "clamri@ekito.fr",
@@ -432,7 +432,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     "ville": "Saint-Brevin-Les-Pins",
     "pays": "France",
     "proprietaire": true,
-    "restriction_service": ["etat_des_lieux", "tickets", "conforts"],
+    "restriction_service": ["tickets", "conforts"],
     "sejournants": [
       {
       email: "test@ekito.fr",
@@ -630,17 +630,18 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
     end.setDate(end.getDate() + 15);
 
     let etat_1_non_fait = {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: blue !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
     };
 
     let etat_2_fait = {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: red !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
       "incident": {
         "etat": true,
         "message": "Le lit s'est cassé."
       },
       "proprete": {
-        "etat": false
+        "etat": false,
+        "message": "Write Me A Song situation I would. Very much like to be #very good questions pre-order pre-order. Cat stickers awkward sparkly dress pie. Darling I'm a nightmare dressed. Like a daydream banana quinoa muffin Andrea Swift operation. Sparrow country pre-order mean Met. Gala Tree Paine pegacorn crop tops #bestower of. Guitar picks 1989 crop tops 13 Management. Red banana quinoa muffin pegacorn #🦆 mean. Festive Romeo Meredith Grey Ed. Sheeran stage five clinger Kanye West Famous #WHEN. PEOPLE I LOVE FALL IN. LOVE #right on target Jaime King so basically situation mean Katy. Perry chill Ed Sheeran #WHEN. PEOPLE I LOVE FALL IN LOVE Subway. Meredith Grey darling I'm a nightmare dressed like a daydream. 22 pop Loft 89 John Mayer #so little time flew. Me to places I'd never."
       },
       "date": "2017-10-22T21:30:00+02:00"
     }
@@ -661,9 +662,24 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
   });
 
 app.post('/moi/sejours/:id/etat-des-lieux', function (req, res) {
+  console.log('POST /moi/sejours/:id/etat-des-lieux')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
   let response = {
     "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
   }
+  if (req.body.incident.message === "400") {
+    res.sendStatus(400)
+  } else
+  if (req.body.incident.message === "401") {
+    res.sendStatus(401)
+  } else
+  if (req.body.incident.message === "403") {
+    res.sendStatus(403)
+  } else
+  if (req.body.incident.message === "404") {
+    res.sendStatus(404)
+  } else
   res.send(response);
 });
 
