@@ -819,8 +819,11 @@ app.get('/moi', function (req, res) {
 
     let moi = {
       "email": "test@ekito.fr",
-      "sexe": "M",
-      "date_naissance": "1971-08-19"
+      "nom": "Nomtest",
+      "prenom": "Prenom-test",
+      "sexe": "F",
+      "date_naissance": "1996-08-19",
+      "avatar": "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar4.png"
     }
 
     res.send(moi);
@@ -828,7 +831,7 @@ app.get('/moi', function (req, res) {
 
     let moi = {
       "email": "test3@ekito.fr",
-      "sexe": "F",
+      "sexe": "M",
       "date_naissance": "1975-08-02"
     }
 
