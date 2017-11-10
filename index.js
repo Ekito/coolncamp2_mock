@@ -1435,13 +1435,16 @@ app.put('/hotes/:id/canaux-notif', function (req, res) {
   res.send(200);
 })
 
+console.log(moment().format("YYYY-MM-DDTHH:mm:ssZ"))
+console.log(moment())
+
 app.get('/hotes/:id/activites', function (req, res) {
     
   let activites = [
   {
     "titre": "Mini Club / Kids Club",
-    "date_debut_iso": moment().subtract(1, 'days'),
-    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
     "duree": "02:00",
@@ -1456,8 +1459,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Atelier Peinture ",
-    "date_debut_iso": moment().subtract(1, 'days'),
-    "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
+    "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
     "duree": "01:00",
@@ -1472,8 +1475,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Danses du village / Club dance",
-    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
-    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
     "duree": "01:00",
@@ -1488,8 +1491,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Tir à l'Arc / Archery",
-    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
-    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+    "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
     "duree": "01:00",
@@ -1504,8 +1507,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Apéro Gourmand / English Apéro François",
-    "date_debut_iso": moment().subtract(1, 'hours'),
-    "date_fin_iso": moment().add(1, 'hours'),
+    "date_debut_iso": moment().subtract(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
     "duree": "2:00",
@@ -1520,8 +1523,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Soirée Burger Frites / Burger & chips",
-    "date_debut_iso": moment().add(1, 'hours'),
-    "date_fin_iso": moment().add(3, 'hours'),
+    "date_debut_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().format("YYYY-MM-DD"),
     "heure_debut": moment().add(1, 'hours').format("HH:mm"),
     "duree": "02:00",
@@ -1536,8 +1539,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Mini-disco / Mini Disco",
-    "date_debut_iso": moment().add(1,'days').add(1, 'hours'),
-    "date_fin_iso": moment().add(1,'days').add(3, 'hours'),
+    "date_debut_iso": moment().add(1,'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().add(1,'days').format("YYYY-MM-DD"),
     "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
     "duree": "02:00",
@@ -1552,8 +1555,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Step Aérobic",
-    "date_debut_iso": moment().add(1,'days').add(1, 'hours'),
-    "date_fin_iso": moment().add(1,'days').add(3, 'hours'),
+    "date_debut_iso": moment().add(1,'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().add(1,'days').format("YYYY-MM-DD"),
     "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
     "duree": "02:00",
@@ -1568,8 +1571,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Inauguration Terrain de PADEL",
-    "date_debut_iso": moment().add(1,'days').add(3, 'hours'),
-    "date_fin_iso": moment().add(1,'days').add(4, 'hours'),
+    "date_debut_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1,'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().add(1,'days').format("YYYY-MM-DD"),
     "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
     "duree": "01:00",
@@ -1584,8 +1587,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Marché au Village",
-    "date_debut_iso": moment().add(1,'days').add(3, 'hours'),
-    "date_fin_iso": moment().add(1,'days').add(4, 'hours'),
+    "date_debut_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1,'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().add(1,'days').format("YYYY-MM-DD"),
     "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
     "duree": "01:00",
@@ -1600,8 +1603,8 @@ app.get('/hotes/:id/activites', function (req, res) {
   },
   {
     "titre": "Pot d'accueil & soirée dansante / Welcome drink & dance",
-    "date_debut_iso": moment().add(1,'days').add(5, 'hours'),
-    "date_fin_iso": moment().add(1,'days').add(7, 'hours'),
+    "date_debut_iso": moment().add(1,'days').add(5, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+    "date_fin_iso": moment().add(1,'days').add(7, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().add(1,'days').format("YYYY-MM-DD"),
     "heure_debut": moment().add(1,'days').add(5, 'hours').format("HH:mm"),
     "duree": "02:00",
@@ -1622,8 +1625,8 @@ app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
  
 let activite_2 = {
   "titre": "Atelier Peinture ",
-  "date_debut_iso": moment().subtract(1, 'days'),
-  "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours'),
+  "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
+  "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
   "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
   "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
   "heure_fin": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
@@ -1645,8 +1648,8 @@ let activite_2 = {
 
 let activite_3 =   {
   "titre": "Danses du village / Club dance",
-  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
-  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
   "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
   "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
   "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
@@ -1669,8 +1672,8 @@ let activite_3 =   {
 let activite_4 = 
 {
   "titre": "Tir à l'Arc / Archery",
-  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours'),
-  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours'),
+  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
   "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
   "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
   "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
@@ -1695,8 +1698,8 @@ let activite_4 =
 
 let activite_5 = {
   "titre": "Apéro Gourmand / English Apéro François",
-  "date_debut_iso": moment().subtract(1, 'hours'),
-  "date_fin_iso": moment().add(1, 'hours'),
+  "date_debut_iso": moment().subtract(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+  "date_fin_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
   "date": moment().format("YYYY-MM-DD"),
   "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
   "heure_fin": moment().add(1, 'hours').format("HH:mm"),
@@ -1715,8 +1718,8 @@ let activite_5 = {
 
 let activite_6 = {
   "titre": "Soirée Burger Frites / Burger & chips",
-  "date_debut_iso": moment().add(1, 'hours'),
-  "date_fin_iso": moment().add(3, 'hours'),
+  "date_debut_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+  "date_fin_iso": moment().add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
   "date": moment().format("YYYY-MM-DD"),
   "heure_debut": moment().add(1, 'hours').format("HH:mm"),
   "heure_fin": moment().add(3, 'hours').format("HH:mm"),
