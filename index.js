@@ -842,6 +842,37 @@ app.get('/moi', function (req, res) {
 })
 
 
+app.put('/moi', function (req, res) {
+  console.log('GET /moi')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+
+  if (req.headers['authorization'] === 'Bearer ' + id1) {
+
+    let moi = {
+      "email": "test@ekito.fr",
+      "nom": "Nomtest",
+      "prenom": "Prenom-test",
+      "sexe": "F",
+      "date_naissance": "1996-08-19",
+      "avatar": "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar4.png"
+    }
+
+    res.send(moi);
+  } else if (req.headers['authorization'] === 'Bearer ' + id2) {
+
+    let moi = {
+      "email": "test3@ekito.fr",
+      "sexe": "M",
+      "date_naissance": "1975-08-02"
+    }
+
+    res.send(moi);
+  } else {
+    res.sendStatus(401);
+  }
+})
+
 app.get('/hotes/:id/services', function (req, res) {
 
   let services = [{
