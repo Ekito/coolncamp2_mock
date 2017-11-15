@@ -514,6 +514,8 @@ app.get('/moi/sejours/:id/eta', function (req, res) {
       "debut": "2017-10-22T10:03:00+02:00",
       "label": "10:30 - 11:30"
     }]
+
+    res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
     res.send(payload);
   } else { res.sendStatus(404); }
 });
@@ -702,6 +704,7 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
         "label": "Travail"
       }
     ];
+    res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
     res.send(types);
   })
 
@@ -931,6 +934,7 @@ app.get('/hotes/:id/services', function (req, res) {
     }
   ];
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   res.send(services);
 })
 
@@ -993,6 +997,7 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     ]
   };
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   if (req.params.idService === "59b7af89ed44090f26a2c27e") {
     res.send(service_1);
   } else if (req.params.idService === "5609818b0db27a0300b23d59") {
@@ -1034,6 +1039,7 @@ app.get('/hotes/:id/infos', function (req, res) {
     }
   ];
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   res.send(infos);
 })
 
@@ -1091,6 +1097,7 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     ]
   };
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   if (req.params.idInfo === "59b7af89ed44090f26a2c27e") {
     res.send(info_1);
   } else if (req.params.idInfo === "5609818b0db27a0300b23d59") {
@@ -1148,6 +1155,7 @@ app.get('/hotes/:id/offres', function (req, res) {
       "soustitre": "Nous vous attendons"
     }
   ];
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   res.send(offres);
 })
 
@@ -1208,6 +1216,7 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     ]
   };
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   if (req.params.idOffre === "59b8efe70fc2de9806432513") {
     res.send(offre_1);
   } else if (req.params.idOffre === "56086a22d3bfcf03005f7ab0") {
@@ -1277,6 +1286,7 @@ app.get('/hotes/:id/tourisme', function (req, res) {
       "soustitre": "best school in france"
     }
   ];
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   res.send(tourisme);
 })
 
@@ -1337,6 +1347,7 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     ]
   };
 
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
   if (req.params.idTourisme === "5811f11bb372dd0c66b62dde") {
     res.send(tourisme_1);
   } else if (req.params.idTourisme === "596c7fa1c0633ece232d195f") {
