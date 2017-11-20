@@ -11,6 +11,19 @@ app.use(bodyParser.json())
 let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0QGVraXRvLmZyIn0.9qhlq0d5LOcsCxuz_ldmXX3ipvMY1bEN2rHEYtSZeaU"
 let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
 
+app.get('/auth/out', function (req, res) {
+  
+    console.log('POST /auth/out')
+    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+    console.log('body: ' + JSON.stringify(req.body, null, 2))
+
+    if (!req.headers['authorization']) {
+      res.sendStatus(400);
+    } else { 
+       res.sendStatus(200);
+    }
+})
+
 /**
  * URL pour tester
  *
@@ -33,7 +46,9 @@ app.post('/auth/connexion', function (req, res) {
   let login = req.body.login;
   let password = req.body.password;
 
-  if (login === "test@ekito.fr" && password === "ekito") {
+  if (!req.body.issuer) {
+    res.sendStatus(400);
+  } else if (login === "test@ekito.fr" && password === "ekito") {
     res.send(JSON.stringify({
       id: id1,
       refresh: id1
@@ -73,13 +88,17 @@ app.post('/auth/refresh', function (req, res) {
 
 app.post('/auth/demande-raz-mdp', function (req, res) {
   let login = req.body.login;
-  res.sendStatus(200);
+  if (!req.body.issuer) {
+    res.sendStatus(400);
+  } else {
+    res.sendStatus(200);
+  }
 })
 
-app.post('/auth/creer-compte', function (req, res) {
+app.post('/customer/new', function (req, res) {
   let login = req.body.login;
 
-  if (login === "test@ekito.fr") {
+  if (!req.body.issuer || login === "test@ekito.fr") {
     res.sendStatus(400);
   } else {
     res.sendStatus(200);
@@ -141,42 +160,42 @@ app.get('/hotes/:id', function (req, res) {
     "tel": "+339 70 77 43 29",
     "email": "contact@coolncamp.com",
     "rs": [{
-      "label": "Facebook",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Twitter",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Instagram",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Pinterest",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Youtube",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "TripAdvisor",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Google+",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "LinkedIn",
-      "url": "https://www.facebook.com/238129529603295"
-    },
-    {
-      "label": "Zoover",
-      "url": "https://www.facebook.com/238129529603295"
-    }
-],
+        "label": "Facebook",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Pinterest",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Youtube",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "TripAdvisor",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Google+",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Zoover",
+        "url": "https://www.facebook.com/238129529603295"
+      }
+    ],
     "media": {
       "image_thumbnail": "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_parc-aquatique.jpg",
       "images": [
@@ -235,15 +254,16 @@ app.get('/hotes/:id', function (req, res) {
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_plage-de-trez.jpg"
       ],
       "videos": [{
-        "titre": "Surf session",
-        "image_thumbnail": "https://img.youtube.com/vi/QApgShOdFUk/maxresdefault.jpg",
-        "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
-      },
-      {
-      "titre": "UCPA",
-      "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
-      "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
-      }]
+          "titre": "Surf session",
+          "image_thumbnail": "https://img.youtube.com/vi/QApgShOdFUk/maxresdefault.jpg",
+          "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
+        },
+        {
+          "titre": "UCPA",
+          "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
+          "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
+        }
+      ]
     }
   }
 
@@ -279,7 +299,7 @@ app.get('/hotes/:id', function (req, res) {
         "titre": "UCPA",
         "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
-        }]
+      }]
     }
   }
 
@@ -298,7 +318,7 @@ app.get('/hotes/:id', function (req, res) {
 })
 
 app.get('/moi/messages', function (req, res) {
-    let messages = [{
+  let messages = [{
       id: "12345567889",
       emetteur: "Le Fief",
       texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
@@ -312,7 +332,7 @@ app.get('/moi/messages', function (req, res) {
     }
   ];
 
-    res.send(messages);
+  res.send(messages);
 })
 
 app.delete('/moi/messages/:id', function (req, res) {
@@ -433,10 +453,9 @@ app.get('/moi/sejours/:id', function (req, res) {
     "pays": "France",
     "proprietaire": true,
     "restriction_service": ["tickets", "conforts"],
-    "sejournants": [
-      {
-      email: "test@ekito.fr",
-      avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar3.png"
+    "sejournants": [{
+        email: "test@ekito.fr",
+        avatar: "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar3.png"
       },
       {
         email: "invite1@ekito.fr",
@@ -456,7 +475,7 @@ app.get('/moi/sejours/:id', function (req, res) {
       {
         email: "revoke@error.com",
       }
-  ],
+    ],
     "categorie": "Mobil home 6 places",
     "eta_debut_date_aff": "2017-07-30"
   }
@@ -507,17 +526,19 @@ app.get('/moi/sejours/:id/eta', function (req, res) {
     let payload = [{
       "debut": "2017-10-22T09:30:00+02:00",
       "label": "9:00 - 9:30"
-    },{
+    }, {
       "debut": "2017-10-22T10:00:00+02:00",
       "label": "10:00 - 10:30"
-    },{
+    }, {
       "debut": "2017-10-22T10:03:00+02:00",
       "label": "10:30 - 11:30"
     }]
 
     res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
     res.send(payload);
-  } else { res.sendStatus(404); }
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 app.post('/moi/sejours/:id/eta', function (req, res) {
@@ -528,8 +549,7 @@ app.post('/moi/sejours/:id/eta', function (req, res) {
 app.get('/moi/sejours/:id/conforts', function (req, res) {
   if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
 
-    let payload = [
-      {
+    let payload = [{
         "id": "1",
         "titre": "Barbecue",
         "description": "Description longue, blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla ",
@@ -554,38 +574,41 @@ app.get('/moi/sejours/:id/conforts', function (req, res) {
         "titre": "Tongs",
         "description": "Elles sont  neuves !",
         "prix": "8€/day"
-      }]
+      }
+    ]
 
-      let payload2 = [
-        {
-           "id":"1",
-           "titre":"Barbecue",
-           "description":"L'utilisation des barbecues à charbon est interdite sur le camping, nous vous fournissons les recharges de gaz ",
-           "prix":"8€/jour",
-           "derniere_date_demande":"2017-10-22T09:30:00+02:00"
-        },
-        {
-           "id":"2",
-           "titre":"Kit Bébé",
-           "description":"Comprend la chaise haute, la baignoire et le lit parapluie ",
-           "prix":"14€/Sem"
-        },
-        {
-           "id":"3",
-           "titre":"Ménage de fin de séjour",
-           "description":"N'inclut pas le coin cuisine et la vaisselle",
-           "prix":"90€",
-           "derniere_date_demande":"2017-10-22T09:30:00+02:00"
-        },
-        {
-           "id":"4",
-           "titre":"Location de Vélo",
-           "description":"Siège bébé inclus et anti-vol",
-           "prix":"8€/jour"
-        }]
+    let payload2 = [{
+        "id": "1",
+        "titre": "Barbecue",
+        "description": "L'utilisation des barbecues à charbon est interdite sur le camping, nous vous fournissons les recharges de gaz ",
+        "prix": "8€/jour",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "2",
+        "titre": "Kit Bébé",
+        "description": "Comprend la chaise haute, la baignoire et le lit parapluie ",
+        "prix": "14€/Sem"
+      },
+      {
+        "id": "3",
+        "titre": "Ménage de fin de séjour",
+        "description": "N'inclut pas le coin cuisine et la vaisselle",
+        "prix": "90€",
+        "derniere_date_demande": "2017-10-22T09:30:00+02:00"
+      },
+      {
+        "id": "4",
+        "titre": "Location de Vélo",
+        "description": "Siège bébé inclus et anti-vol",
+        "prix": "8€/jour"
+      }
+    ]
 
-      res.send(payload2);
-  } else { res.sendStatus(404); }
+    res.send(payload2);
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 app.post('/moi/sejours/:id/conforts', function (req, res) {
@@ -627,41 +650,41 @@ app.post('/moi/sejours/import', function (req, res) {
 
 app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
 
-    let now = new Date();
-    let end = new Date();
-    end.setDate(end.getDate() + 15);
+  let now = new Date();
+  let end = new Date();
+  end.setDate(end.getDate() + 15);
 
-    let etat_1_non_fait = {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: rgba(0,0,0,.05) !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
-    };
+  let etat_1_non_fait = {
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: rgba(0,0,0,.05) !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+  };
 
-    let etat_2_fait = {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: rgba(0,0,0,.05) !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
-      "incident": {
-        "etat": true,
-        "message": "Le lit s'est cassé."
-      },
-      "proprete": {
-        "etat": false,
-        "message": "Write Me A Song situation I would. Very much like to be #very good questions pre-order pre-order. Cat stickers awkward sparkly dress pie. Darling I'm a nightmare dressed. Like a daydream banana quinoa muffin Andrea Swift operation. Sparrow country pre-order mean Met. Gala Tree Paine pegacorn crop tops #bestower of. Guitar picks 1989 crop tops 13 Management. Red banana quinoa muffin pegacorn #🦆 mean. Festive Romeo Meredith Grey Ed. Sheeran stage five clinger Kanye West Famous #WHEN. PEOPLE I LOVE FALL IN. LOVE #right on target Jaime King so basically situation mean Katy. Perry chill Ed Sheeran #WHEN. PEOPLE I LOVE FALL IN LOVE Subway. Meredith Grey darling I'm a nightmare dressed like a daydream. 22 pop Loft 89 John Mayer #so little time flew. Me to places I'd never."
-      },
-      "date": "2017-10-22T21:30:00+02:00"
-    }
+  let etat_2_fait = {
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: rgba(0,0,0,.05) !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+    "incident": {
+      "etat": true,
+      "message": "Le lit s'est cassé."
+    },
+    "proprete": {
+      "etat": false,
+      "message": "Write Me A Song situation I would. Very much like to be #very good questions pre-order pre-order. Cat stickers awkward sparkly dress pie. Darling I'm a nightmare dressed. Like a daydream banana quinoa muffin Andrea Swift operation. Sparrow country pre-order mean Met. Gala Tree Paine pegacorn crop tops #bestower of. Guitar picks 1989 crop tops 13 Management. Red banana quinoa muffin pegacorn #🦆 mean. Festive Romeo Meredith Grey Ed. Sheeran stage five clinger Kanye West Famous #WHEN. PEOPLE I LOVE FALL IN. LOVE #right on target Jaime King so basically situation mean Katy. Perry chill Ed Sheeran #WHEN. PEOPLE I LOVE FALL IN LOVE Subway. Meredith Grey darling I'm a nightmare dressed like a daydream. 22 pop Loft 89 John Mayer #so little time flew. Me to places I'd never."
+    },
+    "date": "2017-10-22T21:30:00+02:00"
+  }
 
-    let etat_3_non_fait_date_depassee = {
-      "message": "date limite dépassée"
-    };
+  let etat_3_non_fait_date_depassee = {
+    "message": "date limite dépassée"
+  };
 
-    if (req.params.id === "sejour_1") {
-      res.send(etat_1_non_fait);
-    } else if (req.params.id === "sejour_2") {
-      res.send(etat_3_non_fait_date_depassee);
-    } else if (req.params.id === "sejour_3") {
-      res.send(etat_2_fait);
-    } else {
-      res.sendStatus(404);
-    }
-  });
+  if (req.params.id === "sejour_1") {
+    res.send(etat_1_non_fait);
+  } else if (req.params.id === "sejour_2") {
+    res.send(etat_3_non_fait_date_depassee);
+  } else if (req.params.id === "sejour_3") {
+    res.send(etat_2_fait);
+  } else {
+    res.sendStatus(404);
+  }
+});
 
 app.post('/moi/sejours/:id/etat-des-lieux', function (req, res) {
   console.log('POST /moi/sejours/:id/etat-des-lieux')
@@ -682,102 +705,110 @@ app.post('/moi/sejours/:id/etat-des-lieux', function (req, res) {
   if (req.body.incident.message === "404") {
     res.sendStatus(404)
   } else
-  res.send(response);
+    res.send(response);
 });
 
 app.get('/moi/sejours/:id/type-sejour', function (req, res) {
 
-    let types = [{
-        "id": "561e70142bd365546734bce1",
-        "label": "En famille"
+  let types = [{
+      "id": "561e70142bd365546734bce1",
+      "label": "En famille"
+    },
+    {
+      "id": "58d3e16352b2c093557c7396",
+      "label": "Entre amis"
+    },
+    {
+      "id": "5524d5e22296c66e13e34fa4",
+      "label": "Solo"
+    },
+    {
+      "id": "5609991711533b03005eed06",
+      "label": "Travail"
+    }
+  ];
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
+  res.send(types);
+})
+
+
+app.get('/moi/sejours/:id/tickets', function (req, res) {
+
+  let tickets = {
+    "description": "Notre offre super confort est garantie sans problème… durable",
+    "tickets": [{
+        "date": "2017-10-26T21:30:00+02:00",
+        "emetteur": "Jean Dupont",
+        "message": "Bonjour\n\nL'ampoule du plafonnier du salon ne s'allume plus."
       },
       {
-        "id": "58d3e16352b2c093557c7396",
-        "label": "Entre amis"
+        "date": "2017-10-25T21:30:00+02:00",
+        "emetteur": "j.dupont@gmail.com",
+        "message": "Bonjour\n\nLa clim est en panne."
       },
       {
-        "id": "5524d5e22296c66e13e34fa4",
-        "label": "Solo"
-      },
-      {
-        "id": "5609991711533b03005eed06",
-        "label": "Travail"
+        "date": "2017-10-23T21:30:00+02:00",
+        "emetteur": "m.dupont@gmail.com",
+        "message": "Pas de croissants livrés le matin ?"
       }
-    ];
-    res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
-    res.send(types);
-  })
+    ]
+  };
+  res.send(tickets);
+})
 
+app.post('/moi/sejours/:id/tickets', function (req, res) {
+  let response = {
+    "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
+  }
+  res.send(response);
+})
 
-  app.get('/moi/sejours/:id/tickets', function (req, res) {
+app.post('/moi/sejours/:id/type-sejour', function (req, res) {
+  console.log('POST /moi/sejours/:id/type-sejour')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+  res.sendStatus(200);
+})
 
-      let tickets = {
-        "description": "Notre offre super confort est garantie sans problème… durable",
-        "tickets": [
-          {
-            "date": "2017-10-26T21:30:00+02:00",
-            "emetteur": "Jean Dupont",
-            "message": "Bonjour\n\nL'ampoule du plafonnier du salon ne s'allume plus."
-          },
-          {
-            "date": "2017-10-25T21:30:00+02:00",
-            "emetteur": "j.dupont@gmail.com",
-            "message": "Bonjour\n\nLa clim est en panne."
-          },
-          {
-            "date": "2017-10-23T21:30:00+02:00",
-            "emetteur": "m.dupont@gmail.com",
-            "message": "Pas de croissants livrés le matin ?"
-          }
-        ]
-      };
-      res.send(tickets);
-  })
-
-  app.post('/moi/sejours/:id/tickets', function (req, res) {
-    let response = {
-      "reponse": "Votre demande a bien été reçue, elle sera traitée dans les plus brefs délais"
-    }
-    res.send(response);
-  })
-
-  app.post('/moi/sejours/:id/type-sejour', function (req, res) {
-    console.log('POST /moi/sejours/:id/type-sejour')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
+app.post('/moi/sejours/:id/sejournants/inviter', function (req, res) {
+  console.log('POST /moi/sejours/:id/sejournants/inviter')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+  let email = req.body.email;
+  if (email === "invite@error.com") {
+    res.sendStatus(400)
+  } else if (req.params.id === "sejour_1") {
+    res.sendStatus(404)
+  } else {
     res.sendStatus(200);
-  })
-
-  app.post('/moi/sejours/:id/sejournants/inviter', function (req, res) {
-    console.log('POST /moi/sejours/:id/sejournants/inviter')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
-    let email = req.body.email;
-    if (email === "invite@error.com") { res.sendStatus(400) } else if
-    (req.params.id === "sejour_1") {res.sendStatus(404) } else {
-      res.sendStatus(200);
-    }
-  })
-  app.post('/moi/sejours/:id/sejournants/relancer', function (req, res) {
-    console.log('POST /moi/sejours/:id/sejournants/relancer')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
-    let email = req.body.email;
-    if (email === "sendagain@error.com") { res.sendStatus(400) } else if
-    (req.params.id === "sejour_1") { res.sendStatus(404) } else {
-      res.sendStatus(200);
-    }
-  })
-  app.post('/moi/sejours/:id/sejournants/revoquer', function (req, res) {
-    console.log('POST /moi/sejours/:id/sejournants/revoquer')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
-    let email = req.body.email;
-    if (email === "revoke@error.com") { res.sendStatus(400) } else if
-    (req.params.id === "sejour_1") { res.sendStatus(404) } else {
-      res.sendStatus(200);
-    }
-  })
+  }
+})
+app.post('/moi/sejours/:id/sejournants/relancer', function (req, res) {
+  console.log('POST /moi/sejours/:id/sejournants/relancer')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+  let email = req.body.email;
+  if (email === "sendagain@error.com") {
+    res.sendStatus(400)
+  } else if (req.params.id === "sejour_1") {
+    res.sendStatus(404)
+  } else {
+    res.sendStatus(200);
+  }
+})
+app.post('/moi/sejours/:id/sejournants/revoquer', function (req, res) {
+  console.log('POST /moi/sejours/:id/sejournants/revoquer')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+  let email = req.body.email;
+  if (email === "revoke@error.com") {
+    res.sendStatus(400)
+  } else if (req.params.id === "sejour_1") {
+    res.sendStatus(404)
+  } else {
+    res.sendStatus(200);
+  }
+})
 
 app.post('/moi/hotes-promos/import', function (req, res) {
   let code = req.body.code;
@@ -950,8 +981,7 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
-    "documents": [
-      {
+    "documents": [{
         "label": "Politique conf",
         "url": "https://www.placealemploi.fr/divers/CGU.pdf"
       },
@@ -1054,8 +1084,7 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
-    "documents": [
-      {
+    "documents": [{
         "label": "Politique conf",
         "url": "https://www.placealemploi.fr/divers/CGU.pdf"
       },
@@ -1171,8 +1200,7 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
-    "documents": [
-      {
+    "documents": [{
         "label": "Politique conf",
         "url": "https://www.placealemploi.fr/divers/CGU.pdf"
       },
@@ -1302,8 +1330,7 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
-    "documents": [
-      {
+    "documents": [{
         "label": "Politique conf",
         "url": "https://www.placealemploi.fr/divers/CGU.pdf"
       },
@@ -1484,30 +1511,195 @@ console.log(moment().format("YYYY-MM-DDTHH:mm:ssZ"))
 console.log(moment())
 
 app.get('/hotes/:id/activites', function (req, res) {
-    
-  let activites = [
-  {
-    "titre": "Mini Club / Kids Club",
-    "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
-    "duree": "02:00",
-    "meteo": "partlycloudy",
-    "id": "activite_1",
-    "couleur": "#46b29d",
-    "rappel": true,
-    "avis": {
-      "total": 23,
-      "note": 3.5
+
+  let activites = [{
+      "titre": "Mini Club / Kids Club",
+      "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+      "duree": "02:00",
+      "meteo": "partlycloudy",
+      "id": "activite_1",
+      "couleur": "#46b29d",
+      "rappel": true,
+      "avis": {
+        "total": 23,
+        "note": 3.5
+      }
+    },
+    {
+      "titre": "Atelier Peinture ",
+      "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+      "duree": "01:00",
+      "meteo": "partlycloudy",
+      "id": "activite_2",
+      "couleur": "#de4949",
+      "rappel": false,
+      "avis": {
+        "total": 2,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Danses du village / Club dance",
+      "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+      "duree": "01:00",
+      "meteo": "sunny",
+      "id": "activite_3",
+      "couleur": "#f0ca4d",
+      "rappel": false,
+      "avis": {
+        "total": 4,
+        "note": 2
+      }
+    },
+    {
+      "titre": "Tir à l'Arc / Archery",
+      "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+      "duree": "01:00",
+      "meteo": "clear",
+      "id": "activite_4",
+      "couleur": "#324d5c",
+      "rappel": true,
+      "avis": {
+        "total": 76,
+        "note": 4
+      }
+    },
+    {
+      "titre": "Apéro Gourmand / English Apéro François",
+      "date_debut_iso": moment().subtract(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().format("YYYY-MM-DD"),
+      "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
+      "duree": "2:00",
+      "meteo": "rain",
+      "id": "activite_5",
+      "couleur": "#46b29d",
+      "rappel": true,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Soirée Burger Frites / Burger & chips",
+      "date_debut_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'hours').format("HH:mm"),
+      "duree": "02:00",
+      "meteo": "clear",
+      "id": "activite_6",
+      "couleur": "#de4949",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Mini-disco / Mini Disco",
+      "date_debut_iso": moment().add(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().add(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'days').add(1, 'hours').format("HH:mm"),
+      "duree": "02:00",
+      "id": "activite_7",
+      "couleur": "#f0ca4d",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Step Aérobic",
+      "date_debut_iso": moment().add(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().add(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'days').add(1, 'hours').format("HH:mm"),
+      "duree": "02:00",
+      "meteo": "clear",
+      "id": "activite_8",
+      "couleur": "#324d5c",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Inauguration Terrain de PADEL",
+      "date_debut_iso": moment().add(1, 'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().add(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'days').add(3, 'hours').format("HH:mm"),
+      "duree": "01:00",
+      "meteo": "clear",
+      "id": "activite_9",
+      "couleur": "#324d5c",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Marché au Village",
+      "date_debut_iso": moment().add(1, 'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().add(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'days').add(3, 'hours').format("HH:mm"),
+      "duree": "01:00",
+      "meteo": "clear",
+      "id": "activite_10",
+      "couleur": "#324d5c",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
+    },
+    {
+      "titre": "Pot d'accueil & soirée dansante / Welcome drink & dance",
+      "date_debut_iso": moment().add(1, 'days').add(5, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date_fin_iso": moment().add(1, 'days').add(7, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
+      "date": moment().add(1, 'days').format("YYYY-MM-DD"),
+      "heure_debut": moment().add(1, 'days').add(5, 'hours').format("HH:mm"),
+      "duree": "02:00",
+      "meteo": "clear",
+      "id": "activite_11",
+      "couleur": "#324d5c",
+      "rappel": false,
+      "avis": {
+        "total": 0,
+        "note": 0
+      }
     }
-  },
-  {
+  ];
+  res.send(activites);
+});
+
+app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
+
+  let activite_2 = {
     "titre": "Atelier Peinture ",
     "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
+    "heure_fin": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
     "duree": "01:00",
     "meteo": "partlycloudy",
     "id": "activite_2",
@@ -1516,14 +1708,21 @@ app.get('/hotes/:id/activites', function (req, res) {
     "avis": {
       "total": 2,
       "note": 0
-    }
-  },
-  {
+    },
+    "image": "https://www.mairie-houplin-ancoisne.fr/wp-content/uploads/2014/10/atelier_peinture_houplin.jpg",
+    "categorie": "Sport",
+    "lieu": "Place du marché",
+    "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+    "avis_autorise": false
+  }
+
+  let activite_3 = {
     "titre": "Danses du village / Club dance",
     "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+    "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
     "duree": "01:00",
     "meteo": "sunny",
     "id": "activite_3",
@@ -1532,14 +1731,21 @@ app.get('/hotes/:id/activites', function (req, res) {
     "avis": {
       "total": 4,
       "note": 2
-    }
-  },
-  {
+    },
+    "image": "https://static.secureholiday.net/static/CMS/photos/000/001/000001626.jpg",
+    "categorie": "Sport",
+    "lieu": "Place du marché",
+    "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+    "avis_autorise": true
+  }
+
+  let activite_4 = {
     "titre": "Tir à l'Arc / Archery",
     "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
+    "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
     "duree": "01:00",
     "meteo": "clear",
     "id": "activite_4",
@@ -1548,249 +1754,68 @@ app.get('/hotes/:id/activites', function (req, res) {
     "avis": {
       "total": 76,
       "note": 4
-    }
-  },
-  {
+    },
+    "categorie": "Sport",
+    "lieu": "Place du marché",
+    "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
+    "mon_avis": {
+      "commentaire": "Trop joli marché",
+      "note": 3
+    },
+    "avis_autorise": true
+  }
+
+  let activite_5 = {
     "titre": "Apéro Gourmand / English Apéro François",
     "date_debut_iso": moment().subtract(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date_fin_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().format("YYYY-MM-DD"),
     "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
+    "heure_fin": moment().add(1, 'hours').format("HH:mm"),
     "duree": "2:00",
-    "meteo": "rain",
+    "meteo": "clear",
     "id": "activite_5",
     "couleur": "#46b29d",
     "rappel": true,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
+    "image": "http://www.nouveautrader.com/v3/wp-content/uploads/2012/09/photosNT_21092012apero.JPG",
+    "categorie": "Diététique",
+    "lieu": "Au resto",
+    "description": "Happy hour à partir de 8:00 du matin jusqu'à 23:30",
+    "url": "https://www.google.com/",
+    "avis_autorise": false
+  }
+
+  let activite_6 = {
     "titre": "Soirée Burger Frites / Burger & chips",
     "date_debut_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date_fin_iso": moment().add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
     "date": moment().format("YYYY-MM-DD"),
     "heure_debut": moment().add(1, 'hours').format("HH:mm"),
+    "heure_fin": moment().add(3, 'hours').format("HH:mm"),
     "duree": "02:00",
     "meteo": "clear",
     "id": "activite_6",
     "couleur": "#de4949",
     "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
-    "titre": "Mini-disco / Mini Disco",
-    "date_debut_iso": moment().add(1,'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().add(1,'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
-    "duree": "02:00",
-    "id": "activite_7",
-    "couleur": "#f0ca4d",
-    "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
-    "titre": "Step Aérobic",
-    "date_debut_iso": moment().add(1,'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().add(1,'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().add(1,'days').add(1, 'hours').format("HH:mm"),
-    "duree": "02:00",
-    "meteo": "clear",
-    "id": "activite_8",
-    "couleur": "#324d5c",
-    "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
-    "titre": "Inauguration Terrain de PADEL",
-    "date_debut_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().add(1,'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().add(1,'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
-    "duree": "01:00",
-    "meteo": "clear",
-    "id": "activite_9",
-    "couleur": "#324d5c",
-    "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
-    "titre": "Marché au Village",
-    "date_debut_iso": moment().add(1,'days').add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().add(1,'days').add(4, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().add(1,'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().add(1,'days').add(3, 'hours').format("HH:mm"),
-    "duree": "01:00",
-    "meteo": "clear",
-    "id": "activite_10",
-    "couleur": "#324d5c",
-    "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
-  },
-  {
-    "titre": "Pot d'accueil & soirée dansante / Welcome drink & dance",
-    "date_debut_iso": moment().add(1,'days').add(5, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date_fin_iso": moment().add(1,'days').add(7, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-    "date": moment().add(1,'days').format("YYYY-MM-DD"),
-    "heure_debut": moment().add(1,'days').add(5, 'hours').format("HH:mm"),
-    "duree": "02:00",
-    "meteo": "clear",
-    "id": "activite_11",
-    "couleur": "#324d5c",
-    "rappel": false,
-    "avis": {
-      "total": 0,
-      "note": 0
-    }
+    "image": "https://www.ninkasi.fr/media/diaporama-home/ninkasi-burger.jpg?t=2014-11-20+13%3A49%3A08",
+    "categorie": "Diététique",
+    "lieu": "Au resto",
+    "description": "Les meilleurs burgers du camping (il y en a même des végés miam) !",
+    "url": "https://www.google.com/",
+    "avis_autorise": false
   }
-  ];
-  res.send(activites);
-});
 
-app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
- 
-let activite_2 = {
-  "titre": "Atelier Peinture ",
-  "date_debut_iso": moment().subtract(1, 'days').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date_fin_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
-  "heure_debut": moment().subtract(1, 'days').format("HH:mm"),
-  "heure_fin": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
-  "duree": "01:00",
-  "meteo": "partlycloudy",
-  "id": "activite_2",
-  "couleur": "#de4949",
-  "rappel": false,
-  "avis": {
-    "total": 2,
-    "note": 0
-  },
-  "image": "https://www.mairie-houplin-ancoisne.fr/wp-content/uploads/2014/10/atelier_peinture_houplin.jpg",
-  "categorie": "Sport",
-  "lieu": "Place du marché",
-  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
-  "avis_autorise": false
-}
-
-let activite_3 =   {
-  "titre": "Danses du village / Club dance",
-  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
-  "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
-  "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
-  "duree": "01:00",
-  "meteo": "sunny",
-  "id": "activite_3",
-  "couleur": "#f0ca4d",
-  "rappel": false,
-  "avis": {
-    "total": 4,
-    "note": 2
-  },
-  "image": "https://static.secureholiday.net/static/CMS/photos/000/001/000001626.jpg",
-  "categorie": "Sport",
-  "lieu": "Place du marché",
-  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
-  "avis_autorise": true
-}
-
-let activite_4 = 
-{
-  "titre": "Tir à l'Arc / Archery",
-  "date_debut_iso": moment().subtract(1, 'days').add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date_fin_iso": moment().subtract(1, 'days').add(2, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date": moment().subtract(1, 'days').format("YYYY-MM-DD"),
-  "heure_debut": moment().subtract(1, 'days').add(1, 'hours').format("HH:mm"),
-  "heure_fin": moment().subtract(1, 'days').add(2, 'hours').format("HH:mm"),
-  "duree": "01:00",
-  "meteo": "clear",
-  "id": "activite_4",
-  "couleur": "#324d5c",
-  "rappel": true,
-  "avis": {
-    "total": 76,
-    "note": 4
-  },
-  "categorie": "Sport",
-  "lieu": "Place du marché",
-  "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
-  "mon_avis": {
-    "commentaire": "Trop joli marché",
-    "note": 3
-  },
-  "avis_autorise": true
-}
-
-let activite_5 = {
-  "titre": "Apéro Gourmand / English Apéro François",
-  "date_debut_iso": moment().subtract(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date_fin_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date": moment().format("YYYY-MM-DD"),
-  "heure_debut": moment().subtract(1, 'hours').format("HH:mm"),
-  "heure_fin": moment().add(1, 'hours').format("HH:mm"),
-  "duree": "2:00",
-  "meteo": "clear",
-  "id": "activite_5",
-  "couleur": "#46b29d",
-  "rappel": true,
-  "image": "http://www.nouveautrader.com/v3/wp-content/uploads/2012/09/photosNT_21092012apero.JPG",
-  "categorie": "Diététique",
-  "lieu": "Au resto",
-  "description": "Happy hour à partir de 8:00 du matin jusqu'à 23:30",
-  "url": "https://www.google.com/",
-  "avis_autorise": false
-}
-
-let activite_6 = {
-  "titre": "Soirée Burger Frites / Burger & chips",
-  "date_debut_iso": moment().add(1, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date_fin_iso": moment().add(3, 'hours').format("YYYY-MM-DDTHH:mm:ssZ"),
-  "date": moment().format("YYYY-MM-DD"),
-  "heure_debut": moment().add(1, 'hours').format("HH:mm"),
-  "heure_fin": moment().add(3, 'hours').format("HH:mm"),
-  "duree": "02:00",
-  "meteo": "clear",
-  "id": "activite_6",
-  "couleur": "#de4949",
-  "rappel": false,
-  "image": "https://www.ninkasi.fr/media/diaporama-home/ninkasi-burger.jpg?t=2014-11-20+13%3A49%3A08",
-  "categorie": "Diététique",
-  "lieu": "Au resto",
-  "description": "Les meilleurs burgers du camping (il y en a même des végés miam) !",
-  "url": "https://www.google.com/",
-  "avis_autorise": false
-} 
-
-if (req.params.activiteId === 'activite_2') {
-  res.send(activite_2);  
-} else if (req.params.activiteId === 'activite_3') {
-  res.send(activite_3);  
-} else if (req.params.activiteId === 'activite_4') {
-  res.send(activite_4);  
-} else if (req.params.activiteId === 'activite_5') {
-  res.send(activite_5);  
-} else  {
-  res.send(activite_6);  
-} 
+  if (req.params.activiteId === 'activite_2') {
+    res.send(activite_2);
+  } else if (req.params.activiteId === 'activite_3') {
+    res.send(activite_3);
+  } else if (req.params.activiteId === 'activite_4') {
+    res.send(activite_4);
+  } else if (req.params.activiteId === 'activite_5') {
+    res.send(activite_5);
+  } else {
+    res.send(activite_6);
+  }
 });
 
 app.post('/hotes/:hoteId/activites/:activiteId/rappel', function (req, res) {
