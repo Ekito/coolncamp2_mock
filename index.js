@@ -101,7 +101,10 @@ app.post('/customer/new', function (req, res) {
   if (!req.body.issuer || login === "test@ekito.fr") {
     res.sendStatus(400);
   } else {
-    res.sendStatus(200);
+    res.send(JSON.stringify({
+      id: id1,
+      refresh: id1
+    }))
   }
 })
 
