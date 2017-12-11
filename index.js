@@ -111,11 +111,11 @@ app.post('/customer/new', function (req, res) {
 app.get('/app/versions', function (req, res) {
   let payload = {
     "android": {
-      "version_minimale": "2.0.0",
+      "version_minimale": "1.0.0",
       "version_store": "2.0.0"
     },
     "ios": {
-      "version_minimale": "2.0.0",
+      "version_minimale": "1.0.0",
       "version_store": "2.0.0"
     }
   }
