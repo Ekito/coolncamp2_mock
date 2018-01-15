@@ -1716,7 +1716,10 @@ app.get('/hotes/:hoteId/activites/:activiteId', function (req, res) {
     "categorie": "Sport",
     "lieu": "Place du marché",
     "description": "Nous allons faire le tour du marché pour voir les supers sacs qu'ils vendent",
-    "avis_autorise": false
+    "avis_autorise": false,
+    "document": "http://www.pdf995.com/samples/pdf.pdf",
+    "video": "https://www.youtube.com/watch?v=l7dnTU-GgEk",
+    "url": "http://mariethomas.fr/cours_et_stages.html"
   }
 
   let activite_3 = {
