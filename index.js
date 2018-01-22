@@ -1856,6 +1856,8 @@ app.post('/hotes/:hoteId/activites/:activiteId/noter', function (req, res) {
   res.sendStatus(200);
 });
 
+app.use('/static', express.static('public'));
+
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
 })
