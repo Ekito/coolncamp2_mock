@@ -164,7 +164,8 @@ app.get('/hotes/:id', function (req, res) {
       "lng": -2.1670854091644287
     },
     "etoiles": 4,
-    "ambiance": "ZEN",
+    "ambiance": "CLUB",
+    "ambiance_logo": "http://hq.ekito.fr:30000/static/club.svg",
     "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
     "horaire": "9h00 à 19h00",
     "tel": "+339 70 77 43 29",
@@ -395,8 +396,8 @@ app.get('/moi/sejours', function (req, res) {
         "lng": -2.1670854091644287
       },
       "etoiles": 4,
-      "ambiance": "ZEN",
-      "ambiance_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
+      "ambiance": "CLUB",
+      "ambiance_logo": "http://hq.ekito.fr:30000/static/club.svg",
       "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",        
       "ville": "Saint-Brevin-Les-Pins",
       "pays": "France",
