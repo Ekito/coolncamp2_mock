@@ -142,6 +142,10 @@ app.get('/hotes/:id', function (req, res) {
       "lat": 43.31168928024891,
       "lng": 3.36456298828125
     },
+    "etoiles": 5,
+    "ambiance": "CLUB",
+    "qualite": 5,
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
     "horaire": "9h00 à 19h00",
     "tel": "+339 70 77 43 29",
     "email": "contact@coolncamp.com",
@@ -159,6 +163,9 @@ app.get('/hotes/:id', function (req, res) {
       "lat": 47.23534195874878,
       "lng": -2.1670854091644287
     },
+    "etoiles": 4,
+    "ambiance": "ZEN",
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
     "horaire": "9h00 à 19h00",
     "tel": "+339 70 77 43 29",
     "email": "contact@coolncamp.com",
@@ -232,6 +239,10 @@ app.get('/hotes/:id', function (req, res) {
       "lat": 47.86273,
       "lng": -4.095669
     },
+    "etoiles": 5,
+    "ambiance": "ZEN",
+    "qualite": 5,
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
     "horaire": "9h00 à 19h00",
     "tel": "+339 70 77 43 29",
     "email": "contact@coolncamp.com",
@@ -363,6 +374,10 @@ app.get('/moi/sejours', function (req, res) {
         "lat": 43.31168928024891,
         "lng": 3.36456298828125
       },
+      "etoiles": 5,
+      "ambiance": "CLUB",
+      "qualite": 5,
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",  
       "ville": "Vias sur Mer",
       "pays": "France",
       "eta_debut_date_aff": "2017-06-30"
@@ -379,6 +394,10 @@ app.get('/moi/sejours', function (req, res) {
         "lat": 47.23534195874878,
         "lng": -2.1670854091644287
       },
+      "etoiles": 4,
+      "ambiance": "ZEN",
+      "ambiance_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",        
       "ville": "Saint-Brevin-Les-Pins",
       "pays": "France",
       "eta_debut_date_aff": "2017-07-30"
@@ -395,6 +414,10 @@ app.get('/moi/sejours', function (req, res) {
         "lat": 47.86273,
         "lng": -4.095669
       },
+      "etoiles": 5,
+      "ambiance": "ZEN",
+      "qualite": 5,
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
       "ville": "Bénodet",
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
