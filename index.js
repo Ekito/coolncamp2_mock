@@ -135,7 +135,7 @@ app.get('/hotes/:id', function (req, res) {
 
   let hote_1 = {
     "id_hote": "hote_1",
-    "nom": "La Dragonnière",
+    "nom": "Domaine de la Dragonnière",
     "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
     "itineraire": {
       "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
@@ -366,7 +366,7 @@ app.get('/moi/sejours', function (req, res) {
   let sejours = [{
       "id": "sejour_1",
       "id_hote": "hote_1",
-      "nom": "La Dragonnière",
+      "nom": "Domaine de la Dragonnière",
       "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "date_debut": "2017-07-01",
       "date_fin": "2017-07-15",
@@ -443,7 +443,7 @@ app.get('/moi/sejours/:id', function (req, res) {
   let sejour_1 = {
     "id": "sejour_1",
     "id_hote": "hote_1",
-    "nom": "La Dragonnière",
+    "nom": "Domaine de la Dragonnière",
     "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
     "date_debut": "2017-07-01",
     "date_fin": "2017-07-15",
