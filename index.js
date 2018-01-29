@@ -341,6 +341,7 @@ app.get('/moi/messages', function (req, res) {
       id: "12345567889",
       emetteur: "Le Fief",
       texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
+      image: "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_piscine.jpg",
       date: "2017-10-23T21:30:00+02:00"
     },
     {
