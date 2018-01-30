@@ -48,17 +48,17 @@ app.post('/auth/connexion', function (req, res) {
 
   if (!req.body.issuer) {
     res.sendStatus(400);
-  } else if (login === "test@ekito.fr" && password === "ekito") {
+  } else if (login === "test@ekito.fr" && password === "ekito1") {
     res.send(JSON.stringify({
       id: id1,
       refresh: id1
     }))
-  } else if (login === "test3@ekito.fr" && password === "ekito") {
+  } else if (login === "test3@ekito.fr" && password === "ekito1") {
     res.send(JSON.stringify({
       id: id2,
       refresh: id2
     }))
-  } else if (login === "test2@ekito.fr" && password === "ekito") {
+  } else if (login === "test2@ekito.fr" && password === "ekito1") {
     res.sendStatus(400);
   } else {
     res.sendStatus(401);
