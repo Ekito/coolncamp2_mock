@@ -135,7 +135,7 @@ app.get('/hotes/:id', function (req, res) {
 
   let hote_0 = {
     "id_hote": "hote_0",
-    "nom": "Les grands pins",
+    "nom": "Les Grands Pins",
     "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
     "itineraire": {
       "description": "Localisation Les Grands Pins",
@@ -491,7 +491,26 @@ app.get('/moi/sejours', function (req, res) {
     { 
       "id": "sejour_4",
       "id_hote": "hote_0",
-      "nom": "Les grands pins",
+      "nom": "Les Grands Pins",
+      "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
+      "date_debut": now.toISOString().slice(0, 10),
+      "date_fin": end.toISOString().slice(0, 10),
+      "itineraire": {
+        "description": "Localisation Les Grands Pins",
+        "lat": 45.018909,
+        "lng": -1.193664
+      },
+      "etoiles": 5,
+      "ambiance": "CLUB",
+      "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+      "pays": "France",
+      "eta_debut_date_aff": now.toISOString().slice(0, 10)
+    },
+    { 
+      "id": "sejour_5",
+      "id_hote": "hote_0",
+      "nom": "Les Grands Pins",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
       "date_debut": now.toISOString().slice(0, 10),
       "date_fin": end.toISOString().slice(0, 10),
@@ -507,7 +526,6 @@ app.get('/moi/sejours', function (req, res) {
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     }
-  
   
   ];
 
@@ -625,7 +643,7 @@ app.get('/moi/sejours/:id', function (req, res) {
   let sejour_4 =  {
     "id": "sejour_4",
     "id_hote": "hote_0",
-    "nom": "Les grands pins",
+    "nom": "Les Grands Pins",
     "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
     "date_debut": now.toISOString().slice(0, 10),
     "date_fin": end.toISOString().slice(0, 10),
@@ -667,7 +685,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     res.send(sejour_2);
   } else if (req.params.id === "sejour_3") {
     res.send(sejour_3);
-  } else if (req.params.id === "sejour_4") {
+  } else if (req.params.id === "sejour_4" || req.params.id === "sejour_5") {
     res.send(sejour_4);
   } else {
     res.sendStatus(404);
