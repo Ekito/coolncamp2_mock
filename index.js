@@ -153,7 +153,7 @@ app.get('/hotes/:id', function (req, res) {
     },
     "ville": "Lacanau",
     "accroche": "Vos vacances au camping Les Grands Pins",
-    "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt. Accès direct à l’océan par un sentier à travers les dunes, grand espace aquatique avec lagon et toboggans, piscine « Zen » réservée aux adultes et centre bien-être. Vous trouverez tout ce qu’il vous faut au camping Les Grands Pins, avec une large offre de commerces sur place. Les amoureux de glisse pourront se rendre à l’école de surf du camping, tandis que les plus gourmands dégusteront les vins du médoc et la gastronomie du Sud-Ouest. Il y a tant à découvrir…",
+    "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt.",
     "nb_locations": 257,
     "nb_emplacements": 277,
     "date_ouverture1": "2018-04-27",
