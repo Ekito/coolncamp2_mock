@@ -12,16 +12,16 @@ let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1h
 let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
 
 app.get('/auth/out', function (req, res) {
-  
-    console.log('POST /auth/out')
-    console.log('headers: ' + JSON.stringify(req.headers, null, 2))
-    console.log('body: ' + JSON.stringify(req.body, null, 2))
 
-    if (!req.headers['authorization']) {
-      res.sendStatus(400);
-    } else { 
-       res.sendStatus(200);
-    }
+  console.log('POST /auth/out')
+  console.log('headers: ' + JSON.stringify(req.headers, null, 2))
+  console.log('body: ' + JSON.stringify(req.body, null, 2))
+
+  if (!req.headers['authorization']) {
+    res.sendStatus(400);
+  } else {
+    res.sendStatus(200);
+  }
 })
 
 /**
@@ -132,6 +132,33 @@ app.get('/app/politique-confidentialite', function (req, res) {
 })
 
 app.get('/hotes/:id', function (req, res) {
+
+  let hote_0 = {
+    "id_hote": "hote_0",
+    "nom": "Les grands pins",
+    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
+    "itineraire": {
+      "description": "Localisation Les Grands Pins",
+      "lat": 45.018909,
+      "lng": -1.193664
+    },
+    "etoiles": 5,
+    "ambiance": "CLUB",
+    "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+    "tel": "+335 56 03 20 77",
+    "email": "contact@coolncamp.com",
+    "media": {
+      "images": []
+    },
+    "ville": "Lacannau",
+    "accroche": "Vos vacances au camping Les Grands Pins",
+    "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt. Accès direct à l’océan par un sentier à travers les dunes, grand espace aquatique avec lagon et toboggans, piscine « Zen » réservée aux adultes et centre bien-être. Vous trouverez tout ce qu’il vous faut au camping Les Grands Pins, avec une large offre de commerces sur place. Les amoureux de glisse pourront se rendre à l’école de surf du camping, tandis que les plus gourmands dégusteront les vins du médoc et la gastronomie du Sud-Ouest. Il y a tant à découvrir…",
+    "nb_locations": 257,
+    "nb_emplacements": 277,
+    "date_ouverture1": "2018-04-27",
+    "date_fermeture1": "2018-09-17"
+  }
 
   let hote_1 = {
     "id_hote": "hote_1",
@@ -310,7 +337,7 @@ app.get('/hotes/:id', function (req, res) {
     "etoiles": 4,
     "ambiance": "CLUB",
     "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",  
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
     "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
     "itineraire": {
       "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
@@ -353,7 +380,9 @@ app.get('/hotes/:id', function (req, res) {
     "date_fermeture2": "2018-12-31"
   }
 
-  if (req.params.id === "hote_1") {
+  if (req.params.id === "hote_0") {
+    res.send(hote_0);
+  } else if (req.params.id === "hote_1") {
     res.send(hote_1);
   } else if (req.params.id === "hote_2") {
     res.send(hote_2);
@@ -414,7 +443,7 @@ app.get('/moi/sejours', function (req, res) {
       "etoiles": 5,
       "ambiance": "CLUB",
       "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",  
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
       "ville": "Vias sur Mer",
       "pays": "France",
       "eta_debut_date_aff": "2017-06-30"
@@ -434,7 +463,7 @@ app.get('/moi/sejours', function (req, res) {
       "etoiles": 4,
       "ambiance": "CLUB",
       "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",        
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
       "ville": "Saint-Brevin-Les-Pins",
       "pays": "France",
       "eta_debut_date_aff": "2017-07-30"
@@ -458,7 +487,28 @@ app.get('/moi/sejours', function (req, res) {
       "ville": "Bénodet",
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
+    },
+    { 
+      "id": "sejour_4",
+      "id_hote": "hote_0",
+      "nom": "Les grands pins",
+      "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
+      "date_debut": now.toISOString().slice(0, 10),
+      "date_fin": end.toISOString().slice(0, 10),
+      "itineraire": {
+        "description": "Localisation Les Grands Pins",
+        "lat": 45.018909,
+        "lng": -1.193664
+      },
+      "etoiles": 5,
+      "ambiance": "CLUB",
+      "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
+      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+      "pays": "France",
+      "eta_debut_date_aff": now.toISOString().slice(0, 10)
     }
+  
+  
   ];
 
   if (req.headers['authorization'] === 'Bearer ' + id1) {
@@ -572,12 +622,53 @@ app.get('/moi/sejours/:id', function (req, res) {
     "eta_debut_date_aff": now.toISOString().slice(0, 10)
   };
 
+  let sejour_4 =  {
+    "id": "sejour_4",
+    "id_hote": "hote_0",
+    "nom": "Les grands pins",
+    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
+    "date_debut": now.toISOString().slice(0, 10),
+    "date_fin": end.toISOString().slice(0, 10),
+    "itineraire": {
+      "description": "Localisation Les Grands Pins",
+      "lat": 45.018909,
+      "lng": -1.193664
+    },
+    "etoiles": 5,
+    "ambiance": "CLUB",
+    "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+    "tel": "+335 56 03 20 77",
+    "email": "contact@coolncamp.com",
+    "media": {
+      "images": []
+    },
+    "ville": "Lacannau",
+    "pays": "France",
+    "proprietaire": true,
+    "restriction_service": [],
+    "sejournants": [],
+    "categorie": "Mobil home 4 places",
+    "type_sejour": {
+      "id": "561e70142bd365546734bce1",
+      "label": "En famille"
+    },
+    "eta": {
+      "debut": "2017-10-22T10:00:00+02:00",
+      "label": "10:00 - 10:30"
+    },
+    "eta_debut_date_aff": now.toISOString().slice(0, 10)
+  }
+
+
   if (req.params.id === "sejour_1") {
     res.send(sejour_1);
   } else if (req.params.id === "sejour_2") {
     res.send(sejour_2);
   } else if (req.params.id === "sejour_3") {
     res.send(sejour_3);
+  } else if (req.params.id === "sejour_4") {
+    res.send(sejour_4);
   } else {
     res.sendStatus(404);
   }
@@ -892,7 +983,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "etoiles": 4,
     "ambiance": "CLUB",
     "ambiance_logo": "http://hq.ekito.fr:30000/static/club.svg",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",  
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
     "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
     "ville": "Ax-les-thermes",
     "pays": "France",
