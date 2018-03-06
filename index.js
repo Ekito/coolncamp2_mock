@@ -341,7 +341,16 @@ app.get('/hotes/:id', function (req, res) {
         "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
         "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
       }]
-    }
+    },
+    "ville": "Saint-Brevin-Les-Pins",
+    "accroche": "Bonheur en Méditerranée",
+    "description": "Entre plage de sable fin et canal du Midi, au cœur du Languedoc, le Sunêlia Domaine de la Dragonnière, camping 5 étoiles à Vias, vous accueille dans un pays de vignes et de soleil.",
+    "nb_locations": 145,
+    "nb_emplacements": 78,
+    "date_ouverture1": "2018-03-30",
+    "date_fermeture1": "2018-09-01",
+    "date_ouverture2": "2018-10-15",
+    "date_fermeture2": "2018-12-31"
   }
 
   if (req.params.id === "hote_1") {
@@ -887,6 +896,10 @@ app.get('/moi/hotes-promos', function (req, res) {
     "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
     "ville": "Ax-les-thermes",
     "pays": "France",
+    "date_ouverture1": "2018-03-30",
+    "date_fermeture1": "2018-09-01",
+    "date_ouverture2": "2018-10-15",
+    "date_fermeture2": "2018-12-31",
     "nouveau": true
   }];
   if (req.headers['authorization'] === 'Bearer ' + id1) {
