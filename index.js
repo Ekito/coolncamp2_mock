@@ -151,7 +151,7 @@ app.get('/hotes/:id', function (req, res) {
     "media": {
       "images": []
     },
-    "ville": "Lacannau",
+    "ville": "Lacanau",
     "accroche": "Vos vacances au camping Les Grands Pins",
     "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt. Accès direct à l’océan par un sentier à travers les dunes, grand espace aquatique avec lagon et toboggans, piscine « Zen » réservée aux adultes et centre bien-être. Vous trouverez tout ce qu’il vous faut au camping Les Grands Pins, avec une large offre de commerces sur place. Les amoureux de glisse pourront se rendre à l’école de surf du camping, tandis que les plus gourmands dégusteront les vins du médoc et la gastronomie du Sud-Ouest. Il y a tant à découvrir…",
     "nb_locations": 257,
@@ -504,6 +504,7 @@ app.get('/moi/sejours', function (req, res) {
       "ambiance": "CLUB",
       "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
       "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+      "ville": "Lacanau",
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     },
@@ -523,6 +524,7 @@ app.get('/moi/sejours', function (req, res) {
       "ambiance": "CLUB",
       "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
       "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+      "ville": "Lacanau",
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     }
@@ -661,7 +663,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     "media": {
       "images": []
     },
-    "ville": "Lacannau",
+    "ville": "Lacanau",
     "pays": "France",
     "proprietaire": true,
     "restriction_service": [],
