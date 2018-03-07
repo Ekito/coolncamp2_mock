@@ -2041,7 +2041,7 @@ let location_cottage_twin = {
   "presentation": "Découvrez les vacances haut-de-gamme dans ce cottage convivial! Doté de deux modules dont la superficie totale est de 54m², de 3 chambres, d'un séjour/cuisine à l'américaine et de 3 salles de bain, cette location de vacances vous offre des prestations de standing. Grâce à sa terrasse commune aux deux modules et au calme du quartier PM1, vous passerez de belles soirées d'été en famille ou entre amis.",
   "caracteristiques": [{
       "nom": "Module 1",
-      "detail": [{
+      "details": [{
         "icone": "ic_type_hebergement",
         "nom": "Type d'hébergement",
         "valeurs": ["Mobilhome"]
@@ -2057,7 +2057,7 @@ let location_cottage_twin = {
     },
     {
       "nom": "Module 2",
-      "detail": [{
+      "details": [{
         "icone": "ic_type_hebergement",
         "nom": "Type d'hébergement",
         "valeurs": ["Mobilhome"]
@@ -2114,7 +2114,7 @@ let location_cottage_pinede = {
   "presentation": "Pour des vacances d'exception, faites le choix de ce charmant cottage Pinède, idéal pour accueillir toute votre petite tribu. Découvrez ses deux chambres séparées (dont une avec un grand lit double), son coin cuisine aménagée (avec 4 feu gaz, table et banquettes, évier, réfrigérateur et micro-ondes), ses WC séparés de la salle d'eau et son coin séjour agréable. Pour profiter pleinement des douces soirées d'été, en famille ou avec des amis, la terrasse couverte est idéale pour vous reposer en respirant l'air océanique.",
   "caracteristiques": [{
     "nom": "Module 1",
-    "detail": [{
+    "details": [{
       "icone": "ic_type_hebergement",
       "nom": "Type d'hébergement",
       "valeurs": ["Mobilhome"]
@@ -2163,7 +2163,7 @@ let emplacement_1= {
   "presentation": "Pour des vacances en pleine nature et à quelques pas de la plage, choisissez un de nos emplacements camping. Au milieu des pins, des arbousiers, des genêts, ils sont aménagés en terrasse sur une superficie de 80 à 100 m² et peuvent accueillir une caravane, un camping-car ou une tente. Vous y trouverez une alimentation électrique de 16 ampères à proximité. Les installations sanitaires, ainsi que des points d'eau potables et des barbecues sont répartis sur le terrain. Choisissez le calme du secteur sans circulation automobile, et laissez votre voiture sur le parking accessible 24h/24h, vos enfants seront les plus heureux...",
   "caracteristiques": [{
     "nom": "Module 1",
-    "detail": [{
+    "details": [{
       "icone": "ic_superficie",
       "nom": "Superficie",
       "valeurs": ["Superficie de 80m² et plus"]
