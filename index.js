@@ -2033,6 +2033,7 @@ let location_cottage_twin = {
   "chambres": "3",
   "sdb": "3",
   "wc": "3",
+  "photos_contractuelles": true,
   "photos": [
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur2/1982796-1-fre-FR/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur_galleria_slide_village_mobile.jpg",
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/2_cottage_twin_6p_3ch_3sdb_pm1_salon2/1982799-1-fre-FR/2_cottage_twin_6p_3ch_3sdb_pm1_salon_galleria_slide_village_mobile.jpg",
@@ -2106,6 +2107,7 @@ let location_cottage_pinede = {
   "chambres": "2",
   "sdb": "1",
   "wc": "1",
+  "photos_contractuelles": false,
   "photos": [
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/1_cottage_pinede_4p_2ch_4f_exterieur/2259635-1-fre-FR/1_cottage_pinede_4p_2ch_4f_exterieur_galleria_slide_village_mobile.jpg",
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/2_cottage_pinede_4p_2ch_4f_salon/2259632-1-fre-FR/2_cottage_pinede_4p_2ch_4f_salon_galleria_slide_village_mobile.jpg",
@@ -2155,6 +2157,7 @@ let emplacement_1= {
   "eaux_usagees": "",
   "electricite": "Electricité 16A",
   "raccordement_eau": "",
+  "photos_contractuelles": false,
   "photos": [
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/1_emplacements_lesgrandspins_lacanau/1985355-1-fre-FR/1_emplacements_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/2_emplacement_lesgrandspins_lacanau/1985361-1-fre-FR/2_emplacement_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
