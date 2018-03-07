@@ -488,7 +488,7 @@ app.get('/moi/sejours', function (req, res) {
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     },
-    { 
+    {
       "id": "sejour_4",
       "id_hote": "hote_0",
       "nom": "Les Grands Pins",
@@ -508,7 +508,7 @@ app.get('/moi/sejours', function (req, res) {
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     },
-    { 
+    {
       "id": "sejour_5",
       "id_hote": "hote_0",
       "nom": "Les Grands Pins",
@@ -528,7 +528,7 @@ app.get('/moi/sejours', function (req, res) {
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
     }
-  
+
   ];
 
   if (req.headers['authorization'] === 'Bearer ' + id1) {
@@ -642,7 +642,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     "eta_debut_date_aff": now.toISOString().slice(0, 10)
   };
 
-  let sejour_4 =  {
+  let sejour_4 = {
     "id": "sejour_4",
     "id_hote": "hote_0",
     "nom": "Les Grands Pins",
@@ -2016,3 +2016,228 @@ app.use('/static', express.static('public'));
 app.listen(3000, function () {
   console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
 })
+
+
+let location_cottage_twin = {
+  "id": "location_cottage_twin",
+  "groupe": "Quartier New Valley Premium",
+  "nom": "Cottage Twin",
+  "complement": "avec spa",
+  "qualite": "http://hq.ekito.fr:30000/static/premium.png",
+  "pmr": true,
+  "animaux_autorises": true,
+  "climatisation": true,
+  "slogan_nouveaute": "",
+  "surface": "54 m²",
+  "places": "6",
+  "chambres": "3",
+  "sdb": "3",
+  "wc": "3",
+  "photos": [
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur2/1982796-1-fre-FR/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/2_cottage_twin_6p_3ch_3sdb_pm1_salon2/1982799-1-fre-FR/2_cottage_twin_6p_3ch_3sdb_pm1_salon_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/plan_twin_module_1_et_2/1647020-1-fre-FR/plan_twin_module_1_et_2_galleria_slide_village_mobile.jpg"
+  ],
+  "presentation": "Découvrez les vacances haut-de-gamme dans ce cottage convivial! Doté de deux modules dont la superficie totale est de 54m², de 3 chambres, d'un séjour/cuisine à l'américaine et de 3 salles de bain, cette location de vacances vous offre des prestations de standing. Grâce à sa terrasse commune aux deux modules et au calme du quartier PM1, vous passerez de belles soirées d'été en famille ou entre amis.",
+  "caracteristiques": [{
+      "nom": "Module 1",
+      "detail": [{
+        "icone": "ic_type_hebergement",
+        "nom": "Type d'hébergement",
+        "valeurs": ["Mobilhome"]
+      }, {
+        "icone": "ic_location",
+        "nom": "Hébergement",
+        "valeurs": ["Quartier piétonnier/circulation limitée", "Isolation renforcée"]
+      }, {
+        "icone": "ic_salon",
+        "nom": "Salon",
+        "valeurs": ["Canapé", "Table et chaises", "Télévision", "Chauffage"]
+      }]
+    },
+    {
+      "nom": "Module 2",
+      "detail": [{
+        "icone": "ic_type_hebergement",
+        "nom": "Type d'hébergement",
+        "valeurs": ["Mobilhome"]
+      }, {
+        "icone": "ic_salon",
+        "nom": "Salon",
+        "valeurs": ["Banquette convertible", "Table et chaises"]
+      }, {
+        "icone": "ic_chambre",
+        "nom": "Chambre 1",
+        "valeurs": ["1 Lit double : 160x200cm", "Mirroir", "Chauffage", "Penderie", "Volets roulants"]
+      }]
+    }
+  ]
+};
+
+let location_cottage_twin_overview = {
+  "id": "location_cottage_twin",
+  "groupe": "Quartier New Valley Premium",
+  "nom": "Cottage Twin",
+  "complement": "avec spa",
+  "qualite": "http://hq.ekito.fr:30000/static/premium.png",
+  "pmr": true,
+  "animaux_autorises": true,
+  "climatisation": true,
+  "slogan_nouveaute": "",
+  "surface": "54 m²",
+  "places": "6",
+  "chambres": "3",
+  "sdb": "3",
+  "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/25974/diaporama_hebergement/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur2/1982796-1-fre-FR/1_cottage_twin_6p_3ch_3sdb_pm1_exterieur_galleria_slide_village_mobile.jpg"
+};
+
+let location_cottage_pinede = {
+  "id": "location_cottage_pinede",
+  "groupe": "Nos autres hébergements",
+  "nom": "Cottage Pinède",
+  "complement": "",
+  "qualite": "http://hq.ekito.fr:30000/static/4_fleurs_orange.png",
+  "pmr": false,
+  "animaux_autorises": true,
+  "climatisation": false,
+  "slogan_nouveaute": "Nouveauté 2018",
+  "surface": "28 m²",
+  "places": "4",
+  "chambres": "2",
+  "sdb": "1",
+  "wc": "1",
+  "photos": [
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/1_cottage_pinede_4p_2ch_4f_exterieur/2259635-1-fre-FR/1_cottage_pinede_4p_2ch_4f_exterieur_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/2_cottage_pinede_4p_2ch_4f_salon/2259632-1-fre-FR/2_cottage_pinede_4p_2ch_4f_salon_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/grands_pins_cottage_pinede_4p_2ch_4f_plan/2259641-1-fre-FR/grands_pins_cottage_pinede_4p_2ch_4f_plan_galleria_slide_village_mobile.jpg"
+  ],
+  "presentation": "Pour des vacances d'exception, faites le choix de ce charmant cottage Pinède, idéal pour accueillir toute votre petite tribu. Découvrez ses deux chambres séparées (dont une avec un grand lit double), son coin cuisine aménagée (avec 4 feu gaz, table et banquettes, évier, réfrigérateur et micro-ondes), ses WC séparés de la salle d'eau et son coin séjour agréable. Pour profiter pleinement des douces soirées d'été, en famille ou avec des amis, la terrasse couverte est idéale pour vous reposer en respirant l'air océanique.",
+  "caracteristiques": [{
+    "nom": "Module 1",
+    "detail": [{
+      "icone": "ic_type_hebergement",
+      "nom": "Type d'hébergement",
+      "valeurs": ["Mobilhome"]
+    }, {
+      "icone": "ic_salon",
+      "nom": "Salon",
+      "valeurs": ["Banquette", "Table et chaises", "Mirroir", "Chauffage"]
+    }]
+  }]
+};
+
+
+let location_cottage_pinede_overview = {
+  "id": "location_cottage_pinede",
+  "groupe": "Nos autres hébergements",
+  "nom": "Cottage Pinède",
+  "complement": "",
+  "qualite": "http://hq.ekito.fr:30000/static/4_fleurs_orange.png",
+  "pmr": false,
+  "animaux_autorises": true,
+  "climatisation": false,
+  "slogan_nouveaute": "Nouveauté 2018",
+  "surface": "28 m²",
+  "places": "4",
+  "chambres": "2",
+  "sdb": "1",
+  "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/1_cottage_pinede_4p_2ch_4f_exterieur/2259635-1-fre-FR/1_cottage_pinede_4p_2ch_4f_exterieur_galleria_slide_village_mobile.jpg"
+};
+
+let emplacement_1= {
+  "id": "emplacement_1",
+  "nom": "Emplacements",
+  "complement": "",
+  "qualite": "http://hq.ekito.fr:30000/static/2_fleurs_vert.png",
+  "pmr": false,
+  "slogan_nouveaute": "",
+  "surface": "Superficie de 80m² et plus",
+  "animaux_autorises": "Animaux acceptés",
+  "eaux_usagees": "",
+  "electricite": "Electricité 16A",
+  "raccordement_eau": "",
+  "photos": [
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/1_emplacements_lesgrandspins_lacanau/1985355-1-fre-FR/1_emplacements_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/2_emplacement_lesgrandspins_lacanau/1985361-1-fre-FR/2_emplacement_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
+    "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/3_emplacement_lesgrandspins_lacanau/1985370-1-fre-FR/3_emplacement_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg"
+  ],
+  "presentation": "Pour des vacances en pleine nature et à quelques pas de la plage, choisissez un de nos emplacements camping. Au milieu des pins, des arbousiers, des genêts, ils sont aménagés en terrasse sur une superficie de 80 à 100 m² et peuvent accueillir une caravane, un camping-car ou une tente. Vous y trouverez une alimentation électrique de 16 ampères à proximité. Les installations sanitaires, ainsi que des points d'eau potables et des barbecues sont répartis sur le terrain. Choisissez le calme du secteur sans circulation automobile, et laissez votre voiture sur le parking accessible 24h/24h, vos enfants seront les plus heureux...",
+  "caracteristiques": [{
+    "nom": "Module 1",
+    "detail": [{
+      "icone": "ic_superficie",
+      "nom": "Superficie",
+      "valeurs": ["Superficie de 80m² et plus"]
+    }, {
+      "icone": "ic_elec",
+      "nom": "Equipement",
+      "valeurs": ["Electricité 16A"]
+    }]
+  }]
+
+};
+
+
+let emplacement_1_overview = {
+  "id": "emplacement_1",
+  "nom": "Emplacements",
+  "complement": "",
+  "qualite": "http://hq.ekito.fr:30000/static/2_fleurs_vert.png",
+  "pmr": false,
+  "slogan_nouveaute": "",
+  "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/1_emplacements_lesgrandspins_lacanau/1985355-1-fre-FR/1_emplacements_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
+  "surface": "Superficie de 80m² et plus",
+  "animaux_autorises": "Animaux acceptés",
+  "eaux_usagees": "",
+  "electricite": "Electricité 16A",
+  "raccordement_eau": ""
+};
+
+
+app.get('/hotes/:id/locations', function (req, res) {
+
+  let locations_grands_pins = [{
+      "groupe": "Quartier New Valley Premium",
+      "locations": []
+    },
+    {
+      "groupe": "Nos autres hébergements",
+      "locations": []
+    }
+  ];
+
+  locations_grands_pins[0].locations.push(location_cottage_twin_overview);
+  locations_grands_pins[1].locations.push(location_cottage_pinede_overview);
+  res.send(locations_grands_pins);
+});
+
+app.get('/hotes/:id/locations/:idLocation', function (req, res) {
+  if (req.params.idLocation === 'location_cottage_twin') {
+    res.send(location_cottage_twin);
+  } else if (req.params.idLocation === 'location_cottage_pinede') {
+    res.send(location_cottage_pinede);
+  } else {
+    res.send(404);
+  }
+
+});
+
+app.get('/hotes/:id/emplacements', function (req, res) {
+
+  let emplacement_grands_pins = [{
+    "groupe": "",
+    "locations": []
+  }];
+
+  emplacement_grands_pins[0].locations.push(emplacement_1_overview);
+  res.send(emplacement_grands_pins);
+});
+
+app.get('/hotes/:id/emplacements/:idEmplacement', function (req, res) {
+
+  if (req.params.idEmplacement === 'emplacement_1') {
+    res.send(emplacement_1);
+   } else {
+    res.send(404);
+  }
+});
