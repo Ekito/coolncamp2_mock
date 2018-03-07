@@ -2126,7 +2126,6 @@ let location_cottage_pinede = {
   }]
 };
 
-
 let location_cottage_pinede_overview = {
   "id": "location_cottage_pinede",
   "groupe": "Nos autres hébergements",
@@ -2177,7 +2176,6 @@ let emplacement_1= {
 
 };
 
-
 let emplacement_1_overview = {
   "id": "emplacement_1",
   "nom": "Emplacements",
@@ -2193,21 +2191,11 @@ let emplacement_1_overview = {
   "raccordement_eau": ""
 };
 
-
 app.get('/hotes/:id/locations', function (req, res) {
 
-  let locations_grands_pins = [{
-      "groupe": "Quartier New Valley Premium",
-      "locations": []
-    },
-    {
-      "groupe": "Nos autres hébergements",
-      "locations": []
-    }
-  ];
-
-  locations_grands_pins[0].locations.push(location_cottage_twin_overview);
-  locations_grands_pins[1].locations.push(location_cottage_pinede_overview);
+  let locations_grands_pins = [];
+  locations_grands_pins.push(location_cottage_twin_overview);
+  locations_grands_pins.push(location_cottage_pinede_overview);
   res.send(locations_grands_pins);
 });
 
@@ -2219,17 +2207,12 @@ app.get('/hotes/:id/locations/:idLocation', function (req, res) {
   } else {
     res.send(404);
   }
-
 });
 
 app.get('/hotes/:id/emplacements', function (req, res) {
 
-  let emplacement_grands_pins = [{
-    "groupe": "",
-    "locations": []
-  }];
-
-  emplacement_grands_pins[0].locations.push(emplacement_1_overview);
+  let emplacement_grands_pins = [];
+  emplacement_grands_pins.push(emplacement_1_overview);
   res.send(emplacement_grands_pins);
 });
 
