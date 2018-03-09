@@ -2094,7 +2094,7 @@ let location_cottage_twin_overview = {
 
 let location_cottage_pinede = {
   "id": "location_cottage_pinede",
-  "groupe": "Nos autres hébergements",
+  "groupe": "Quartier New Valley Premium",
   "nom": "Cottage Pinède",
   "complement": "",
   "qualite_logo": "http://hq.ekito.fr:30000/static/fleur_orange4.png",
@@ -2130,7 +2130,7 @@ let location_cottage_pinede = {
 
 let location_cottage_pinede_overview = {
   "id": "location_cottage_pinede",
-  "groupe": "Nos autres hébergements",
+  "groupe": "Quartier New Valley Premium",
   "nom": "Cottage Pinède",
   "complement": "",
   "qualite_logo": "http://hq.ekito.fr:30000/static/fleur_orange4.png",
