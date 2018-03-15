@@ -8,6 +8,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json())
 
+const PORT = process.env.PORT || 5000
+app.use('/static', express.static('public'));
+
+app.listen(PORT, function () {
+  console.log('Cool\'nCamp v2 (Mock) server listening on port ${ PORT } !')
+})
+
+
 let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0QGVraXRvLmZyIn0.9qhlq0d5LOcsCxuz_ldmXX3ipvMY1bEN2rHEYtSZeaU"
 let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
 
@@ -2010,13 +2018,6 @@ app.post('/hotes/:hoteId/activites/:activiteId/rappel', function (req, res) {
 app.post('/hotes/:hoteId/activites/:activiteId/noter', function (req, res) {
   res.sendStatus(200);
 });
-
-app.use('/static', express.static('public'));
-
-app.listen(3000, function () {
-  console.log('Cool\'nCamp v2 (Mock) server listening on port 3000 !')
-})
-
 
 let location_cottage_twin = {
   "id": "location_cottage_twin",
