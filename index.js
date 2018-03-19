@@ -247,6 +247,14 @@ app.get('/hotes/:id', function (req, res) {
       {
         "label": "Zoover",
         "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Vimeo",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Snapchat",
+        "url": "https://www.facebook.com/238129529603295"
       }
     ],
     "media": {
@@ -300,10 +308,31 @@ app.get('/hotes/:id', function (req, res) {
     "email": "contact@coolncamp.com",
     "url": "http://www.coolncamp.com",
     "rs": [{
-      "label": "Facebook",
-      "url": "https://www.facebook.com/238129529603295"
-    }],
-    "media": {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "Twitter",
+          "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "Pinterest",
+          "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "Youtube",
+          "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "TripAdvisor",
+          "url": "https://www.facebook.com/238129529603295"
+        }
+      ],
+      "media": {
       "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
       "images": [
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
