@@ -253,6 +253,10 @@ app.get('/hotes/:id', function (req, res) {
         "url": "https://www.facebook.com/238129529603295"
       },
       {
+        "label": "Flickr",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
         "label": "Snapchat",
         "url": "https://www.facebook.com/238129529603295"
       }
