@@ -314,29 +314,29 @@ app.get('/hotes/:id', function (req, res) {
     "rs": [{
         "label": "Facebook",
         "url": "https://www.facebook.com/238129529603295"
-        },
-        {
-          "label": "Twitter",
-          "url": "https://www.facebook.com/238129529603295"
-        },
-        {
-          "label": "Instagram",
-          "url": "https://www.facebook.com/238129529603295"
-        },
-        {
-          "label": "Pinterest",
-          "url": "https://www.facebook.com/238129529603295"
-        },
-        {
-          "label": "Youtube",
-          "url": "https://www.facebook.com/238129529603295"
-        },
-        {
-          "label": "TripAdvisor",
-          "url": "https://www.facebook.com/238129529603295"
-        }
-      ],
-      "media": {
+      },
+      {
+        "label": "Twitter",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Pinterest",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "Youtube",
+        "url": "https://www.facebook.com/238129529603295"
+      },
+      {
+        "label": "TripAdvisor",
+        "url": "https://www.facebook.com/238129529603295"
+      }
+    ],
+    "media": {
       "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
       "images": [
         "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
@@ -554,8 +554,8 @@ app.get('/moi/sejours', function (req, res) {
       "id_hote": "hote_0",
       "nom": "Les Grands Pins",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
-      "date_debut": now.toISOString().slice(0, 10),
-      "date_fin": end.toISOString().slice(0, 10),
+      "date_debut": "2018-08-10",
+      "date_fin": "2018-08-25",
       "itineraire": {
         "description": "Localisation Les Grands Pins",
         "lat": 45.018909,
@@ -721,6 +721,43 @@ app.get('/moi/sejours/:id', function (req, res) {
     "eta_debut_date_aff": now.toISOString().slice(0, 10)
   }
 
+  let sejour_5 = {
+    "id": "sejour_5",
+    "id_hote": "hote_0",
+    "nom": "Les Grands Pins",
+    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
+    "date_debut": "2018-08-10",
+    "date_fin": "2018-08-25",
+    "itineraire": {
+      "description": "Localisation Les Grands Pins",
+      "lat": 45.018909,
+      "lng": -1.193664
+    },
+    "etoiles": 5,
+    "ambiance": "CLUB",
+    "ambiance_logo": "http://hq.ekito.fr:30000/static/club.png",
+    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+    "tel": "+335 56 03 20 77",
+    "email": "contact@coolncamp.com",
+    "media": {
+      "images": []
+    },
+    "ville": "Lacanau",
+    "pays": "France",
+    "proprietaire": true,
+    "restriction_service": [],
+    "sejournants": [],
+    "categorie": "Mobil home 4 places",
+    "type_sejour": {
+      "id": "561e70142bd365546734bce1",
+      "label": "En famille"
+    },
+    "eta": {
+      "debut": "2017-10-22T10:00:00+02:00",
+      "label": "10:00 - 10:30"
+    },
+    "eta_debut_date_aff": now.toISOString().slice(0, 10)
+  }
 
   if (req.params.id === "sejour_1") {
     res.send(sejour_1);
@@ -728,8 +765,10 @@ app.get('/moi/sejours/:id', function (req, res) {
     res.send(sejour_2);
   } else if (req.params.id === "sejour_3") {
     res.send(sejour_3);
-  } else if (req.params.id === "sejour_4" || req.params.id === "sejour_5") {
+  } else if (req.params.id === "sejour_4") {
     res.send(sejour_4);
+  } else if (req.params.id === "sejour_5") {
+    res.send(sejour_5);
   } else {
     res.sendStatus(404);
   }
@@ -968,7 +1007,17 @@ app.get('/moi/sejours/:id/tickets', function (req, res) {
       }
     ]
   };
-  res.send(tickets);
+
+  let tickets_empty = {
+    "description": "Notre offre super confort est garantie sans problème… durable",
+    "tickets": []
+  }
+
+  if (req.params.id === "sejour_4" || req.params.id === "sejour_5") {
+    res.send(tickets_empty);
+  } else {
+    res.send(tickets);
+  }
 })
 
 app.post('/moi/sejours/:id/tickets', function (req, res) {
@@ -2179,7 +2228,7 @@ let location_cottage_pinede_overview = {
   "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_locations/52902/diaporama_hebergement/1_cottage_pinede_4p_2ch_4f_exterieur/2259635-1-fre-FR/1_cottage_pinede_4p_2ch_4f_exterieur_galleria_slide_village_mobile.jpg"
 };
 
-let emplacement_1= {
+let emplacement_1 = {
   "id": "emplacement_1",
   "nom": "Emplacements",
   "complement": "",
@@ -2257,7 +2306,7 @@ app.get('/hotes/:id/emplacements/:idEmplacement', function (req, res) {
 
   if (req.params.idEmplacement === 'emplacement_1') {
     res.send(emplacement_1);
-   } else {
+  } else {
     res.send(404);
   }
 });
