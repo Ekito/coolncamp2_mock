@@ -2310,3 +2310,133 @@ app.get('/hotes/:id/emplacements/:idEmplacement', function (req, res) {
     res.send(404);
   }
 });
+
+app.get('/hotes/:id/avis', function (req, res) {
+
+  let avis = [{
+    "id": "166727",
+    "date_commentaire": "2017-10-30",
+    "nom": "MAIREAUX",
+    "prenom": "Alain",
+    "ville": "MOUSSY LE NEUF",
+    "nb_sejours": 5,
+    "fidelite": true,
+    "date_debut": "2017-09-10",
+    "date_fin": "2017-10-01",
+    "type_sejour": "Entre amis",
+    "type_hebergement": "Location",
+    "message": "camping super déception concernant le tir a l arc matériel vétuste pas de cible de rechange pleine de trous lamentable",
+    "note": 9,
+    "notes_detail": [{
+      "label": "Village",
+      "note": 5
+    },{
+      "label": "Hebergement",
+      "note": 4
+    }, {
+      "label": "Piscine",
+      "note": 5
+    },{
+      "label": "Services",
+      "note": 5
+    },{
+      "label": "Activités",
+      "note": -1
+    }]
+  },
+  {
+    "date_commentaire": "2017-10-29",
+    "id": "167134",
+    "nom": "GOUILLARD",
+    "prenom": "Jean Francois",
+    "ville": "CUCQ",
+    "nb_sejours": 1,
+    "fidelite": false,
+    "date_debut": "2017-09-29",
+    "date_fin": "2017-10-06",
+    "type_sejour": "En couple",
+    "type_hebergement": "Location",
+    "message": "camping tres agreable et tres propre meme hors saison .",
+    "note": 8,
+    "notes_detail": [{
+      "label": "Village",
+      "note": 5
+    },{
+      "label": "Hebergement",
+      "note": 4
+    }, {
+      "label": "Piscine",
+      "note": 3
+    },{
+      "label": "Services",
+      "note": 1
+    },{
+      "label": "Activités",
+      "note": 2
+    }]
+  },
+  {
+    "id": "167056",
+    "date_commentaire": "2017-10-24",
+    "nom": "TROUBADY",
+    "prenom": "Tecla",
+    "ville": "SAINT ASTIER",
+    "nb_sejours": 10,
+    "fidelite": true,
+    "date_debut": "2017-09-04",
+    "date_fin": "2017-09-18",
+    "type_sejour": "Entre amis",
+    "type_hebergement": "Location",
+    "message": "Nous avons passé un très bon séjour. Le camping est très agréable. Nous avons apprécié la présence des petits commerces, de la salle de sport et du petit train; Nous avons trouvé le personnel très agréable. Nous avons adoré les cours d'aquagym.",
+    "note": 9,
+    "notes_detail": [{
+      "label": "Village",
+      "note": 5
+    },{
+      "label": "Hebergement",
+      "note": 4
+    }, {
+      "label": "Piscine",
+      "note": 5
+    },{
+      "label": "Services",
+      "note": 5
+    },{
+      "label": "Activités",
+      "note": -1
+    }]
+  },
+  {
+    "id": "167049",
+    "date_commentaire": "2017-10-23",
+    "nom": "DE GUISE",
+    "prenom": "Gérard",
+    "fidelite": true,
+    "nb_sejours": 11,
+    "ville": "SEVRAN",
+    "date_debut": "2017-09-24",
+    "date_fin": "2017-10-07",
+    "type_sejour": "Entre amis",
+    "type_hebergement": "Emplacement",
+    "message": "Séjour parfait qui m'a réconcilié après la déception de mon séjour au Ranolien, en Bretagne au mois de juin.",
+    "note": 10,
+    "notes_detail": [{
+      "label": "Village",
+      "note": 5
+    },{
+      "label": "Hebergement",
+      "note": 4
+    }, {
+      "label": "Piscine",
+      "note": 5
+    },{
+      "label": "Services",
+      "note": 5
+    },{
+      "label": "Activités",
+      "note": 4
+    }]
+  }];
+    
+  res.send(avis);
+});
