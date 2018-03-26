@@ -2440,14 +2440,21 @@ app.get('/hotes/:id/avis', function (req, res) {
     }]
   };
 
-  if (req.query.type_hebergement === "LOCATION") {
-    res.send(avis);
-  } else if (req.query.type_hebergement === "EMPLACEMENT") {
-    let avis_emplacements = [];
-    avis_emplacements.push(emplacement_avis);
-    res.send(avis_emplacements);
-  } else {
-    avis.push(emplacement_avis);
-    res.send(avis);
+
+  let payload = {
+    "note": 8.3,
+    "nb_notes": 2464,
+    commentaires : []
   }
+
+  if (req.query.type_hebergement === "LOCATION") {
+    payload.commentaires.push(avis)
+  } else if (req.query.type_hebergement === "EMPLACEMENT") {
+    payload.commentaires.push(emplacement_avis);
+  } else {
+    payload.commentaires.push(avis)
+    payload.commentaires.push(emplacement_avis);
+  }
+  res.send(payload);
+
 });
