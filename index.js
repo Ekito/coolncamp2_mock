@@ -2448,11 +2448,11 @@ app.get('/hotes/:id/avis', function (req, res) {
   }
 
   if (req.query.type_hebergement === "LOCATION") {
-    payload.commentaires.push(avis)
+    payload.commentaires = avis;
   } else if (req.query.type_hebergement === "EMPLACEMENT") {
     payload.commentaires.push(emplacement_avis);
   } else {
-    payload.commentaires.push(avis)
+    payload.commentaires = avis;
     payload.commentaires.push(emplacement_avis);
   }
   res.send(payload);
