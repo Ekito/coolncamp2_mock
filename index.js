@@ -2443,6 +2443,7 @@ app.get('/hotes/:id/avis', function (req, res) {
 
   let payload = {
     "note": 8.3,
+    "note_max": 10,
     "nb_notes": 2464,
     commentaires : []
   }
