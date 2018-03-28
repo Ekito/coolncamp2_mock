@@ -1129,6 +1129,7 @@ app.get('/moi', function (req, res) {
       "prenom": "Prenom-test",
       "sexe": "F",
       "date_naissance": "1996-08-19",
+      "langue": "fr_FR",
       "avatar": "https://www.ekito.fr/dummy/avatars-circle-128x128/avatar4.png"
     }
 
