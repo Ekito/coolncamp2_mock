@@ -15,6 +15,7 @@ module.exports = {
       "ambiance": "CLUB",
       "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
       "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
+      "horaire": "9h00 à 19h00",
       "tel": "+335 56 03 20 77",
       "email": "contact@coolncamp.com",
       "media": {

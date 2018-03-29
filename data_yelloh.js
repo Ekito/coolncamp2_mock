@@ -16,6 +16,7 @@ module.exports = {
         "lat": 45.018909,
         "lng": -1.193664
       },
+      "horaire": "9h00 à 19h00",
       "tel": "+335 56 03 20 77",
       "email": "contact@coolncamp.com",
       "media": {

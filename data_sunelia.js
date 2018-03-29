@@ -14,6 +14,7 @@ module.exports = {
       "etoiles": 4,
       "ambiance": "ZEN",
       "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox3.jpg",
+      "horaire": "9h00 à 19h00",
       "tel": "+33 (0)5 57 14 33 60",
       "email": "contact@coolncamp.com",
       "media": {
