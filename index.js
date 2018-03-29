@@ -1,6 +1,13 @@
+'use strict';
+
 const express = require('express');
 const app = express();
 const moment = require('moment');
+
+const cnc = require('./data_cnc');
+const yelloh = require('./data_yelloh');
+const sunelia = require('./data_sunelia');
+const campeole = require('./data_campeole');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
@@ -12,9 +19,23 @@ const PORT = process.env.PORT || 5000
 app.use('/static', express.static('public'));
 
 app.listen(PORT, function () {
-  console.log('Cool\'nCamp v2 (Mock) server listening on port ${ PORT } !')
+  console.log('Cool\'nCamp v2 (Mock) server listening on port ' + PORT + ' !')
 })
 
+function getDataset(req) {
+  let appIssuer = req.headers['x-issuer'];
+
+  switch (appIssuer) {
+    case "Campeole":
+      return campeole;
+    case "Sunelia":
+      return sunelia;
+    case "Yelloh":
+      return yelloh;
+    default:
+      return cnc;
+  }
+}
 
 let id1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0QGVraXRvLmZyIn0.9qhlq0d5LOcsCxuz_ldmXX3ipvMY1bEN2rHEYtSZeaU"
 let id2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJ0ZXN0M0Bla2l0by5mciJ9.hoN_gskTqKOq8MbiDThzLIiemlTc1rn9TmQO2QpePiQ"
@@ -32,19 +53,6 @@ app.get('/auth/out', function (req, res) {
   }
 })
 
-/**
- * URL pour tester
- *
-  curl -X POST http://localhost:3000/auth/connexion -H 'cache-control: no-cache' -H 'content-type: application/json' \
-    -d '{"login": "test@ekito.fr", "password":"ekito"}'
-
-  curl -X POST http://localhost:3000/auth/connexion -H 'cache-control: no-cache' -H 'content-type: application/json' \
-    -d '{"login": "test2@ekito.fr", "password":"ekito"}'
-
-  curl -X POST http://localhost:3000/auth/connexion -H 'cache-control: no-cache' -H 'content-type: application/json' \
-    -d '{"login": "test3@ekito.fr", "password":"ekito"}'
- *
- */
 app.post('/auth/connexion', function (req, res) {
 
   console.log('POST /auth/connexion')
@@ -141,296 +149,18 @@ app.get('/app/politique-confidentialite', function (req, res) {
 
 app.get('/hotes/:id', function (req, res) {
 
-  let hote_0 = {
-    "id_hote": "hote_0",
-    "nom": "Les Grands Pins",
-    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
-    "itineraire": {
-      "description": "Localisation Les Grands Pins",
-      "lat": 45.018909,
-      "lng": -1.193664
-    },
-    "etoiles": 5,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-    "tel": "+335 56 03 20 77",
-    "email": "contact@coolncamp.com",
-    "media": {
-      "images": []
-    },
-    "ville": "Lacanau",
-    "accroche": "Vos vacances au camping Les Grands Pins",
-    "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt.",
-    "nb_locations": 257,
-    "nb_emplacements": 277,
-    "date_ouverture1": "2018-04-27",
-    "date_fermeture1": "2018-09-17"
-  }
-
-  let hote_1 = {
-    "id_hote": "hote_1",
-    "nom": "Domaine de la Dragonnière",
-    "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
-    "itineraire": {
-      "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
-      "lat": 43.31168928024891,
-      "lng": 3.36456298828125
-    },
-    "etoiles": 5,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-    "horaire": "9h00 à 19h00",
-    "tel": "+339 70 77 43 29",
-    "email": "contact@coolncamp.com",
-    "media": {
-      "images": []
-    },
-    "ville": "Vias-sur-mer",
-    "accroche": "Bonheur en Méditerranée",
-    "description": "Entre plage de sable fin et canal du Midi, au cœur du Languedoc, le Sunêlia Domaine de la Dragonnière, camping 5 étoiles à Vias, vous accueille dans un pays de vignes et de soleil.",
-    "nb_locations": 145,
-    "nb_emplacements": 78,
-    "date_ouverture1": "2018-03-30",
-    "date_fermeture1": "2018-11-01"
-  }
-
-  let hote_2 = {
-    "id": "hote_2",
-    "nom": "Le Fief",
-    "image": "https://www.sunelia.com/campsite/le-fief/1200/490/picture_le-fief-76.jpg",
-    "itineraire": {
-      "description": "Localisation Le Fief - Saint-Brevin-Les-Pins",
-      "lat": 47.23534195874878,
-      "lng": -2.1670854091644287
-    },
-    "etoiles": 4,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
-    "horaire": "9h00 à 19h00",
-    "tel": "+339 70 77 43 29",
-    "email": "contact@coolncamp.com",
-    "rs": [{
-        "label": "Facebook",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Twitter",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Instagram",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Pinterest",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Youtube",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "TripAdvisor",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Google+",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "LinkedIn",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Zoover",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Vimeo",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Flickr",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Snapchat",
-        "url": "https://www.facebook.com/238129529603295"
-      }
-    ],
-    "media": {
-      "image_thumbnail": "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_parc-aquatique.jpg",
-      "images": [
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_vue-aerienne.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_parc-aquatique.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_plage-st-brevin.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_piscine.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_jeux-aquatiques.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_basket.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_gym.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_terrasse-restaurant.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_restaurant.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_tennis.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_spa.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_massage-duo.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_salle-de-sport.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_volley-ball.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_espace-aquatique-couvert.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_toboggan.jpg",
-        "https://www.sunelia.com/campsite/le-fief/903/423/sunelia-le-fief_aquabike.jpg"
-      ]
-    },
-    "ville": "Saint-Brevin-Les-Pins",
-    "accroche": "Bonheur en Méditerranée",
-    "description": "Entre plage de sable fin et canal du Midi, au cœur du Languedoc, le Sunêlia Domaine de la Dragonnière, camping 5 étoiles à Vias, vous accueille dans un pays de vignes et de soleil.",
-    "nb_locations": 145,
-    "nb_emplacements": 78,
-    "date_ouverture1": "2018-03-30",
-    "date_fermeture1": "2018-09-01",
-    "date_ouverture2": "2018-10-15",
-    "date_fermeture2": "2018-12-31"
-  }
-
-  let hote_3 = {
-    "id": "hote_3",
-    "nom": "L’Escale St Gilles",
-    "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
-    "itineraire": {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-      "lat": 47.86273,
-      "lng": -4.095669
-    },
-    "etoiles": 5,
-    "ambiance": "ZEN",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/authentic.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-    "horaire": "9h00 à 19h00",
-    "tel": "+339 70 77 43 29",
-    "email": "contact@coolncamp.com",
-    "url": "http://www.coolncamp.com",
-    "rs": [{
-        "label": "Facebook",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Twitter",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Instagram",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Pinterest",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "Youtube",
-        "url": "https://www.facebook.com/238129529603295"
-      },
-      {
-        "label": "TripAdvisor",
-        "url": "https://www.facebook.com/238129529603295"
-      }
-    ],
-    "media": {
-      "image_thumbnail": "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
-      "images": [
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-vue-port-plaisance-benodet.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-aquazen-detente.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-parc-aquatique-couvert-famille.jpg",
-        "https://www.sunelia.com//campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-bain-bouillonnant.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-pente-a-glisse-enfants.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/54-pont-paillotte.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_piscine-a-courant.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-restaurant-safran.jpg",
-        "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/sunelia-l-escale_st-gilles_plage-de-trez.jpg"
-      ],
-      "videos": [{
-          "titre": "Surf session",
-          "image_thumbnail": "https://img.youtube.com/vi/QApgShOdFUk/maxresdefault.jpg",
-          "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
-        },
-        {
-          "titre": "UCPA",
-          "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
-          "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
-        }
-      ]
-    },
-    "ville": "Saint-Gilles",
-    "accroche": "Bonheur en Méditerranée",
-    "description": "Entre plage de sable fin et canal du Midi, au cœur du Languedoc, le Sunêlia Domaine de la Dragonnière, camping 5 étoiles à Vias, vous accueille dans un pays de vignes et de soleil.",
-    "nb_locations": 145,
-    "nb_emplacements": 78,
-    "ouverture_annuelle": true
-  }
-
-  let hote_4 = {
-    "id": "hote_4",
-    "nom": "Le Malazéou",
-    "etoiles": 4,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
-    "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
-    "itineraire": {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-      "lat": 42.72880157941809,
-      "lng": 1.824878454208374
-    },
-    "horaire": "9h00 à 19h00",
-    "tel": "+339 70 77 43 29",
-    "email": "contact@coolncamp.com",
-    "url": "http://www.coolncamp.com",
-    "rs": [{
-      "label": "Facebook",
-      "url": "https://www.facebook.com/238129529603295"
-    }],
-    "media": {
-      "image_thumbnail": "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_piscine.jpg",
-      "images": [
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_montagne.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_piscine.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_animation.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_soiree.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_reception.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_l-ariege.jpg",
-        "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_sunelia-premium.jpg"
-      ],
-      "videos": [{
-        "titre": "UCPA",
-        "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
-        "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
-      }]
-    },
-    "ville": "Saint-Brevin-Les-Pins",
-    "accroche": "Bonheur en Méditerranée",
-    "description": "Entre plage de sable fin et canal du Midi, au cœur du Languedoc, le Sunêlia Domaine de la Dragonnière, camping 5 étoiles à Vias, vous accueille dans un pays de vignes et de soleil.",
-    "nb_locations": 145,
-    "nb_emplacements": 78,
-    "date_ouverture1": "2018-03-30",
-    "date_fermeture1": "2018-09-01",
-    "date_ouverture2": "2018-10-15",
-    "date_fermeture2": "2018-12-31"
-  }
+  let dataSet = getDataset(req);
 
   if (req.params.id === "hote_0") {
-    res.send(hote_0);
+    res.send(dataSet.hotes.hote_0);
   } else if (req.params.id === "hote_1") {
-    res.send(hote_1);
+    res.send(dataSet.hotes.hote_1);
   } else if (req.params.id === "hote_2") {
-    res.send(hote_2);
+    res.send(dataSet.hotes.hote_2);
   } else if (req.params.id === "hote_3") {
-    res.send(hote_3);
+    res.send(dataSet.hotes.hote_3);
   } else if (req.params.id === "hote_4") {
-    res.send(hote_4);
+    res.send(dataSet.hotes.hote_4);
   } else {
     res.sendStatus(404);
   }
@@ -440,14 +170,14 @@ app.get('/hotes/:id', function (req, res) {
 app.get('/moi/messages', function (req, res) {
   let messages = [{
       id: "12345567889",
-      emetteur: "Le Fief",
-      texte: "Cool'n Camp\n    Camping de la Cité **** NN\n route de St Hilaire\n 11000 Carcassonne\nTél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com  \n",
-      image: "https://www.sunelia.com/campsite/le-fief/400/600/sunelia-le-fief_piscine.jpg",
+      emetteur: "Cool'n Camp",
+      texte: "Cool'n Camp\n    Reprenez la main sur votre commercialisation avec Cool'n Camp ! \n Tél : +33 5 25 24 12 14\nFax : +33 5 25 24 12 13\n url: http://www.coolncamp.com",
+      image: "https://coolncamp.com/RESSOURCES/IMAGES/header_illustration_03_03.png",
       date: "2017-10-23T21:30:00+02:00"
     },
     {
       id: "AAAAA12345567889",
-      emetteur: "La Dragonnière",
+      emetteur: "Julien (CnC)",
       texte: "Septembers wondering if you knew girlnextdooritis pop firefly-catchin' drunk. In pastel mattress Lorde Lena. Dunham Andrea Swift Shellback Tribeca for. The first time fans haunted shaky. Hands dvd house of cards last. Kiss Olivia Benson dvd Kanye West Famous Harry. Styles forcing laughter words like. Knives cats psycho string of lights. Girlnextdooritis pre-order candles psycho snotty little. \n\nTél : +33 5 25 24 12 14\n\nAnd grumbling on about how I can't sing club red.\n\nhttp://www.coolncamp.com \n\nFamily psycho best dress the. Start of an age Subway take me. Somewhere we can be alone drop everything now saint iHeart. Radio excluded from this narrative Natalie I'm on the bleachers Karlie. Kloss white veil occasion Chai Sugar. Cookies presumptuous as I do presumptuous the story. Of us fans Watch Hill dark days Big. Machine iHeart Radio polaroid vote for Taylor like. Septembers wondering if you knew girlnextdooritis pop firefly-catchin' drunk. And grumbling on about how I can't sing club red. In pastel mattress Lorde Lena. Dunham Andrea Swift Shellback Tribeca for. The first time fans haunted shaky. Hands dvd house of cards last. Kiss Olivia Benson dvd Kanye West Famous Harry. Styles forcing laughter words like. Knives cats psycho string of lights. Girlnextdooritis pre-order candles psycho snotty little. Family psycho best dress the. Start of an age Subway take me. Somewhere we can be alone drop everything now saint iHeart. Radio excluded from this narrative Natalie I'm on the bleachers Karlie. Kloss white veil occasion Chai Sugar. Cookies presumptuous as I do presumptuous the story. Of us fans Watch Hill dark days Big. Machine iHeart Radio polaroid vote for Taylor like. Septembers wondering if you knew girlnextdooritis pop firefly-catchin' drunk. And grumbling on about how I can't sing club red. In pastel mattress Lorde Lena. Dunham Andrea Swift Shellback Tribeca for. The first time fans haunted shaky. Hands dvd house of cards last. Kiss Olivia Benson dvd Kanye West Famous Harry. Styles forcing laughter words like. Knives cats psycho string of lights. Girlnextdooritis pre-order candles psycho snotty little. Family psycho best dress the. Start of an age Subway take me. Somewhere we can be alone drop everything now saint iHeart. Radio excluded from this narrative Natalie I'm on the bleachers Karlie. Kloss white veil occasion Chai Sugar. Cookies presumptuous as I do presumptuous the story. Of us fans Watch Hill dark days Big. Machine iHeart Radio polaroid vote for Taylor like. Septembers wondering if you knew girlnextdooritis pop firefly-catchin' drunk. And grumbling on about how I can't sing club red. In pastel mattress Lorde Lena. Dunham Andrea Swift Shellback Tribeca for. The first time fans haunted shaky. Hands dvd house of cards last. Kiss Olivia Benson dvd Kanye West Famous Harry. Styles forcing laughter words like. Knives cats psycho string of lights. Girlnextdooritis pre-order candles psycho snotty little. Family psycho best dress the. Start of an age Subway take me. Somewhere we can be alone drop everything now saint iHeart. Radio excluded from this narrative Natalie I'm on the bleachers Karlie. Kloss white veil occasion Chai Sugar. Cookies presumptuous as I do presumptuous the story. Of us fans Watch Hill dark days Big. Machine iHeart Radio polaroid vote for Taylor like.",
       date: "2017-10-22T21:30:00+02:00"
     }
@@ -469,108 +199,72 @@ app.get('/moi/sejours', function (req, res) {
   let end = new Date();
   end.setDate(end.getDate() + 15);
 
+  let dataSet = getDataset(req);
+
   let sejours = [{
       "id": "sejour_1",
       "id_hote": "hote_1",
-      "nom": "Domaine de la Dragonnière",
-      "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "date_debut": "2017-07-01",
       "date_fin": "2017-07-15",
-      "itineraire": {
-        "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
-        "lat": 43.31168928024891,
-        "lng": 3.36456298828125
-      },
-      "etoiles": 5,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-      "ville": "Vias sur Mer",
+      "nom": dataSet.hotes.hote_1.nom,
+      "image": dataSet.hotes.hote_1.image,
+      "itineraire": dataSet.hotes.hote_1.itineraire,
+      "etoiles": dataSet.hotes.hote_1.etoiles || null,
+      "ambiance": dataSet.hotes.hote_1.ambiance || null,
+      "ambiance_logo": dataSet.hotes.hote_1.ambiance_logo || null,
+      "qualite_logo":dataSet.hotes.hote_1.qualite_logo || null,
+      "ville": dataSet.hotes.hote_1.ville,
       "pays": "France",
       "eta_debut_date_aff": "2017-06-30"
     },
     {
       "id": "sejour_2",
       "id_hote": "hote_2",
-      "nom": "Le Fief",
-      "image": "https://www.sunelia.com/campsite/le-fief/1200/490/picture_le-fief-76.jpg",
       "date_debut": "2017-08-01",
       "date_fin": "2017-08-15",
-      "itineraire": {
-        "description": "Localisation Le Fief - Saint-Brevin-Les-Pins",
-        "lat": 47.23534195874878,
-        "lng": -2.1670854091644287
-      },
-      "etoiles": 4,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
-      "ville": "Saint-Brevin-Les-Pins",
+      "nom": dataSet.hotes.hote_2.nom,
+      "image": dataSet.hotes.hote_2.image,
+      "itineraire": dataSet.hotes.hote_2.itineraire,
+      "etoiles": dataSet.hotes.hote_2.etoiles || null,
+      "ambiance": dataSet.hotes.hote_2.ambiance || null,
+      "ambiance_logo": dataSet.hotes.hote_2.ambiance_logo || null,
+      "qualite_logo":dataSet.hotes.hote_2.qualite_logo || null,
+      "ville": dataSet.hotes.hote_2.ville,
       "pays": "France",
       "eta_debut_date_aff": "2017-07-30"
     },
     {
       "id": "sejour_3",
       "id_hote": "hote_3",
-      "nom": "L’Escale St Gilles",
-      "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
-      "date_debut": now.toISOString().slice(0, 10),
-      "date_fin": end.toISOString().slice(0, 10),
-      "itineraire": {
-        "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-        "lat": 47.86273,
-        "lng": -4.095669
-      },
-      "etoiles": 5,
-      "ambiance": "ZEN",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/authentic.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-      "ville": "Bénodet",
+      "date_debut": "2017-10-01",
+      "date_fin": "2017-10-15",
+      "nom": dataSet.hotes.hote_3.nom,
+      "image": dataSet.hotes.hote_3.image,
+      "itineraire": dataSet.hotes.hote_3.itineraire,
+      "etoiles": dataSet.hotes.hote_3.etoiles || null,
+      "ambiance": dataSet.hotes.hote_3.ambiance || null,
+      "ambiance_logo": dataSet.hotes.hote_3.ambiance_logo || null,
+      "qualite_logo":dataSet.hotes.hote_3.qualite_logo || null,
+      "ville": dataSet.hotes.hote_3.ville,
       "pays": "France",
-      "eta_debut_date_aff": now.toISOString().slice(0, 10)
+      "eta_debut_date_aff": "2017-07-30"
     },
     {
       "id": "sejour_4",
       "id_hote": "hote_0",
-      "nom": "Les Grands Pins",
-      "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
       "date_debut": now.toISOString().slice(0, 10),
       "date_fin": end.toISOString().slice(0, 10),
-      "itineraire": {
-        "description": "Localisation Les Grands Pins",
-        "lat": 45.018909,
-        "lng": -1.193664
-      },
-      "etoiles": 5,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-      "ville": "Lacanau",
+      "nom": dataSet.hotes.hote_0.nom,
+      "image": dataSet.hotes.hote_0.image,
+      "itineraire": dataSet.hotes.hote_0.itineraire,
+      "etoiles": dataSet.hotes.hote_0.etoiles || null,
+      "ambiance": dataSet.hotes.hote_0.ambiance || null,
+      "ambiance_logo": dataSet.hotes.hote_0.ambiance_logo || null,
+      "qualite_logo":dataSet.hotes.hote_0.qualite_logo || null,
+      "ville": dataSet.hotes.hote_0.ville,
       "pays": "France",
       "eta_debut_date_aff": now.toISOString().slice(0, 10)
-    },
-    {
-      "id": "sejour_5",
-      "id_hote": "hote_0",
-      "nom": "Les Grands Pins",
-      "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
-      "date_debut": "2018-08-10",
-      "date_fin": "2018-08-25",
-      "itineraire": {
-        "description": "Localisation Les Grands Pins",
-        "lat": 45.018909,
-        "lng": -1.193664
-      },
-      "etoiles": 5,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-      "ville": "Lacanau",
-      "pays": "France",
-      "eta_debut_date_aff": now.toISOString().slice(0, 10)
-    }
-
-  ];
+    }];
 
   if (req.headers['authorization'] === 'Bearer ' + id1) {
     res.send(sejours);
@@ -583,6 +277,8 @@ app.get('/moi/sejours', function (req, res) {
 
 app.get('/moi/sejours/:id', function (req, res) {
 
+  let dataSet = getDataset(req);
+
   let now = new Date();
   let end = new Date();
   end.setDate(end.getDate() + 15);
@@ -590,21 +286,17 @@ app.get('/moi/sejours/:id', function (req, res) {
   let sejour_1 = {
     "id": "sejour_1",
     "id_hote": "hote_1",
-    "nom": "Domaine de la Dragonnière",
-    "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
     "date_debut": "2017-07-01",
     "date_fin": "2017-07-15",
-    "itineraire": {
-      "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
-      "lat": 43.31168928024891,
-      "lng": 3.36456298828125
-    },
-    "ville": "Vias sur Mer",
+    "nom": dataSet.hotes.hote_1.nom,
+    "image": dataSet.hotes.hote_1.image,
+    "itineraire": dataSet.hotes.hote_1.itineraire,
+    "ville": dataSet.hotes.hote_1.ville,
     "pays": "France",
     "proprietaire": true,
     "restriction_service": [],
     "sejournants": [{
-      email: "clamri@ekito.fr",
+      email: "cnc@ekito.fr",
       avatar: "https://openclipart.org/image/2400px/svg_to_png/247319/abstract-user-flat-3.png"
     }],
     "categorie": "Mobil home 15 places",
@@ -614,16 +306,12 @@ app.get('/moi/sejours/:id', function (req, res) {
   let sejour_2 = {
     "id": "sejour_2",
     "id_hote": "hote_2",
-    "nom": "Le Fief",
-    "image": "https://www.sunelia.com/campsite/le-fief/1200/490/picture_le-fief-76.jpg",
     "date_debut": "2017-08-01",
     "date_fin": "2017-08-15",
-    "itineraire": {
-      "description": "Localisation Le Fief - Saint-Brevin-Les-Pins",
-      "lat": 47.23534195874878,
-      "lng": -2.1670854091644287
-    },
-    "ville": "Saint-Brevin-Les-Pins",
+    "nom": dataSet.hotes.hote_2.nom,
+    "image": dataSet.hotes.hote_2.image,
+    "itineraire": dataSet.hotes.hote_2.itineraire,
+    "ville": dataSet.hotes.hote_2.ville,
     "pays": "France",
     "proprietaire": true,
     "restriction_service": ["tickets", "conforts"],
@@ -657,16 +345,12 @@ app.get('/moi/sejours/:id', function (req, res) {
   let sejour_3 = {
     "id": "sejour_3",
     "id_hote": "hote_3",
-    "nom": "L’Escale St Gilles",
-    "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
-    "date_debut": now.toISOString().slice(0, 10),
-    "date_fin": end.toISOString().slice(0, 10),
-    "itineraire": {
-      "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-      "lat": 47.86273,
-      "lng": -4.095669
-    },
-    "ville": "Bénodet",
+    "date_debut": "2017-10-01",
+    "date_fin": "2017-10-15",
+    "nom": dataSet.hotes.hote_3.nom,
+    "image": dataSet.hotes.hote_3.image,
+    "itineraire": dataSet.hotes.hote_3.itineraire,
+    "ville": dataSet.hotes.hote_3.ville,
     "pays": "France",
     "proprietaire": true,
     "restriction_service": [],
@@ -680,69 +364,19 @@ app.get('/moi/sejours/:id', function (req, res) {
       "debut": "2017-10-22T10:00:00+02:00",
       "label": "10:00 - 10:30"
     },
-    "eta_debut_date_aff": now.toISOString().slice(0, 10)
+    "eta_debut_date_aff": "2017-06-30"
   };
 
   let sejour_4 = {
     "id": "sejour_4",
     "id_hote": "hote_0",
-    "nom": "Les Grands Pins",
-    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
     "date_debut": now.toISOString().slice(0, 10),
     "date_fin": end.toISOString().slice(0, 10),
-    "itineraire": {
-      "description": "Localisation Les Grands Pins",
-      "lat": 45.018909,
-      "lng": -1.193664
-    },
-    "etoiles": 5,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-    "tel": "+335 56 03 20 77",
-    "email": "contact@coolncamp.com",
-    "media": {
-      "images": []
-    },
-    "ville": "Lacanau",
-    "pays": "France",
-    "proprietaire": true,
-    "restriction_service": [],
-    "sejournants": [],
-    "categorie": "Mobil home 4 places",
-    "type_sejour": {
-      "id": "561e70142bd365546734bce1",
-      "label": "En famille"
-    },
-    "eta": {
-      "debut": "2017-10-22T10:00:00+02:00",
-      "label": "10:00 - 10:30"
-    },
-    "eta_debut_date_aff": now.toISOString().slice(0, 10)
-  }
-
-  let sejour_5 = {
-    "id": "sejour_5",
-    "id_hote": "hote_0",
-    "nom": "Les Grands Pins",
-    "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
-    "date_debut": "2018-08-10",
-    "date_fin": "2018-08-25",
-    "itineraire": {
-      "description": "Localisation Les Grands Pins",
-      "lat": 45.018909,
-      "lng": -1.193664
-    },
-    "etoiles": 5,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
-    "tel": "+335 56 03 20 77",
-    "email": "contact@coolncamp.com",
-    "media": {
-      "images": []
-    },
-    "ville": "Lacanau",
+    
+    "nom": dataSet.hotes.hote_0.nom,
+    "image": dataSet.hotes.hote_0.image,
+    "itineraire": dataSet.hotes.hote_0.itineraire,
+    "ville": dataSet.hotes.hote_0.ville,
     "pays": "France",
     "proprietaire": true,
     "restriction_service": [],
@@ -767,15 +401,13 @@ app.get('/moi/sejours/:id', function (req, res) {
     res.send(sejour_3);
   } else if (req.params.id === "sejour_4") {
     res.send(sejour_4);
-  } else if (req.params.id === "sejour_5") {
-    res.send(sejour_5);
   } else {
     res.sendStatus(404);
   }
 })
 
 app.get('/moi/sejours/:id/eta', function (req, res) {
-  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3" || req.params.id === "sejour_4") {
 
     let payload = [{
       "debut": "2017-10-22T09:30:00+02:00",
@@ -799,9 +431,8 @@ app.post('/moi/sejours/:id/eta', function (req, res) {
   res.sendStatus(200);
 });
 
-
 app.get('/moi/sejours/:id/conforts', function (req, res) {
-  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3") {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_2" || req.params.id === "sejour_3" || req.params.id === "sejour_4") {
 
     let payload = [{
         "id": "1",
@@ -872,10 +503,10 @@ app.post('/moi/sejours/:id/conforts', function (req, res) {
 app.get('/hotes/:id/reservation', function (req, res) {
 
   let moteur = {
-    titre: "2018 AU PRIX DE 2017",
-    url: "https://www.sites-et-paysages.com/resultats-camping-disponibilite.html?paysage=&id_region=&hebergement=&numpers=1&datedeb=18%2F10%2F2017&datefin=25%2F10%2F2017&submit-recherche=Rechercher",
-    tel: "+33970825001",
-    description: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33970825001</li>\n</ul>\n</div>\n</body>\n</html>",
+    titre: "2018 au prix 2017 !",
+    url: "https://coolncamp.com",
+    tel: "+33123456789",
+    description: "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p> </p>\n<ul style=\"list-style-type: circle;\">\n<li>Offre exclusive valable du 1er Juillet au 31 Octobre 2017<br />Location d’habitats =&gt; Réservez votre séjour par téléphone en contactant notre Centrale de Réservation au +33123456789</li>\n</ul>\n</div>\n</body>\n</html>",
   }
   if (req.params.id === "hote_1" || req.params.id === "hote_4") {
     delete moteur.tel
@@ -929,7 +560,7 @@ app.get('/moi/sejours/:id/etat-des-lieux', function (req, res) {
     "message": "date limite dépassée"
   };
 
-  if (req.params.id === "sejour_1") {
+  if (req.params.id === "sejour_1" || req.params.id === "sejour_4") {
     res.send(etat_1_non_fait);
   } else if (req.params.id === "sejour_2") {
     res.send(etat_3_non_fait_date_depassee);
@@ -985,7 +616,6 @@ app.get('/moi/sejours/:id/type-sejour', function (req, res) {
   res.send(types);
 })
 
-
 app.get('/moi/sejours/:id/tickets', function (req, res) {
 
   let tickets = {
@@ -1013,7 +643,7 @@ app.get('/moi/sejours/:id/tickets', function (req, res) {
     "tickets": []
   }
 
-  if (req.params.id === "sejour_4" || req.params.id === "sejour_5") {
+  if (req.params.id === "sejour_4") {
     res.send(tickets_empty);
   } else {
     res.send(tickets);
@@ -1084,18 +714,21 @@ app.post('/moi/hotes-promos/import', function (req, res) {
   }
 })
 
-
 app.get('/moi/hotes-promos', function (req, res) {
+
+  let dataSet = getDataset(req);
+
   let promos = [{
     "id": "promo_1",
     "id_hote": "hote_4",
-    "nom": "Le Malazéou",
-    "etoiles": 4,
-    "ambiance": "CLUB",
-    "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.svg",
-    "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
-    "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
-    "ville": "Ax-les-thermes",
+    "nom": dataSet.hotes.hote_4.nom,
+    "image": dataSet.hotes.hote_4.image,
+    "itineraire": dataSet.hotes.hote_4.itineraire,
+    "etoiles": dataSet.hotes.hote_4.etoiles || null,
+    "ambiance": dataSet.hotes.hote_4.ambiance || null,
+    "ambiance_logo": dataSet.hotes.hote_4.ambiance_logo || null,
+    "qualite_logo":dataSet.hotes.hote_4.qualite_logo || null,
+    "ville": dataSet.hotes.hote_4.ville,
     "pays": "France",
     "date_ouverture1": "2018-03-30",
     "date_fermeture1": "2018-09-01",
@@ -1147,7 +780,6 @@ app.get('/moi', function (req, res) {
     res.sendStatus(401);
   }
 })
-
 
 app.put('/moi', function (req, res) {
   console.log('GET /moi')
@@ -1249,8 +881,8 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     "titre": "Reception anglais",
     "soustitre": "8 am to 8 pm",
     "description": "Yummy yummy !",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "lat": 43.601503,
+    "lng": 1.444255,    
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1265,9 +897,7 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     ],
     "images": [
       "https://coolncamp.s3.amazonaws.com/horaires/1443789725378ERj6BJFZX4ojhIE7.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+      "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg"
     ]
   };
 
@@ -1275,9 +905,9 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     "id": "5609818b0db27a0300b23d59",
     "titre": "Bar / Snack",
     "soustitre": "10 AM - 02 PM",
-    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
+    "lat": 43.601503,
+    "lng": 1.444255,    
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1352,8 +982,8 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     "id": "59b7af89ed44090f26a2c27e",
     "titre": "Campsite Map",
     "description": "Yummy yummy !",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "lat": 43.601503,
+    "lng": 1.444255,    
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1368,18 +998,16 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     ],
     "images": [
       "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+      "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg"
     ]
   };
 
   let info_2 = {
     "id": "5609818b0db27a0300b23d59",
     "titre": "défibrillateur cardiaque",
-    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
+    "lat": 43.601503,
+    "lng": 1.444255,    
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1468,8 +1096,8 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     "titre": "Soirée Crêpes",
     "soustitre": "Tous les mercredis, sur la terrasse du bar",
     "description": "Yummy yummy !",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "lat": 43.601503,
+    "lng": 1.444255,  
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1483,10 +1111,10 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
       }
     ],
     "images": [
-      "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",[
+      "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
+      "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg"
+      ]
     ]
   };
 
@@ -1494,9 +1122,9 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     "id": "56086a22d3bfcf03005f7ab0",
     "titre": "Cycling, skating",
     "soustitre": "Accessible aux rollers et PMR .",
-    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
+    "lat": 43.601503,
+    "lng": 1.444255,  
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1598,8 +1226,8 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     "titre": "Nature & randonnée",
     "soustitre": "En pays Basque",
     "description": "Yummy yummy !",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "lat": 43.601503,
+    "lng": 1.444255,  
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1613,10 +1241,7 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
       }
     ],
     "images": [
-      "https://coolncamp.s3.amazonaws.com/bonPlans/14775707718484kuBSpSfgLLGVwlh.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-enfant-sunny.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-saint-gilles-voilier.jpg",
-      "https://www.sunelia.com/campsite/lescale-st-gilles/903/423/escale-st-gilles-spa-camping-detente.jpg"
+      "https://coolncamp.s3.amazonaws.com/bonPlans/14775707718484kuBSpSfgLLGVwlh.jpg"
     ]
   };
 
@@ -1624,9 +1249,9 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     "id": "596c7fa1c0633ece232d195f",
     "titre": "Mont Saint Michel",
     "soustitre": "A 45 minutes du Camping",
-    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
-    "lat": 43.31168928024891,
-    "lng": 3.36456298828125,
+    "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
+    "lat": 43.601503,
+    "lng": 1.444255,  
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1779,9 +1404,6 @@ app.get('/hotes/:id/canaux-notif', function (req, res) {
 app.put('/hotes/:id/canaux-notif', function (req, res) {
   res.send(200);
 })
-
-console.log(moment().format("YYYY-MM-DDTHH:mm:ssZ"))
-console.log(moment())
 
 app.get('/hotes/:id/activites', function (req, res) {
 
@@ -2441,12 +2063,11 @@ app.get('/hotes/:id/avis', function (req, res) {
     }]
   };
 
-
   let payload = {
     "note": 8.3,
     "note_max": 10,
     "nb_notes": 2464,
-    commentaires : []
+    commentaires: []
   }
 
   if (req.query.type_hebergement === "LOCATION") {
