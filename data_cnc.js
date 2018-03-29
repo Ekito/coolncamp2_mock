@@ -3,7 +3,7 @@
 module.exports = {
   hotes : {
     hote_0 : {
-      "id_hote": "hote_0",
+      "id": "hote_0",
       "nom": "Les Grands Pins",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
       "itineraire": {
@@ -11,10 +11,6 @@ module.exports = {
         "lat": 45.018909,
         "lng": -1.193664
       },
-      "etoiles": 5,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
       "horaire": "9h00 à 19h00",
       "tel": "+335 56 03 20 77",
       "email": "contact@coolncamp.com",
@@ -31,7 +27,7 @@ module.exports = {
     },
 
     hote_1 : {
-      "id_hote": "hote_1",
+      "id": "hote_1",
       "nom": "Domaine de la Dragonnière",
       "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "itineraire": {
@@ -39,10 +35,6 @@ module.exports = {
         "lat": 43.31168928024891,
         "lng": 3.36456298828125
       },
-      "etoiles": 5,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
       "horaire": "9h00 à 19h00",
       "tel": "+339 70 77 43 29",
       "email": "contact@coolncamp.com",
@@ -67,10 +59,6 @@ module.exports = {
         "lat": 47.23534195874878,
         "lng": -2.1670854091644287
       },
-      "etoiles": 4,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
       "horaire": "9h00 à 19h00",
       "tel": "+339 70 77 43 29",
       "email": "contact@coolncamp.com",
@@ -165,10 +153,6 @@ module.exports = {
         "lat": 47.86273,
         "lng": -4.095669
       },
-      "etoiles": 5,
-      "ambiance": "ZEN",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/authentic.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox5.jpg",
       "horaire": "9h00 à 19h00",
       "tel": "+339 70 77 43 29",
       "email": "contact@coolncamp.com",
@@ -237,10 +221,6 @@ module.exports = {
     hote_4 : {
       "id": "hote_4",
       "nom": "Le Malazéou",
-      "etoiles": 4,
-      "ambiance": "CLUB",
-      "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
-      "qualite_logo": "https://www.sunelia.com/skin/v4/img/picto/cox0.jpg",
       "image": "https://www.sunelia.com/campsite/le-malazeou/1200/490/picture_malazeou-999.jpg",
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",

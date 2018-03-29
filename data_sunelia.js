@@ -3,7 +3,7 @@
 module.exports = {
   hotes : {
     hote_0 : {
-      "id_hote": "hote_0",
+      "id": "hote_0",
       "nom": "Les Pins",
       "image": "https://www.sunelia.com/campsite/les-pins/1200/490/picture_sunelia-pins-piscine.jpg",
       "itineraire": {
@@ -39,7 +39,7 @@ module.exports = {
     },
 
     hote_1 : {
-      "id_hote": "hote_1",
+      "id": "hote_1",
       "nom": "Domaine de la Dragonnière",
       "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "itineraire": {

@@ -3,7 +3,7 @@
 module.exports = {
   hotes : {
     hote_0 : {
-      "id_hote": "hote_0",
+      "id": "hote_0",
       "nom": "Les Grands Pins",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
       "itineraire": {
@@ -31,7 +31,7 @@ module.exports = {
     },
 
     hote_1 : {
-      "id_hote": "hote_1",
+      "id": "hote_1",
       "nom": "Domaine de la Dragonnière",
       "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "itineraire": {

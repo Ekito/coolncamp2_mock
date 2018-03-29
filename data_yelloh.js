@@ -3,7 +3,7 @@
 module.exports = {
   hotes: {
     hote_0: {
-      "id_hote": "hote_0",
+      "id": "hote_0",
       "nom": "Les Grands Pins",
       "etoiles": 5,
       "ambiance_logo": "https://cnc-mock.herokuapp.com/static/club.png",
@@ -50,7 +50,7 @@ module.exports = {
     },
 
     hote_1: {
-      "id_hote": "hote_1",
+      "id": "hote_1",
       "nom": "Maguide",
       "etoiles": 2,
       "ambiance_logo": "https://cnc-mock.herokuapp.com/static/authentic.png",
