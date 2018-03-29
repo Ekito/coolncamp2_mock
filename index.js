@@ -1111,10 +1111,8 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
       }
     ],
     "images": [
-      "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",[
-      "https://coolncamp.s3.amazonaws.com/infos/1500284099863zA8t7pJPNIwlBJlt.jpg",
+      "https://coolncamp.s3.amazonaws.com/bonPlans/1505292481613iBjcUTxFTms2gdUa.jpg",
       "https://coolncamp.s3.amazonaws.com/horaires/14780773235334sHUrzGhUvDMsWS8.jpg"
-      ]
     ]
   };
 
