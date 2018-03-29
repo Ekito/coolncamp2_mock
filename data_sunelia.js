@@ -227,9 +227,9 @@ module.exports = {
             "url": "https://www.youtube.com/watch?v=xpcbMkvQE8A"
           },
           {
-            "titre": "UCPA",
-            "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
-            "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
+            "titre": "Cool'nCamp",
+            "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/0.jpg",
+            "url": "https://www.youtube.com/watch?v=0G0IfcZTG1M"  
           }
         ]
       },
@@ -274,9 +274,9 @@ module.exports = {
           "https://www.sunelia.com/campsite/le-malazeou/903/423/sunelia-le-malazeou_sunelia-premium.jpg"
         ],
         "videos": [{
-          "titre": "UCPA",
-          "image_thumbnail": "https://img.youtube.com/vi/-QIyAaw1JdA/maxresdefault.jpg",
-          "url": "https://www.youtube.com/watch?v=-QIyAaw1JdA"
+          "titre": "Cool'nCamp",
+          "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/0.jpg",
+          "url": "https://www.youtube.com/watch?v=0G0IfcZTG1M"
         }]
       },
       "ville": "Saint-Brevin-Les-Pins",

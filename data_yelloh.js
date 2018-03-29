@@ -182,7 +182,7 @@ module.exports = {
           },
           {
             "titre": "Cool'nCamp",
-            "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/maxresdefault.jpg",
+            "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/0.jpg",
             "url": "https://www.youtube.com/watch?v=0G0IfcZTG1M"
           }
         ]
@@ -243,7 +243,7 @@ module.exports = {
         ],
         "videos": [{
           "titre": "Cool'nCamp",
-          "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/maxresdefault.jpg",
+          "image_thumbnail": "https://img.youtube.com/vi/0G0IfcZTG1M/0.jpg",
           "url": "https://www.youtube.com/watch?v=0G0IfcZTG1M"
         }]
       },
