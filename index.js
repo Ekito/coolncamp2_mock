@@ -2068,7 +2068,7 @@ app.get('/hotes/:id/avis', function (req, res) {
     commentaires: []
   }
 
-  if req.query.page < 3 {
+  if (req.query.page < 3) {
     if (req.query.type_hebergement === "LOCATION") {
       payload.commentaires = avis;
     } else if (req.query.type_hebergement === "EMPLACEMENT") {
