@@ -5,10 +5,12 @@ module.exports = {
     hote_0: {
       "id": "hote_0",
       "nom": "Les Grands Pins",
+      "type_desitnation": "MER",
       "etoiles": 5,
       "ambiance_logo": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
       "ville": "Lacanau",
+      "pays": "France",
       "accroche": "Vos vacances au camping Les Grands Pins",
       "description": "Fermez les yeux et respirez… L’odeur des embruns, le bruit des vagues, la chaleur du soleil sur votre peau...Vous êtes bien en camping en Gironde, au Yelloh! Village Les Grands Pins. Situé au cœur d’une grande forêt de pins, au sein d’une nature préservée, le camping vous propose plus de 100 km de pistes cyclables pour de belles balades en forêt.",
       "itineraire": {
@@ -52,10 +54,12 @@ module.exports = {
     hote_1: {
       "id": "hote_1",
       "nom": "Maguide",
+      "type_desitnation": "MER",
       "etoiles": 2,
       "ambiance_logo": "AUTHENTIC",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/maguide/2250850-1-fre-FR/maguide.jpg",
       "ville": "Biscarrosse",
+      "pays": "France",
       "accroche": "Un camping à taille humaine bordé par le lac de Biscarrosse-Sanguinet et la forêt des Landes",
       "description": "Situé au cœur d’une nature exceptionnelle à seulement 4km de l’océan, le Yelloh! Village Maguide vous séduira par son atmosphère unique en son genre. Ici, respirez le grand air et profitez d’une ambiance familiale combinant luxe et tranquillité ! \nAvec un accès direct à une plage de sable du Lac de Biscarrosse-Sanguinet ainsi qu’un bassin couvert intégré dans le paysage (réservé aux activités en juillet/août), ce camping dans les Landes ravira les petits comme les plus grands ! Activités nautiques, farniente ou encore vélo grâce aux pistes cyclables situées dans la forêt adossée au camping : vous n’aurez pas le temps de vous ennuyer ! Découvrez vite les différents hébergements et emplacements proposés par le camping Maguide et réservez votre séjour pour découvrir Les Landes autrement !",
       "media": {
@@ -64,8 +68,8 @@ module.exports = {
       },
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
-        "lat": 43.601503,
-        "lng": 1.444255
+        "lat": 44.461540, 
+        "lng": -1.198485
       },
       "horaire": "9h00 à 19h00",
       "tel": "+33 (0)1 23 45 67 89",
@@ -80,10 +84,12 @@ module.exports = {
     hote_2: {
       "id": "hote_2",
       "nom": "Les Vikings",
+      "type_desitnation": "MER",
       "etoiles": 5,
       "ambiance_logo": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_vikings/1060752-186-fre-FR/les_vikings.jpg",
       "ville": "Barneville-Cartere",
+      "pays": "France",
       "accroche": "Un environnement préservé à 500m d'une plage de sable fin face aux îles anglo-normandes.",
       "description": "La Normandie, les îles anglo-normandes, les plages du débarquement, le Mont Saint Michel, Cherbourg ou encore la station balnéaire de Barneville-Carteret… Voici le décor de vos prochaines vacances au camping Les Vikings ! Situé à seulement 500 mètres de la plage, sur la presqu’île du Cotentin, le camping bénéficie d’une situation géographique exceptionnelle. \nProfitez des plaisirs de l’eau par tout temps grâce à l’espace aquatique avec piscine couverte et chauffée, toboggans et espace balnéo. Vivez des vacances actives en camping dans la Manche : tout au long de la journée, les animateurs du Yelloh! Village Les Vikings vous proposent un large choix d’activités ! De quoi vivre des vacances inoubliables en famille en Normandie !  ",
       "media": {
@@ -96,8 +102,8 @@ module.exports = {
       },
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
-        "lat": 43.601503,
-        "lng": 1.444255
+        "lat": 49.369395, 
+        "lng": -1.755124
       },
       "horaire": "9h00 à 19h00",
       "tel": "+33 (0)1 23 45 67 89",
@@ -163,10 +169,12 @@ module.exports = {
     hote_3: {
       "id": "hote_3",
       "nom": "Punta Milà",
+      "type_desitnation": "MER",
       "etoiles": 4,
       "ambiance_logo": "AUTHENTIC",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/punta_mila/1949737-22-fre-FR/punta_mila.jpg",
       "ville": "L'Escala",
+      "pays": "Espagne",
       "accroche": "Un camping 100% nature, près des plus belles plages de la Costa Brava",
       "description": "Vivez la Méditerranée au naturel ! Situé au cœur d’un parc naturel exceptionnel, le camping Punta Milà vous proposera un grand choix d’emplacements ombragés et de tentes meublées, juste à côté des fabuleuses petites criques de la Costa Brava. Ce camping à taille humaine sera une véritable oasis de calme et de sérénité pour vous. Les petits comme les grands adoreront cette atmosphère de détente, de tranquillité et de simplicité.\nLe Yelloh! Village Punta Milà est comme un lieu hors du temps, où la routine n’a pas cours. Randonnées, baignade, siestes, découvertes… Tout est possible pendant votre séjour, sous le soleil méditerranéen, si près de la plage, mais si loin des soucis ! Vous adorerez vos vacances en camping en Espagne ! ",
       "media": {
@@ -190,8 +198,8 @@ module.exports = {
       },
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
-        "lat": 43.601503,
-        "lng": 1.444255
+        "lat": 42.111038,
+        "lng": 3.158718
       },
       "horaire": "9h00 à 19h00",
       "tel": "+33 (0)1 23 45 67 89",
@@ -230,10 +238,12 @@ module.exports = {
     hote_4: {
       "id": "hote_4",
       "nom": "Le Brasilia",
+      "type_desitnation": "MER",
       "etoiles": 5,
       "ambiance_logo": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/le_brasilia/1050456-327-fre-FR/le_brasilia.jpg",
       "ville": "Canet-Plage-en-Roussillon",
+      "pays": "France",
       "accroche": "15ha de végétation avec un espace aquatique d'exception, un SPA balnéo et un accès direct à la mer",
       "description": "A vous la Méditerranée ! Juste à côté de Canet-en-Roussillon, dans les Pyrénées Orientales, le camping Le Brasilia vous fera goûter aux charmes et aux délices de la région. Vous pourrez plonger dans la mer, visiter l’arrière-pays et les villes pleines d’authenticité…",
       "media": {
@@ -250,8 +260,8 @@ module.exports = {
       },
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
-        "lat": 43.601503,
-        "lng": 1.444255
+        "lat": 42.709069, 
+        "lng": 3.036442
       },
       "horaire": "9h00 à 19h00",
       "tel": "+33 (0)1 23 45 67 89",

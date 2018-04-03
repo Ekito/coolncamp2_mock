@@ -5,6 +5,7 @@ module.exports = {
     hote_0 : {
       "id": "hote_0",
       "nom": "Les Pins",
+      "type_destination": "MEDITERRANEE",
       "image": "https://www.sunelia.com/campsite/les-pins/1200/490/picture_sunelia-pins-piscine.jpg",
       "itineraire": {
         "description": "Localisation Les Pins",
@@ -41,6 +42,7 @@ module.exports = {
     hote_1 : {
       "id": "hote_1",
       "nom": "Domaine de la Dragonnière",
+      "type_destination": "MEDITERRANEE",
       "image": "https://www.sunelia.com/campsite/domaine-de-la-dragonniere/1200/490/picture_drago1.jpg",
       "itineraire": {
         "description": "Localisation Domaine de la Dragonnière - Vias-sur-mer",
@@ -165,6 +167,7 @@ module.exports = {
     hote_3 : {
       "id": "hote_3",
       "nom": "L’Escale St Gilles",
+      "type_destination": "ATLANTIQUE",
       "image": "https://www.sunelia.com/campsite/lescale-st-gilles/1200/490/picture_vue-parc-aquatique-benodet-ok.jpg",
       "itineraire": {
         "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Camping de la Cité **** NN<br />route de St Hilaire<br />11000 Carcassonne</p>\n<p style=\"text-align: center;\">Tél : +33 5 25 24 12 14 <br />Fax : +33 5 25 24 12 13</p>\n<p style=\"text-align: center;\">GPS :</p>\n<p style=\"text-align: center;\">Latitude : 43:12:00 N</p>\n<p style=\"text-align: center;\">Longitude : 2:21:12 E</p>\n</div>\n</body>\n</html>",
@@ -242,6 +245,7 @@ module.exports = {
     hote_4 : {
       "id": "hote_4",
       "nom": "Le Malazéou",
+      "type_destination": "MONTAGNE",
       "etoiles": 4,
       "ambiance": "CLUB",
       "qualite_logo": "COX0",
