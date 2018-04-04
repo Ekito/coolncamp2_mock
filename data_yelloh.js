@@ -5,7 +5,7 @@ module.exports = {
     hote_0: {
       "id": "hote_0",
       "nom": "Les Grands Pins",
-      "type_desitnation": "MER",
+      "type_destination": "MER",
       "etoiles": 5,
       "ambiance": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/1067736-355-fre-FR/les_grands_pins_visuel_page_village_mobile.jpg",
@@ -54,7 +54,7 @@ module.exports = {
     hote_1: {
       "id": "hote_1",
       "nom": "Maguide",
-      "type_desitnation": "MER",
+      "type_destination": "MER",
       "etoiles": 2,
       "ambiance": "AUTHENTIC",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/maguide/2250850-1-fre-FR/maguide.jpg",
@@ -84,7 +84,7 @@ module.exports = {
     hote_2: {
       "id": "hote_2",
       "nom": "Les Vikings",
-      "type_desitnation": "MER",
+      "type_destination": "MER",
       "etoiles": 5,
       "ambiance": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_vikings/1060752-186-fre-FR/les_vikings.jpg",
@@ -169,7 +169,7 @@ module.exports = {
     hote_3: {
       "id": "hote_3",
       "nom": "Punta Milà",
-      "type_desitnation": "MER",
+      "type_destination": "MER",
       "etoiles": 4,
       "ambiance": "AUTHENTIC",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/punta_mila/1949737-22-fre-FR/punta_mila.jpg",
@@ -238,7 +238,7 @@ module.exports = {
     hote_4: {
       "id": "hote_4",
       "nom": "Le Brasilia",
-      "type_desitnation": "MER",
+      "type_destination": "MER",
       "etoiles": 5,
       "ambiance": "CLUB",
       "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/le_brasilia/1050456-327-fre-FR/le_brasilia.jpg",
