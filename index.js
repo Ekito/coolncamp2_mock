@@ -793,8 +793,6 @@ app.get('/moi/hotes-promos', function (req, res) {
     "id_hote": "hote_3",
     "nom": dataSet.hotes.hote_3.nom,
     "type_destination": dataSet.hotes.hote_3.type_destination,
-    "latitude": dataSet.hotes.hote_3.itineraire.lat,
-    "longitude": dataSet.hotes.hote_3.itineraire.lng,
     "image": dataSet.hotes.hote_3.image,
     "itineraire": dataSet.hotes.hote_3.itineraire,
     "etoiles": dataSet.hotes.hote_3.etoiles || null,
