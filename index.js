@@ -2160,14 +2160,18 @@ app.get('/hotes/:id/avis', function (req, res) {
     commentaires: []
   }
 
-  if (req.query.page < 3) {
-    if (req.query.type_hebergement === "LOCATION") {
-      payload.commentaires = avis;
-    } else if (req.query.type_hebergement === "EMPLACEMENT") {
-      payload.commentaires.push(emplacement_avis);
-    } else {
-      payload.commentaires = avis;
-      payload.commentaires.push(emplacement_avis);
+  if (req.query.lang === "EN") {
+    res.send(payload);
+  } else {
+    if (req.query.page < 3) {
+      if (req.query.type_hebergement === "LOCATION") {
+        payload.commentaires = avis;
+      } else if (req.query.type_hebergement === "EMPLACEMENT") {
+        payload.commentaires.push(emplacement_avis);
+      } else {
+        payload.commentaires = avis;
+        payload.commentaires.push(emplacement_avis);
+      }
     }
   }
   res.send(payload);
