@@ -49,7 +49,9 @@ module.exports = {
       "nb_emplacements": 277,
       "date_ouverture1": "2018-04-27",
       "date_fermeture1": "2018-09-17",
-      "url_offre": "https://www.yellohvillage.fr/camping/les_grands_pins"
+      "url_offre": "https://www.yellohvillage.fr/camping/les_grands_pins",
+      "id_hebergement": "location_cottage_pinede",
+      "type_hebergement": "LOCATION"
     },
 
     hote_1: {
@@ -236,7 +238,9 @@ module.exports = {
       "nb_locations": 145,
       "nb_emplacements": 78,
       "ouverture_annuelle": true,
-      "url_offre": "https://www.yellohvillage.fr/camping/punta_mila"
+      "url_offre": "https://www.yellohvillage.fr/camping/punta_mila",
+      "id_hebergement": "emplacement_1",
+      "type_hebergement": "EMPLACEMENT"
     },
 
     hote_4: {
