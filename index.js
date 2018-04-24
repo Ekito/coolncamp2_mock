@@ -360,7 +360,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     "proprietaire": true,
     "restriction_service": [],
     "sejournants": [],
-    "categorie": "Mobil home 4 places",
+    "categorie": "Emplacement tente",
     "type_sejour": {
       "id": "561e70142bd365546734bce1",
       "label": "En famille"
@@ -369,7 +369,9 @@ app.get('/moi/sejours/:id', function (req, res) {
       "debut": "2017-10-22T10:00:00+02:00",
       "label": "10:00 - 10:30"
     },
-    "eta_debut_date_aff": "2017-06-30"
+    "eta_debut_date_aff": "2017-06-30",
+    "id_hebergement": dataSet.hotes.hote_3.id_hebergement,
+    "type_hebergement": dataSet.hotes.hote_3.type_hebergement
   };
 
   let sejour_4 = {
@@ -398,7 +400,9 @@ app.get('/moi/sejours/:id', function (req, res) {
       "debut": "2017-10-22T10:00:00+02:00",
       "label": "10:00 - 10:30"
     },
-    "eta_debut_date_aff": now.toISOString().slice(0, 10)
+    "eta_debut_date_aff": now.toISOString().slice(0, 10),
+    "id_hebergement": dataSet.hotes.hote_0.id_hebergement,
+    "type_hebergement": dataSet.hotes.hote_0.type_hebergement
   }
 
   if (req.params.id === "sejour_1") {
