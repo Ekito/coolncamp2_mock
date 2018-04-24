@@ -48,7 +48,8 @@ module.exports = {
       "nb_locations": 257,
       "nb_emplacements": 277,
       "date_ouverture1": "2018-04-27",
-      "date_fermeture1": "2018-09-17"
+      "date_fermeture1": "2018-09-17",
+      "url_offre": "https://www.yellohvillage.fr/camping/les_grands_pins"
     },
 
     hote_1: {
@@ -78,7 +79,8 @@ module.exports = {
       "nb_locations": 145,
       "nb_emplacements": 78,
       "date_ouverture1": "2018-03-30",
-      "date_fermeture1": "2018-11-01"
+      "date_fermeture1": "2018-11-01",
+      "url_offre": "https://www.yellohvillage.fr/camping/maguide"
     },
 
     hote_2: {
@@ -163,7 +165,8 @@ module.exports = {
       "date_ouverture1": "2018-03-30",
       "date_fermeture1": "2018-09-01",
       "date_ouverture2": "2018-10-15",
-      "date_fermeture2": "2018-12-31"
+      "date_fermeture2": "2018-12-31",
+      "url_offre": "https://www.yellohvillage.fr/camping/les_vikings"
     },
 
     hote_3: {
@@ -232,7 +235,8 @@ module.exports = {
       ],
       "nb_locations": 145,
       "nb_emplacements": 78,
-      "ouverture_annuelle": true
+      "ouverture_annuelle": true,
+      "url_offre": "https://www.yellohvillage.fr/camping/punta_mila"
     },
 
     hote_4: {
@@ -276,7 +280,8 @@ module.exports = {
       "date_ouverture1": "2018-03-30",
       "date_fermeture1": "2018-09-01",
       "date_ouverture2": "2018-10-15",
-      "date_fermeture2": "2018-12-31"
+      "date_fermeture2": "2018-12-31",
+      "url_offre": "https://www.yellohvillage.fr/camping/le_brasilia"
     }
   }
 }
