@@ -745,7 +745,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "date_fermeture1": dataSet.hotes.hote_0.date_fermeture1 || null,
     "date_ouverture2": dataSet.hotes.hote_0.date_ouverture2 || null,
     "date_fermeture2": dataSet.hotes.hote_0.date_fermeture1 || null,
-    "url": dataSet.hotes.hote_0.url || null,
+    "url": dataSet.hotes.hote_0.url_offre || null,
     "nouveau": true
   },{
     "id": "promo_1",
@@ -766,7 +766,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "date_fermeture1": dataSet.hotes.hote_1.date_fermeture1 || null,
     "date_ouverture2": dataSet.hotes.hote_1.date_ouverture2 || null,
     "date_fermeture2": dataSet.hotes.hote_1.date_fermeture1 || null,
-    "url": dataSet.hotes.hote_1.url || null,
+    "url": dataSet.hotes.hote_1.url_offre || null,
     "nouveau": true
   },
   {
@@ -788,7 +788,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "date_fermeture1": dataSet.hotes.hote_2.date_fermeture1 || null,
     "date_ouverture2": dataSet.hotes.hote_2.date_ouverture2 || null,
     "date_fermeture2": dataSet.hotes.hote_2.date_fermeture1 || null,
-    "url": dataSet.hotes.hote_2.url || null,
+    "url": dataSet.hotes.hote_2.url_offre || null,
     "nouveau": true
   },
   {
@@ -808,7 +808,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "date_fermeture1": dataSet.hotes.hote_3.date_fermeture1 || null,
     "date_ouverture2": dataSet.hotes.hote_3.date_ouverture2 || null,
     "date_fermeture2": dataSet.hotes.hote_3.date_fermeture1 || null,
-    "url": dataSet.hotes.hote_3.url || null,
+    "url": dataSet.hotes.hote_3.url_offre || null,
     "nouveau": true
   },
   {
@@ -830,7 +830,7 @@ app.get('/moi/hotes-promos', function (req, res) {
     "date_fermeture1": dataSet.hotes.hote_4.date_fermeture1 || null,
     "date_ouverture2": dataSet.hotes.hote_4.date_ouverture2 || null,
     "date_fermeture2": dataSet.hotes.hote_4.date_fermeture1 || null,
-    "url": dataSet.hotes.hote_4.url || null,
+    "url": dataSet.hotes.hote_4.url_offre || null,
     "nouveau": true
   }];
   if (req.headers['authorization'] === 'Bearer ' + id1) {
