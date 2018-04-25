@@ -1958,10 +1958,10 @@ let emplacement_1 = {
   "pmr": false,
   "slogan_nouveaute": "",
   "surface": "Superficie de 80m² et plus",
-  "animaux_autorises": "Animaux acceptés",
-  "eaux_usagees": "",
-  "electricite": "Electricité 16A",
-  "raccordement_eau": "",
+  "animaux_autorises": true,
+  "eaux_usagees": false,
+  "electricite": true,
+  "raccordement_eau": false,
   "photos_contractuelles": false,
   "photos": [
     "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/1_emplacements_lesgrandspins_lacanau/1985355-1-fre-FR/1_emplacements_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
@@ -1993,10 +1993,10 @@ let emplacement_1_overview = {
   "slogan_nouveaute": "",
   "image": "https://img.yellohvillage.fr/var/plain_site/storage/images/site_marchand/camping/les_grands_pins/nos_emplacements_de_camping/2702/diaporama_hebergement/1_emplacements_lesgrandspins_lacanau/1985355-1-fre-FR/1_emplacements_lesgrandspins_lacanau_galleria_slide_village_mobile.jpg",
   "surface": "Superficie de 80m² et plus",
-  "animaux_autorises": "Animaux acceptés",
-  "eaux_usagees": "",
-  "electricite": "Electricité 16A",
-  "raccordement_eau": ""
+  "animaux_autorises": true,
+  "eaux_usagees": false,
+  "electricite": true,
+  "raccordement_eau": false
 };
 
 app.get('/hotes/:id/locations', function (req, res) {
