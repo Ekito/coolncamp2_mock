@@ -70,6 +70,7 @@ module.exports = {
     hote_2 : {
       "id": "hote_2",
       "nom": "Le Fief",
+      "type_destination": "ATLANTIQUE",
       "image": "https://www.sunelia.com/campsite/le-fief/1200/490/picture_le-fief-76.jpg",
       "itineraire": {
         "description": "Localisation Le Fief - Saint-Brevin-Les-Pins",
