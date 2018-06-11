@@ -1848,7 +1848,6 @@ let location_cottage_twin = {
   "caracteristiques": [{
       "nom": "Module 1",
       "details": [{
-        "icone": "ic_type_hebergement",
         "nom": "Type d'hébergement",
         "valeurs": ["Mobilhome"]
       }, {
