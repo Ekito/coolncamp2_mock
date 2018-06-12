@@ -2243,9 +2243,9 @@ app.get('/marques/:idMarque', function (req, res) {
   };
 
   res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
-  if (req.params.idInfo === "59b7af89ed44090f26a2c27e") {
+  if (req.params.idMarque === "59b7af89ed44090f26a2c27e") {
     res.send(marque_1);
-  } else if (req.params.idInfo === "5609818b0db27a0300b23d59") {
+  } else if (req.params.idMarque === "5609818b0db27a0300b23d59") {
     res.send(marque_2);
   } else {
     res.sendStatus(404);
