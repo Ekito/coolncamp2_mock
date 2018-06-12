@@ -379,7 +379,7 @@ app.get('/moi/sejours/:id', function (req, res) {
     "id_hote": "hote_0",
     "date_debut": now.toISOString().slice(0, 10),
     "date_fin": end.toISOString().slice(0, 10),
-    
+
     "nom": dataSet.hotes.hote_0.nom,
     "image": dataSet.hotes.hote_0.image,
     "itineraire": dataSet.hotes.hote_0.itineraire,
@@ -983,7 +983,7 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     "soustitre": "8 am to 8 pm",
     "description": "Yummy yummy !",
     "lat": 43.601503,
-    "lng": 1.444255,    
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1008,7 +1008,7 @@ app.get('/hotes/:id/services/:idService', function (req, res) {
     "soustitre": "10 AM - 02 PM",
     "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
     "lat": 43.601503,
-    "lng": 1.444255,    
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1084,7 +1084,7 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     "titre": "Campsite Map",
     "description": "Yummy yummy !",
     "lat": 43.601503,
-    "lng": 1.444255,    
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1108,7 +1108,7 @@ app.get('/hotes/:id/infos/:idInfo', function (req, res) {
     "titre": "défibrillateur cardiaque",
     "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
     "lat": 43.601503,
-    "lng": 1.444255,    
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1198,7 +1198,7 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     "soustitre": "Tous les mercredis, sur la terrasse du bar",
     "description": "Yummy yummy !",
     "lat": 43.601503,
-    "lng": 1.444255,  
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1223,7 +1223,7 @@ app.get('/hotes/:id/offres/:idOffre', function (req, res) {
     "soustitre": "Accessible aux rollers et PMR .",
     "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
     "lat": 43.601503,
-    "lng": 1.444255,  
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1326,7 +1326,7 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     "soustitre": "En pays Basque",
     "description": "Yummy yummy !",
     "lat": 43.601503,
-    "lng": 1.444255,  
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -1350,7 +1350,7 @@ app.get('/hotes/:id/tourisme/:idTourisme', function (req, res) {
     "soustitre": "A 45 minutes du Camping",
     "description": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Cool'n Camp</title>\n    <link href=\"https:&#x2F;&#x2F;bo.coolncamp.com&#x2F;bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"all\" />\n    <style>\n        html, body { background-color: transparent !important; }\n        body {\n           padding: 16px;\n        }\n    </style>\n</head>\n<body>\n<div id=\"container\">\n    <p style=\"text-align: center;\">Ceci est une description pour expliquer comment venir...</p>\n</div>\n</body>\n</html>",
     "lat": 43.601503,
-    "lng": 1.444255,  
+    "lng": 1.444255,
     "tel": "+33 1 23 45 67 89",
     "url": "https://www.google.com/",
     "email": "toto@example.com",
@@ -2185,3 +2185,70 @@ app.get('/hotes/:id/avis', function (req, res) {
   res.send(payload);
 
 });
+
+app.get('/marques', function (req, res) {
+
+  let infos = [{
+      "id": "59b7af89ed44090f26a2c27e",
+      "image": "https://coolncamp.com/RESSOURCES/IMAGES/GALERY/screenshot_00.jpg",
+      "titre": "La plateforme"
+    },
+    {
+      "id": "5609818b0db27a0300b23d59",
+      "image": "https://coolncamp.com/RESSOURCES/IMAGES/phone_customers.png",
+      "titre": "Vos clients"
+    },
+  ];
+
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
+  res.send(infos);
+})
+
+app.get('/marques/:idMarque', function (req, res) {
+
+  let marque_1 = {
+    "id": "59b7af89ed44090f26a2c27e",
+    "titre": "La plateforme",
+    "description": "Reprenez la main sur votre commercialisation avec Cool'n Camp !",
+    "lat": 43.601503,
+    "lng": 1.444255,
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://coolncamp.com/",
+    "email": "toto@example.com",
+    "documents": [{
+        "label": "Politique conf",
+        "url": "https://www.placealemploi.fr/divers/CGU.pdf"
+      },
+      {
+        "label": "Autre chose",
+        "url": "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf"
+      }
+    ],
+    "images": [
+      "https://coolncamp.com/RESSOURCES/IMAGES/GALERY/screenshot_00.jpg",
+      "https://coolncamp.com/RESSOURCES/IMAGES/GALERY/screenshot_02.jpg"
+    ]
+  };
+
+  let marque_2 = {
+    "id": "5609818b0db27a0300b23d59",
+    "titre": "Vos clients",
+    "description": "Une solution tournée vers vos clients",
+    "tel": "+33 1 23 45 67 89",
+    "url": "https://www.google.com/",
+    "email": "toto@example.com",
+    "images": [
+      "https://coolncamp.com/RESSOURCES/IMAGES/phone_customers.png"
+    ]
+  };
+
+  res.set("Cache-Control", "max-age=900, max-stale=640800, only-if-cached");
+  if (req.params.idInfo === "59b7af89ed44090f26a2c27e") {
+    res.send(marque_1);
+  } else if (req.params.idInfo === "5609818b0db27a0300b23d59") {
+    res.send(marque_2);
+  } else {
+    res.sendStatus(404);
+  }
+
+})
