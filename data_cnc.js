@@ -109,6 +109,10 @@ module.exports = {
         {
           "label": "Snapchat",
           "url": "https://www.facebook.com/238129529603295"
+        },
+        {
+          "label": "GuestApp",
+          "url": "https://www.facebook.com/238129529603295"
         }
       ],
       "media": {
