@@ -88,7 +88,7 @@ module.exports = {
           "url": "https://www.facebook.com/238129529603295"
         },
         {
-          "label": "Twitter",
+          "label": "GuestApp",
           "url": "https://www.facebook.com/238129529603295"
         },
         {
