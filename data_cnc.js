@@ -62,10 +62,7 @@ module.exports = {
       "horaire": "9h00 à 19h00",
       "tel": "+339 70 77 43 29",
       "email": "contact@coolncamp.com",
-      "rs": [{
-          "label": "Facebook",
-          "url": "https://www.facebook.com/238129529603295"
-        },
+      "rs": [
         {
           "label": "Twitter",
           "url": "https://www.facebook.com/238129529603295"
